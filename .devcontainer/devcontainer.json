@@ -1,0 +1,14 @@
+{
+	"name": "Dev Containers configuration",
+	"image": "wilda/java-devcontainer:25.0.3",
+	"customizations": {
+		"jetbrains": {
+			"plugins": [
+				"dev.jbang.intellij.JBangPlugin"
+			],
+			"settings": [
+				""
+			]
+		}
+	}
+}

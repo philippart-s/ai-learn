@@ -1,0 +1,4 @@
+torch==2.6.0
+axolotl[deepspeed]==0.12.2
+huggingface_hub[cli]<1.0
+wandb

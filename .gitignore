@@ -1,0 +1,10 @@
+# 🛠️ IDE configuration 🛠️
+.idea/
+.vscode/settings.json
+/out/
+
+# 🛠️ Configuration files
+.env
+
+# 🤖AI configuration
+.opencode/

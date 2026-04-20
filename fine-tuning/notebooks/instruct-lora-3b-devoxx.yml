@@ -1,0 +1,77 @@
+# ── Base model ──────────────────────────────────────────────────────
+base_model: meta-llama/Llama-3.2-3B-Instruct      # HuggingFace model ID
+model_type: LlamaForCausalLM                      # Architecture class
+tokenizer_type: AutoTokenizer                     # Auto-detects the right tokenizer for this model
+
+# ── Quantization strategy ───────────────────────────────────────────
+# 3B params ≈ 6 GB in fp16 — fits easily on an L4 GPU (24 GB VRAM)
+# Full fp16 > QLoRA (4/8-bit): no precision loss during training
+load_in_8bit: false
+load_in_4bit: false
+
+# ── Dataset ─────────────────────────────────────────────────────────
+datasets:
+  - path: /workspace/dataset                        # Local path to your Devoxx Q&A JSONL
+    type: alpaca_chat.load_qa                       # Parser format — expects {"question":…, "answer":…} pairs
+
+dataset_prepared_path:                              # Cache dir for tokenized dataset (empty = default)
+val_set_size: 0.1                                   # 10 % held out for validation — like a test split in ML
+output_dir: /workspace/out/llama-3.2-3b-devoxx      # Where the trained adapter weights land
+
+# ── Sequence & packing ──────────────────────────────────────────────
+sequence_len: 4096                                 # Max token window — truncates anything longer
+sample_packing: true                               # Concatenates short Q&A pairs into one 4096-token block
+                                                   # → fewer wasted padding tokens, faster training
+eval_sample_packing: false                         # Disabled for eval so metrics stay per-example
+pad_to_sequence_len: true                          # Pads shorter sequences to 4096 — needed with packing
+
+# ── LoRA config ─────────────────────────────────────────────────────
+# LoRA = "Low-Rank Adaptation": freezes original weights, trains small delta matrices
+# Think of it as patching the model rather than rewriting it
+adapter: lora
+lora_model_dir:                                    # Empty = train from scratch (no pre-existing adapter)
+lora_r: 128                                        # Rank of the delta matrices — higher = more capacity, more VRAM
+                                                   # 128 is aggressive for 3B; works because we're in fp16
+lora_alpha: 256                                    # Scaling factor — rule of thumb: 2× lora_r
+lora_dropout: 0.1                                  # 10 % dropout on LoRA layers to prevent overfitting
+lora_target_linear: true                           # Apply LoRA to ALL linear layers (not just attention Q/V)
+
+# ── Weights & Biases (experiment tracking) ──────────────────────────
+# Like a Grafana dashboard for your training runs
+wandb_project: Devoxx
+wandb_entity: wildagsx                             # Your W&B org/user
+wandb_mode:
+wandb_watch:
+wandb_name:
+wandb_log_model:
+
+# ── Training hyperparameters ────────────────────────────────────────
+gradient_accumulation_steps: 4                     # Simulates batch_size = micro_batch × 4 = 8
+                                                   # Accumulates gradients over 4 steps before updating weights
+micro_batch_size: 2                                # Actual batch per GPU step — limited by VRAM
+num_epochs: 15                                     # 15 full passes over the dataset
+                                                   # High because Devoxx dataset is small — needs repetition
+optimizer: adamw_bnb_8bit                          # Adam optimizer with 8-bit state — saves ~30 % optimizer memory
+lr_scheduler: cosine                               # Learning rate decays following a cosine curve (smooth cooldown)
+learning_rate: 0.0002                              # 2e-4 — standard LoRA fine-tuning learning rate
+
+# ── Precision ───────────────────────────────────────────────────────
+bf16: auto                                         # bfloat16 if GPU supports it (L4 does) — faster, same range as fp32
+tf32: false                                        # TensorFloat-32 disabled — bf16 is enough
+
+# ── Checkpointing & logging ────────────────────────────────────────
+gradient_checkpointing: true                       # Trades compute for VRAM: recomputes activations instead of storing them
+                                                   # ~30 % slower but huge memory savings
+resume_from_checkpoint:                            # Empty = start fresh; set a path to resume interrupted training
+logging_steps: 1                                   # Log loss every single step — useful for small datasets
+flash_attention: true                              # FlashAttention-2: fused GPU kernel, 2-3× faster attention
+
+# ── Schedule ────────────────────────────────────────────────────────
+warmup_steps: 20                                   # LR ramps from 0 → 0.0002 over 20 steps (avoids early instability)
+evals_per_epoch: 4                                 # Run validation 4 times per epoch — catch overfitting early
+saves_per_epoch: 1                                 # Checkpoint once per epoch — enough for a small fine-tune
+weight_decay: 0.01                                 # L2 regularization — gently penalizes large weights
+
+# ── Special tokens ──────────────────────────────────────────────────
+special_tokens:
+   pad_token: <|end_of_text|>                      # Reuses EOS as padding — Llama has no native pad token
