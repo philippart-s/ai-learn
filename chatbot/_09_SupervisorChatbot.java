@@ -125,6 +125,7 @@ void main() {
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
+      .timeout(Duration.ofMinutes(5))
       .build();
 
   // RAG configuration: embedding model, vector store, retriever

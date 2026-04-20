@@ -86,10 +86,10 @@ void main() {
 
 
 //  // Memory with Devoxx knowledge and conversation history
-//  var chatMemory = MessageWindowChatMemory.builder()
-//      .maxMessages(20)
-//      .chatMemoryStore(new FileChatMemoryStore())
-//      .build();
+  var chatMemory = MessageWindowChatMemory.builder()
+      .maxMessages(20)
+      .chatMemoryStore(new FileChatMemoryStore())
+      .build();
 
 
   // Assistant configuration with tools

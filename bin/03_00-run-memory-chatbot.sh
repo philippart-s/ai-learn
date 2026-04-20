@@ -13,4 +13,4 @@ echo ""
 echo "Run JBang script using model $OVH_AI_ENDPOINTS_MODEL_NAME"
 
 cd "$SCRIPT_DIR/../chatbot"
-jbang --quiet _03_MemoryChatbot.java
+jbang --quiet _03_00_MemoryChatbot.java
