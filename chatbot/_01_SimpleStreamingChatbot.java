@@ -49,5 +49,5 @@ void main() {
       ChatbotUtils.QUESTIONS.TALKS_TOMORROW,
       ChatbotUtils.QUESTIONS.TALKS_AT_1_30_PM);
 
-  IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
+  IO.println("%n🔢  Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
 }

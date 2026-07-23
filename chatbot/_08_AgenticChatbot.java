@@ -247,6 +247,4 @@ void main() {
   // java-60
   IO.println("%n💬: %s".formatted(ChatbotUtils.QUESTIONS.MAKE_AGENDA.toString()));
   ChatbotUtils.displayChatbotResponse(agendaPlannerWorkflow.planAgenda(ChatbotUtils.QUESTIONS.MAKE_AGENDA.toString()));
-
-  IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
 }

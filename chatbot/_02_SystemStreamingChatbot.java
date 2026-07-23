@@ -30,7 +30,7 @@ void main() {
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
       .reasoningEffort("low")
       .temperature(0.0)
-      .logRequests(false)
+      .logRequests(true)
       .logResponses(false)
       .build();
 
@@ -53,5 +53,5 @@ void main() {
       ChatbotUtils.QUESTIONS.TALKS_TOMORROW,
       ChatbotUtils.QUESTIONS.TALKS_AT_1_30_PM);
 
-  IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
+  IO.println("%n🔢  Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
 }
