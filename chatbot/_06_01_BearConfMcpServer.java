@@ -54,7 +54,7 @@ class BearConfMcpTools {
   // java-33
   @Tool("Retourne tous les talks d'une track donnée à BearConf 2026. Utilisez cet outil quand l'utilisateur demande les talks d'une track spécifique comme 'Java', 'Cloud', 'AI & ML', etc.")
   String getTalksByTrack(@P("Le nom de la track, par exemple 'Java, JVM', 'Cloud, Containers & Infrastructure', 'AI & ML") String track) {
-    System.err.println("🔧 Outil MCP appelé : getTalksByTrack(\"%s\")".formatted(track));
+    System.err.printf("\uD83D\uDD27 Outil MCP appelé : getTalksByTrack(\"%s\")%n", track);
     var filtered = talks.stream()
         .filter(t -> t.track().name().toLowerCase().contains(track.toLowerCase()))
         .toList();
@@ -105,7 +105,7 @@ class BearConfMcpTools {
   // java-34
   @Tool("Recherche des talks à BearConf 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. Utilisez cet outil pour les requêtes générales sur des sujets ou des speakers.")
   String searchTalks(@P("Le mot-clé à rechercher dans les titres des talks, les résumés et les noms des speakers") String keyword) {
-    System.err.println("🔧 Outil MCP appelé : searchTalks(\"%s\")".formatted(keyword));
+    System.err.printf("\uD83D\uDD27 Outil MCP appelé : searchTalks(\"%s\")%n", keyword);
     var lowerKeyword = keyword.toLowerCase();
     var filtered = talks.stream()
         .filter(t -> t.title().toLowerCase().contains(lowerKeyword)
