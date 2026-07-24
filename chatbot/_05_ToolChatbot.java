@@ -48,7 +48,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-      .reasoningEffort("low")
+//      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -85,7 +85,7 @@ void main() {
       .build();
 
 
-//  // Memory with BearConf knowledge and conversation history
+  // Memory with BearConf knowledge and conversation history
   var chatMemory = MessageWindowChatMemory.builder()
       .maxMessages(20)
       .chatMemoryStore(new FileChatMemoryStore())

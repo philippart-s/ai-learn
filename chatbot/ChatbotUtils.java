@@ -66,7 +66,7 @@ public class ChatbotUtils {
     TALKS_ON_AI("Quels sont les talks sur l'IA à BearConf 2026 ?"),
     WEDNESDAY_AGENDA("Quel est le programme du mercredi à BearConf ?"),
     SPEAKER_TALKS("Quels sont les talks de Stéphane Philippart à BearConf 2026 ?"),
-    TALKS_TODAY("Donne moi la date du jour et quels sont les talks aujourd'hui ?"),
+    TALKS_TODAY("Donne moi la date du jour (indique l'année et dis moi comment tu as eu l'information de la date) et quels sont les talks aujourd'hui ?"),
     TALKS_TOMORROW("Quels sont les talks demain ?"),
     TALKS_AT_1_30_PM("Quels sont les hands on lab qui commencent aujourd'hui à 13h30 ?");
 
