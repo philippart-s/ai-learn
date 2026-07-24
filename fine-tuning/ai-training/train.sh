@@ -6,10 +6,10 @@ set -euo pipefail
 : "${WANDB_TOKEN:?WANDB_TOKEN is required}"
 
 # === Optional ENV variables (with defaults) ===
-: "${CONFIG_FILE:=instruct-lora-3b-devoxx.yml}"
-: "${HF_REPO:=wildagsx/Llama-3.2-3B-Instruct-devoxx}"
+: "${CONFIG_FILE:=instruct-lora-3b-bearconf.yml}"
+: "${HF_REPO:=wildagsx/Llama-3.2-3B-Instruct-bearconf}"
 : "${HF_REVISION:=v0.1}"
-: "${OUTPUT_DIR:=/workspace/out/llama-3.2-3b-devoxx}"
+: "${OUTPUT_DIR:=/workspace/out/llama-3.2-3b-bearconf}"
 : "${INFERENCE_PROMPT:=Quels sont les talks de Stephane Philippart a BearConf 2026 ?}"
 : "${BASE_MODEL:=meta-llama/Llama-3.2-3B-Instruct}"
 

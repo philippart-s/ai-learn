@@ -10,15 +10,15 @@ read -n 1 -p "Press any key to continue"
 echo ""
 
 ovhai job run \
-  --name Llama-3.2-3B-Instruct-devoxx-$1 \
+  --name Llama-3.2-3B-Instruct-bearconf-$1 \
   --flavor l4-1-gpu \
   --gpu 1 \
   --env HF_TOKEN=$MY_HF_TOKEN \
   --env WANDB_TOKEN=$MY_WANDB_TOKEN \
-  --env HF_REPO=wildagsx/Llama-3.2-3B-Instruct-devoxx \
+  --env HF_REPO=wildagsx/Llama-3.2-3B-Instruct-bearconf \
   --env HF_REVISION=$1 \
-  --env CONFIG_FILE=instruct-lora-3b-devoxx.yml \
-  --env OUTPUT_DIR=/workspace/out/llama-3.2-3b-devoxx \
+  --env CONFIG_FILE=instruct-lora-3b-bearconf.yml \
+  --env OUTPUT_DIR=/workspace/out/llama-3.2-3b-bearconf \
   --env BASE_MODEL=meta-llama/Llama-3.2-3B-Instruct \
   --env PYTHONUNBUFFERED=1 \
   --unsecure-http \

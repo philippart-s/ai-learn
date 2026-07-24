@@ -11,12 +11,12 @@ load_in_4bit: false
 
 # ── Dataset ─────────────────────────────────────────────────────────
 datasets:
-  - path: /workspace/dataset                        # Local path to your Devoxx Q&A JSONL
+  - path: /workspace/dataset                        # Local path to your BearConf Q&A JSONL
     type: alpaca_chat.load_qa                       # Parser format — expects {"question":…, "answer":…} pairs
 
 dataset_prepared_path:                              # Cache dir for tokenized dataset (empty = default)
 val_set_size: 0.1                                   # 10 % held out for validation — like a test split in ML
-output_dir: /workspace/out/llama-3.2-3b-devoxx      # Where the trained adapter weights land
+output_dir: /workspace/out/llama-3.2-3b-bearconf      # Where the trained adapter weights land
 
 # ── Sequence & packing ──────────────────────────────────────────────
 sequence_len: 4096                                 # Max token window — truncates anything longer
@@ -38,7 +38,7 @@ lora_target_linear: true                           # Apply LoRA to ALL linear la
 
 # ── Weights & Biases (experiment tracking) ──────────────────────────
 # Like a Grafana dashboard for your training runs
-wandb_project: Devoxx
+wandb_project: BearConf
 wandb_entity: wildagsx                             # Your W&B org/user
 wandb_mode:
 wandb_watch:
@@ -50,7 +50,7 @@ gradient_accumulation_steps: 4                     # Simulates batch_size = micr
                                                    # Accumulates gradients over 4 steps before updating weights
 micro_batch_size: 2                                # Actual batch per GPU step — limited by VRAM
 num_epochs: 15                                     # 15 full passes over the dataset
-                                                   # High because Devoxx dataset is small — needs repetition
+                                                   # High because BearConf dataset is small — needs repetition
 optimizer: adamw_bnb_8bit                          # Adam optimizer with 8-bit state — saves ~30 % optimizer memory
 lr_scheduler: cosine                               # Learning rate decays following a cosine curve (smooth cooldown)
 learning_rate: 0.0002                              # 2e-4 — standard LoRA fine-tuning learning rate
