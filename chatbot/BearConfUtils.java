@@ -288,7 +288,9 @@ public class BearConfUtils {
             .stream()
             .map(Speaker::fullName)
             .toList();
-        sb.append("- [%s, %d min] %s — %s\n  📅 %s\n".formatted(
+
+//            sb.append("- [%s, %d min] %s — %s%n  📅 %s%n".formatted(
+            sb.append("- [%s, %d min] %s — %s%n  📅 %s%n  🏷️ Track: %s%n  📝 %s%n".formatted(
             talk.sessionType()
                 .name(),
             talk.sessionType()
@@ -296,6 +298,8 @@ public class BearConfUtils {
             talk.title(),
             String.join(", ", speakerNames),
             formatScheduleSlot(talk.schedule())
+            ,talk.track().name(),
+            talkDetail(talk)
         ));
       }
     }
@@ -315,13 +319,14 @@ public class BearConfUtils {
             .stream()
             .map(Speaker::fullName)
             .toList();
-        sb.append("- [%s, %d min] %s — %s\n".formatted(
+        sb.append("- [%s, %d min] %s — %s\n  📝 %s\n".formatted(
             talk.sessionType()
                 .name(),
             talk.sessionType()
                 .duration(),
             talk.title(),
-            String.join(", ", speakerNames)
+            String.join(", ", speakerNames),
+            talkDetail(talk)
         ));
       }
     }
@@ -360,6 +365,19 @@ public class BearConfUtils {
         .replace("&nbsp;", " ")
         .replaceAll("\\s+", " ")
         .strip();
+  }
+
+  /// Content shown per talk in the injected program: prefers the original
+  /// speaker description (HTML stripped, more explicit) over the AI-generated
+  /// summary, falling back to the summary then a placeholder.
+  static String talkDetail(Talk talk) {
+    if (talk.description() != null && !talk.description().isBlank()) {
+      return stripHtml(talk.description());
+    }
+    if (talk.summary() != null && !talk.summary().isBlank()) {
+      return talk.summary();
+    }
+    return "Pas de description disponible";
   }
 
   static List<TextSegment> createTextSegments(List<Talk> talks) {

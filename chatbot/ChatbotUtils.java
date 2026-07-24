@@ -25,7 +25,9 @@ public class ChatbotUtils {
          - Tools-in-Action (30 min)
 
         Utilise uniquement les données en ta possession concernant BearConf 2026.
-        Si tu ne connais pas la réponse, n'essaye pas de l'inventer, indique clairement que tu ne sais pas.
+
+
+        Si aucune information ne correspond, indique-le clairement sans inventer.
         """;
 
   /// Available questions for all chatbot demos.
