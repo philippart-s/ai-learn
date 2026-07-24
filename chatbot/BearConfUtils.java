@@ -105,7 +105,7 @@ public class BearConfUtils {
         }
       }
     } else {
-      IO.println("✅  BearConf program file exists, load data from it.");
+      IO.println("✅ BearConf program file exists, load data from it.");
       try {
         json = Files.readString(Path.of(BEARCONF_PROGRAM_FILE));
       } catch (IOException ioe) {
@@ -198,7 +198,7 @@ public class BearConfUtils {
         }
       }
     } else {
-      IO.println("✅  Schedule file exists, load data from it.");
+      IO.println("✅ Schedule file exists, load data from it.");
       try {
         var cached = Files.readString(Path.of(BEARCONF_SCHEDULE_FILE));
         Type mapType = new TypeToken<Map<Long, ScheduleSlot>>() {
