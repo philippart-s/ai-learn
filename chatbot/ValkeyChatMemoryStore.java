@@ -59,8 +59,8 @@ public class ValkeyChatMemoryStore implements ChatMemoryStore {
   public List<ChatMessage> getMessages(Object memoryId) {
     // This method retrieves the chat messages from Valkey using the provided memoryId as part of the key.
     // java-18
-    IO.println("👓 Loading chat memory from Valkey... 👓");
     var key = keyPrefix + memoryId;
+    IO.println("👓 Loading chat memory from Valkey with key %s 👓".formatted(key));
     var json = jedis.get(key);
     if (json == null || json.isBlank()) {
       return List.of();

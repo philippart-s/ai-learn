@@ -24,6 +24,7 @@ import dev.langchain4j.service.UserMessage;
 // Assistant interface with a method for chatting.
 // java-09
 interface MemoryAssistant {
+//  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   TokenStream chat(@MemoryId String id, @UserMessage String userMessage);
 }
@@ -36,7 +37,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-      .reasoningEffort("low")
+//      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -44,14 +45,14 @@ void main() {
 
   // --- Version 1: In-memory chat memory (lost when the program exits) ---
   // java-11
-  ChatMemoryProvider chatMemory = memory -> MessageWindowChatMemory.builder()
-      .id(memory)
+  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
+      .id(memoryId)
       .maxMessages(20)
       .build();
 
   // --- Version 2: Valkey/Redis chat memory (shared external store) ---
-//  ChatMemoryProvider chatMemory = memory -> MessageWindowChatMemory.builder()
-//      .id(memory)
+//  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
+//      .id(memoryId)
 //      .maxMessages(20)
 //      .chatMemoryStore(new ValkeyChatMemoryStore())
 //      .build();

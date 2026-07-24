@@ -21,6 +21,7 @@ import dev.langchain4j.service.TokenStream;
 // Assistant interface with a method for chatting.
 // java-09
 interface MemoryAssistant {
+  //  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   TokenStream chat(String userMessage);
 }
