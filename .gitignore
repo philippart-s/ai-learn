@@ -8,3 +8,7 @@
 
 # 🤖AI configuration
 .opencode/
+
+# 🐻 Programme réel de la conférence : entrée privée du BearConfBuilder,
+# jamais commitée (le repo ne contient que les données fictives BearConf).
+chatbot/resources/devoxx-2026-*

@@ -72,8 +72,8 @@ public class DevoxxUtils {
 
   static final String DEVOXX_API_URL = "https://devoxxfr2026.cfp.dev/api/public/talks";
   static final String DEVOXX_SCHEDULE_URL = "https://devoxxfr2026.cfp.dev/api/public/schedules";
-  static final String DEVOXX_PROGRAM_FILE = "resources/devoxx-2026-program.json";
-  static final String DEVOXX_SCHEDULE_FILE = "resources/devoxx-2026-schedule.json";
+  static final String DEVOXX_PROGRAM_FILE = "resources/bearconf-2026-program.json";
+  static final String DEVOXX_SCHEDULE_FILE = "resources/bearconf-2026-schedule.json";
 
   /// Fetches the Devoxx France talk list as raw JSON: tries the CFP API
   /// first, saves the response to a local JSON file as a cache, and
