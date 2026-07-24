@@ -97,7 +97,20 @@ void main() throws Exception {
     var talk = el.getAsJsonObject();
     var id = talk.get("id").getAsString();
 
-    talk.addProperty("title", titleMap.get(id).getAsString());
+    // Keep the real title + abstract for the kept speaker's talks so demo
+    // questions about them keep matching; paraphrase every other talk.
+    boolean keepOriginal = false;
+    if (talk.get("speakers") != null && talk.get("speakers").isJsonArray()) {
+      for (var s : talk.getAsJsonArray("speakers")) {
+        if (KEEP_SPEAKER.equals(asString(s.getAsJsonObject(), "fullName"))) {
+          keepOriginal = true;
+          break;
+        }
+      }
+    }
+    if (!keepOriginal) {
+      talk.addProperty("title", titleMap.get(id).getAsString());
+    }
     scrub(talk, "summary");
     scrub(talk, "description");
 

@@ -612,15 +612,15 @@
     "answer": "Cette session explique comment transformer les logs PostgreSQL, souvent sous‑exploités, en une source d’observabilité riche et historique. Avec une configuration adaptée, il devient possible d’analyser les performances, d’identifier verrous, requêtes lentes ou fréquentes, et d’optimiser ses appli..."
   },
   {
-    "question": "Qui présente le talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' à BearConf 2026 ?",
-    "answer": "Le talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' est présenté par Léa Lefevre et Stéphane Philippart."
+    "question": "Qui présente le talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' à BearConf 2026 ?",
+    "answer": "Le talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' est présenté par Léa Lefevre et Stéphane Philippart."
   },
   {
-    "question": "Quel est le format du talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' ?",
-    "answer": "'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' est un 3H Hands-on Lab de 180 minutes dans le track IA & Agents autonomes."
+    "question": "Quel est le format du talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' ?",
+    "answer": "'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' est un 3H Hands-on Lab de 180 minutes dans le track IA & Agents autonomes."
   },
   {
-    "question": "De quoi parle le talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' à BearConf 2026 ?",
+    "question": "De quoi parle le talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' à BearConf 2026 ?",
     "answer": "Ce workshop montre comment intégrer facilement l’IA générative dans des applications Java, sans changer de langage. Il explore frameworks (LangChain4j, Quarkus), création de chatbots, transcription, audio, traduction, et propose une boîte à outils pratique. Aucun prérequis, juste un ordinateur et..."
   },
   {
@@ -2880,15 +2880,15 @@
     "answer": "Cette présentation explique comment OpenFeature, projet du CNCF, vise à standardiser le feature flagging pour éviter le verrouillage propriétaire des SDKs. Grâce à une API unifiée, il devient possible de changer de solution de feature flagging sans modifier le code métier, facilitant ainsi la ges..."
   },
   {
-    "question": "Qui présente le talk 'Apprendre à notre IA à… apprendre' à BearConf 2026 ?",
-    "answer": "Le talk 'Apprendre à notre IA à… apprendre' est présenté par Stéphane Philippart."
+    "question": "Qui présente le talk '🤖 Apprendre à notre IA à ... apprendre 🧠  ' à BearConf 2026 ?",
+    "answer": "Le talk '🤖 Apprendre à notre IA à ... apprendre 🧠  ' est présenté par Stéphane Philippart."
   },
   {
-    "question": "Quel est le format du talk 'Apprendre à notre IA à… apprendre' ?",
-    "answer": "'Apprendre à notre IA à… apprendre' est un 2H Deep Dive de 120 minutes dans le track IA & Agents autonomes."
+    "question": "Quel est le format du talk '🤖 Apprendre à notre IA à ... apprendre 🧠  ' ?",
+    "answer": "'🤖 Apprendre à notre IA à ... apprendre 🧠  ' est un 2H Deep Dive de 120 minutes dans le track IA & Agents autonomes."
   },
   {
-    "question": "De quoi parle le talk 'Apprendre à notre IA à… apprendre' à BearConf 2026 ?",
+    "question": "De quoi parle le talk '🤖 Apprendre à notre IA à ... apprendre 🧠  ' à BearConf 2026 ?",
     "answer": "Ce talk clarifie les notions clés de l’IA moderne — RAG, MCP, agents, fine‑tuning, etc. — pour aider les développeurs à comprendre leurs différences, avantages et limites. Il fournit des repères concrets pour choisir la bonne approche et intégrer efficacement l’intelligence artificielle dans leur..."
   },
   {
@@ -3949,7 +3949,7 @@
   },
   {
     "question": "Quels sont les talks de Stéphane Philippart à BearConf 2026 ?",
-    "answer": "Stéphane Philippart présente 2 talks à BearConf 2026 :\n- Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ? (3H Hands-on Lab, 180 min)\n- Apprendre à notre IA à… apprendre (2H Deep Dive, 120 min)"
+    "answer": "Stéphane Philippart présente 2 talks à BearConf 2026 :\n- Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ? (3H Hands-on Lab, 180 min)\n- 🤖 Apprendre à notre IA à ... apprendre 🧠   (2H Deep Dive, 120 min)"
   },
   {
     "question": "Combien de talks présente Stéphane Philippart à BearConf 2026 ?",
@@ -4461,11 +4461,11 @@
   },
   {
     "question": "Quel est le talk de Léa Lefevre à BearConf 2026 ?",
-    "answer": "Léa Lefevre présente 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?', un 3H Hands-on Lab de 180 minutes dans le track IA & Agents autonomes."
+    "answer": "Léa Lefevre présente 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?', un 3H Hands-on Lab de 180 minutes dans le track IA & Agents autonomes."
   },
   {
     "question": "Est-ce que Léa Lefevre présente à BearConf 2026 ?",
-    "answer": "Oui, Léa Lefevre présente le talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' à BearConf 2026."
+    "answer": "Oui, Léa Lefevre présente le talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' à BearConf 2026."
   },
   {
     "question": "Quel est le talk de Hugo Renaud à BearConf 2026 ?",
@@ -6065,7 +6065,7 @@
   },
   {
     "question": "Quels sont les talks du track IA & Agents autonomes à BearConf 2026 ?",
-    "answer": "Les talks du track IA & Agents autonomes sont : A2A en 30 minutes : construire des agents IA qui communiquent, APIs, contextes et prompts : la nouvelle stack du dev web, Anatomie de la mémoire, chez l'humain et chez les agents IA, Apprendre à notre IA à… apprendre, Atelier LLM : générations avancées, multimodalité et long contexte, Automatisation en temps réel : quand Kafka rencontre n8n et l'IA, Avec l'IA, la musique a-t-elle le blues ?, Bâtir des agents IA en Kotlin avec Koog, Chatbot ou GenUI ? Construire l'assistant voyageur d'un grand service de mobilité, Chrome DevTools en MCP : donnez des yeux à votre IA, Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?, Coding agents : 30 pro tips en 30 minutes, chrono en main, Compose & Dragons : un jeu de rôle d'agents propulsés par des Tiny Language Models, Concevoir une IA de jeu vidéo par apprentissage par renforcement, Construire une taxonomie produit par une approche bottom-up, Créer son propre jeu de rôle en agentic AI avec Strands Agents, Créer un jeu vidéo avec un assistant de code en 3 h, De Java à l'IA : construisez votre premier système d'agents intelligents, De l'intuition à l'IA : automatiser l'analyse des tests flaky, Des serveurs MCP sécurisés avec Spring AI, Deux ans après, les devs sont toujours là : l'IA ne sert donc à rien ?, Dev agentique : explorer la constellation des agents de code, Docker Agent : simplifier encore plus la création d'agents IA, Docker Compose : votre boîte à outils dev pour l'IA et le cloud, Domptez vos agents : AGENTS.md et context engineering pour une IA déterministe, Du texte aux données structurées complexes : quand le simple prompt ne suffit plus, Et si votre backend savait parler ? Créer des agents vocaux IA en temps réel, Fini les nuits blanches : comment l'IA a transformé nos astreintes, Gérer vos tickets support avec l'IA, sans cramer la planète, IA & jeux vidéo, des pionniers à aujourd'hui : a (neural) link to the past, IA for Fun : le meilleur de l'IA au service du grand n'importe quoi, Jailbreak, prompt injection, MCP poisoning… Don't Panic and Hack AI, L'IA au service du bien commun : agir avec discernement dans l'incertain, L'IA dans le cycle de vie du logiciel : opportunités et limites, L'IA face au défi de la condition humaine, L'IA sur le terrain : remettre l'humain au cœur de la valeur, L'agentic coding, nouvelle frontière du Platform Engineering, L'évolution du software engineering, LLMs et hallucinations : comprendre, mesurer, maîtriser, La course à l'IA : risque-t-on de devenir un « territoire servant » ?, Lancez votre Café IA : 10 conseils pour parler d'IA à tout le monde, Le 5e meetup Search, Data & AI de BearConf, Le dev face à l'IA : du prototypage éclair à la disparition des intermédiaires ?, Le tatouage numérique au service de l'IA générative, Le vrai prix d'un token : la facture cachée de l'IA générative, Les design patterns agentiques dont vous êtes le héros, Les fantastiques petits modèles de langage (SLM) et quand les utiliser, Les gardiens du prompt : menaces et recettes de sécurité pour une prod sereine, Les maths toutes simples qui font tourner l'IA, MCP par la pratique : une appli pour tout comprendre, Meetup Dev With AI : l'avenir des développeurs, Mesurer l'immesurable : comment évaluer les systèmes d'IA générative ?, Serveurs MCP : bonnes pratiques, choix de conception et leurs impacts, Specification Driven Development : coder à l'ère des LLM, Standards et agents IA : tour d'horizon de MCP, A2A, ADK et bien plus, Sécuriser code et supply chain : le REX d'un grand opérateur postal, Sécurité de l'IA : du PoC à la production, Tests end-to-end d'API générés par IA : un REX de refonte de legacy, Une modernisation déterministe à l'ère de l'IA, Vibe-coder du lourd avec Kilocode, Vos agents de code en mode YOLO… mais en toute sécurité, Votre entreprise est-elle prête à devenir bionique ?, Votre second cerveau IA, sans y perdre votre âme, Écouter la prod comme elle le mérite."
+    "answer": "Les talks du track IA & Agents autonomes sont : A2A en 30 minutes : construire des agents IA qui communiquent, APIs, contextes et prompts : la nouvelle stack du dev web, Anatomie de la mémoire, chez l'humain et chez les agents IA, Atelier LLM : générations avancées, multimodalité et long contexte, Automatisation en temps réel : quand Kafka rencontre n8n et l'IA, Avec l'IA, la musique a-t-elle le blues ?, Bâtir des agents IA en Kotlin avec Koog, Chatbot ou GenUI ? Construire l'assistant voyageur d'un grand service de mobilité, Chrome DevTools en MCP : donnez des yeux à votre IA, Coding agents : 30 pro tips en 30 minutes, chrono en main, Compose & Dragons : un jeu de rôle d'agents propulsés par des Tiny Language Models, Concevoir une IA de jeu vidéo par apprentissage par renforcement, Construire une taxonomie produit par une approche bottom-up, Créer son propre jeu de rôle en agentic AI avec Strands Agents, Créer un jeu vidéo avec un assistant de code en 3 h, De Java à l'IA : construisez votre premier système d'agents intelligents, De l'intuition à l'IA : automatiser l'analyse des tests flaky, Des serveurs MCP sécurisés avec Spring AI, Deux ans après, les devs sont toujours là : l'IA ne sert donc à rien ?, Dev agentique : explorer la constellation des agents de code, Docker Agent : simplifier encore plus la création d'agents IA, Docker Compose : votre boîte à outils dev pour l'IA et le cloud, Domptez vos agents : AGENTS.md et context engineering pour une IA déterministe, Du texte aux données structurées complexes : quand le simple prompt ne suffit plus, Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?, Et si votre backend savait parler ? Créer des agents vocaux IA en temps réel, Fini les nuits blanches : comment l'IA a transformé nos astreintes, Gérer vos tickets support avec l'IA, sans cramer la planète, IA & jeux vidéo, des pionniers à aujourd'hui : a (neural) link to the past, IA for Fun : le meilleur de l'IA au service du grand n'importe quoi, Jailbreak, prompt injection, MCP poisoning… Don't Panic and Hack AI, L'IA au service du bien commun : agir avec discernement dans l'incertain, L'IA dans le cycle de vie du logiciel : opportunités et limites, L'IA face au défi de la condition humaine, L'IA sur le terrain : remettre l'humain au cœur de la valeur, L'agentic coding, nouvelle frontière du Platform Engineering, L'évolution du software engineering, LLMs et hallucinations : comprendre, mesurer, maîtriser, La course à l'IA : risque-t-on de devenir un « territoire servant » ?, Lancez votre Café IA : 10 conseils pour parler d'IA à tout le monde, Le 5e meetup Search, Data & AI de BearConf, Le dev face à l'IA : du prototypage éclair à la disparition des intermédiaires ?, Le tatouage numérique au service de l'IA générative, Le vrai prix d'un token : la facture cachée de l'IA générative, Les design patterns agentiques dont vous êtes le héros, Les fantastiques petits modèles de langage (SLM) et quand les utiliser, Les gardiens du prompt : menaces et recettes de sécurité pour une prod sereine, Les maths toutes simples qui font tourner l'IA, MCP par la pratique : une appli pour tout comprendre, Meetup Dev With AI : l'avenir des développeurs, Mesurer l'immesurable : comment évaluer les systèmes d'IA générative ?, Serveurs MCP : bonnes pratiques, choix de conception et leurs impacts, Specification Driven Development : coder à l'ère des LLM, Standards et agents IA : tour d'horizon de MCP, A2A, ADK et bien plus, Sécuriser code et supply chain : le REX d'un grand opérateur postal, Sécurité de l'IA : du PoC à la production, Tests end-to-end d'API générés par IA : un REX de refonte de legacy, Une modernisation déterministe à l'ère de l'IA, Vibe-coder du lourd avec Kilocode, Vos agents de code en mode YOLO… mais en toute sécurité, Votre entreprise est-elle prête à devenir bionique ?, Votre second cerveau IA, sans y perdre votre âme, Écouter la prod comme elle le mérite, 🤖 Apprendre à notre IA à ... apprendre 🧠  ."
   },
   {
     "question": "Combien de talks y a-t-il dans le track Cloud & Plateformes ?",
@@ -7156,16 +7156,16 @@
     "answer": "Le talk 'Observabilité PostgreSQL : la config des logs qui change tout' est présenté par Samir Moreau. C'est un Tools-in-Action de 30 minutes dans le track Data & Analytics."
   },
   {
-    "question": "Est-ce que le talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' est au programme de BearConf 2026 ?",
-    "answer": "Oui, 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' est au programme de BearConf 2026. C'est un 3H Hands-on Lab de 180 minutes présenté par Léa Lefevre et Stéphane Philippart dans le track IA & Agents autonomes."
+    "question": "Est-ce que le talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' est au programme de BearConf 2026 ?",
+    "answer": "Oui, 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' est au programme de BearConf 2026. C'est un 3H Hands-on Lab de 180 minutes présenté par Léa Lefevre et Stéphane Philippart dans le track IA & Agents autonomes."
   },
   {
-    "question": "Dans quel track se trouve le talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' ?",
-    "answer": "Le talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' se trouve dans le track IA & Agents autonomes."
+    "question": "Dans quel track se trouve le talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' ?",
+    "answer": "Le talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' se trouve dans le track IA & Agents autonomes."
   },
   {
-    "question": "Donne-moi les détails du talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?'.",
-    "answer": "Le talk 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' est présenté par Léa Lefevre et Stéphane Philippart. C'est un 3H Hands-on Lab de 180 minutes dans le track IA & Agents autonomes."
+    "question": "Donne-moi les détails du talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?'.",
+    "answer": "Le talk 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' est présenté par Léa Lefevre et Stéphane Philippart. C'est un 3H Hands-on Lab de 180 minutes dans le track IA & Agents autonomes."
   },
   {
     "question": "Est-ce que le talk 'BOF des leaders de JUG' est au programme de BearConf 2026 ?",
@@ -9424,16 +9424,16 @@
     "answer": "Le talk 'Bye bye vendor lock-in : standardisez vos feature flags avec OpenFeature' est présenté par Manon Dubois. C'est un Conference de 45 minutes dans le track Pratiques de dev."
   },
   {
-    "question": "Est-ce que le talk 'Apprendre à notre IA à… apprendre' est au programme de BearConf 2026 ?",
-    "answer": "Oui, 'Apprendre à notre IA à… apprendre' est au programme de BearConf 2026. C'est un 2H Deep Dive de 120 minutes présenté par Stéphane Philippart dans le track IA & Agents autonomes."
+    "question": "Est-ce que le talk '🤖 Apprendre à notre IA à ... apprendre 🧠  ' est au programme de BearConf 2026 ?",
+    "answer": "Oui, '🤖 Apprendre à notre IA à ... apprendre 🧠  ' est au programme de BearConf 2026. C'est un 2H Deep Dive de 120 minutes présenté par Stéphane Philippart dans le track IA & Agents autonomes."
   },
   {
-    "question": "Dans quel track se trouve le talk 'Apprendre à notre IA à… apprendre' ?",
-    "answer": "Le talk 'Apprendre à notre IA à… apprendre' se trouve dans le track IA & Agents autonomes."
+    "question": "Dans quel track se trouve le talk '🤖 Apprendre à notre IA à ... apprendre 🧠  ' ?",
+    "answer": "Le talk '🤖 Apprendre à notre IA à ... apprendre 🧠  ' se trouve dans le track IA & Agents autonomes."
   },
   {
-    "question": "Donne-moi les détails du talk 'Apprendre à notre IA à… apprendre'.",
-    "answer": "Le talk 'Apprendre à notre IA à… apprendre' est présenté par Stéphane Philippart. C'est un 2H Deep Dive de 120 minutes dans le track IA & Agents autonomes."
+    "question": "Donne-moi les détails du talk '🤖 Apprendre à notre IA à ... apprendre 🧠  '.",
+    "answer": "Le talk '🤖 Apprendre à notre IA à ... apprendre 🧠  ' est présenté par Stéphane Philippart. C'est un 2H Deep Dive de 120 minutes dans le track IA & Agents autonomes."
   },
   {
     "question": "Est-ce que le talk 'MLOps : comprendre et combattre la dégradation des modèles en production' est au programme de BearConf 2026 ?",
@@ -10061,11 +10061,11 @@
   },
   {
     "question": "Peux-tu lister les talks de Stéphane Philippart à BearConf 2026 ?",
-    "answer": "Voici les 2 talks de Stéphane Philippart :\n- Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ? (3H Hands-on Lab, 180 min)\n- Apprendre à notre IA à… apprendre (2H Deep Dive, 120 min)"
+    "answer": "Voici les 2 talks de Stéphane Philippart :\n- Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ? (3H Hands-on Lab, 180 min)\n- 🤖 Apprendre à notre IA à ... apprendre 🧠   (2H Deep Dive, 120 min)"
   },
   {
     "question": "Donne-moi les talks de Stéphane Philippart à BearConf 2026.",
-    "answer": "Stéphane Philippart présente les talks suivants : 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?', 'Apprendre à notre IA à… apprendre'."
+    "answer": "Stéphane Philippart présente les talks suivants : 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?', '🤖 Apprendre à notre IA à ... apprendre 🧠  '."
   },
   {
     "question": "Peux-tu lister les talks de Alex Marchand à BearConf 2026 ?",
@@ -10317,7 +10317,7 @@
   },
   {
     "question": "Peux-tu lister les talks de Léa Lefevre à BearConf 2026 ?",
-    "answer": "Léa Lefevre présente un seul talk : 'Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?' (3H Hands-on Lab, 180 min)."
+    "answer": "Léa Lefevre présente un seul talk : 'Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?' (3H Hands-on Lab, 180 min)."
   },
   {
     "question": "Peux-tu lister les talks de Hugo Renaud à BearConf 2026 ?",

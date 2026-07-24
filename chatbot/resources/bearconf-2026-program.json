@@ -3605,7 +3605,7 @@
   },
   {
     "id": 2745,
-    "title": "Coder avec l'IA : et si c'était aussi simple qu'ajouter une dépendance ?",
+    "title": "Développer avec l'IA : et si c'était aussi simple qu'ajouter une librairie ?",
     "description": "Intégrer de l&#39;intelligence artificielle (IA) dans nos développements peut nous paraître plus complexe que de les utiliser dans notre quotidien.<br><br>Dois-je apprendre un nouveau langage ou une nouvelle stack ?<br>Durant ce workshop nous vous proposons de vous donner tous les éléments pour intégrer l&#39;IA sans quitter votre langage de prédilection : Java 😍. Ce sera l&#39;occasion de découvrir les Frameworks du moments : LangChain4j, Quarkus, ...<br><br>Nous vous invitons à découvrir toutes les facettes d&#39;un chatbot avec l&#39;IA générative (customiser un prompt, rajouter vos données (RAG), appeler des outils locaux ou distants (MCP) et créer des agents) mais aussi parce que l’IA ne se limite pas aux chatbots : faire de la transcription, créer de l&#39;audio ou même faire un traducteur.<br><br>À la suite de ce talk vous repartirez avec une boîte à outils vous permettant d&#39;intégrer simplement la puissance des modèles d&#39;IA au sein de vos développements de tous les jours.<br>Et, toujours pour vous simplifier la vie, venez juste avec votre ordinateur et un navigateur Internet, on se charge du reste pour vous construire un environnement de développement aux petits oignons grâce aux CDE.",
     "summary": "Ce workshop montre comment intégrer facilement l’IA générative dans des applications Java, sans changer de langage. Il explore frameworks (LangChain4j, Quarkus), création de chatbots, transcription, audio, traduction, et propose une boîte à outils pratique. Aucun prérequis, juste un ordinateur et un navigateur, l’environnement est fourni.",
     "audienceLevel": "INTERMEDIATE",
@@ -16866,7 +16866,7 @@
   },
   {
     "id": 5586,
-    "title": "Apprendre à notre IA à… apprendre",
+    "title": "🤖 Apprendre à notre IA à ... apprendre 🧠  ",
     "description": "RAG, MCP, tooling, function calling, agents, fine tuning, training, ... <br>Que de termes barbares mais qui ont tous le même objectif : faire en sorte que le modèle d&#39;intelligence artificielle que vous utilisez réponde correctement à vos questions et attentes 😅. <br>Et pour ça il va falloir ajouter de la connaissance, des données (privée ou publiques, ...).<br><br>Durant ce talk je vous propose d&#39;y voir un peu plus clair dans cette jungle des acronymes puis, fort de connaître les différences, vous proposer comment l&#39;implémenter en tant que développeuses et développeurs.<br><br>Chaque approche a ses spécificités, ses avantages et ses inconvénients. <br>A la fin de ce talk, non seulement vous saurez choisir la bonne approche, mais aussi ajouter dans vos développements quotidiens la dose d&#39;IA utile.",
     "summary": "Ce talk clarifie les notions clés de l’IA moderne — RAG, MCP, agents, fine‑tuning, etc. — pour aider les développeurs à comprendre leurs différences, avantages et limites. Il fournit des repères concrets pour choisir la bonne approche et intégrer efficacement l’intelligence artificielle dans leurs projets quotidiens.",
     "audienceLevel": "INTERMEDIATE",
