@@ -7,8 +7,8 @@ public class BearConfOutputGuardRails implements OutputGuardrail {
   // java-72
   @Override
   public OutputGuardrailResult validate(AiMessage responseFromLLM) {
-    if (responseFromLLM.text().contains("Paris")) {
-      return fatal("💥 La seule ville autorisée est Tours ! 💥");
+    if (responseFromLLM.text().contains("Bear")) {
+      return fatal("💥 🐻 détecté ! 💥");
     }
 
     return success();
