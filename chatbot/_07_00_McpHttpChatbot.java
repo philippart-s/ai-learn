@@ -9,10 +9,10 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
+//SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
-//SOURCES DevoxxTools.java
+//SOURCES BearConfTools.java
 
 
 import dev.langchain4j.mcp.McpToolProvider;
@@ -85,16 +85,16 @@ void main() throws Exception {
     var assistant = AiServices.builder(McpHttpAssistant.class)
         .streamingChatModel(chatModel)
         .toolProvider(toolProvider)
-        .tools(new DevoxxTools())
+        .tools(new BearConfTools())
         .build();
 
     // 6. Run the interactive question menu -> assistant.chat(prompt)
     // java-49
     ChatbotUtils.runInteractive(assistant::chat,
-        ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+        ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
         ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
         ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-        ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+        ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
         ChatbotUtils.QUESTIONS.MAKE_AGENDA,
         ChatbotUtils.QUESTIONS.TALKS_ON_AI,
         ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,

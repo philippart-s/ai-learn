@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 /// These tools allow the LLM to resolve temporal expressions like
 /// "aujourd'hui", "demain", or "dans 2 heures" by calling tool
 /// functions that return the actual date/time values.
-public class DevoxxTools {
+public class BearConfTools {
 
   static final DateTimeFormatter FORMATTER =
       DateTimeFormatter.ofPattern("EEEE dd MMMM yyyy HH:mm")

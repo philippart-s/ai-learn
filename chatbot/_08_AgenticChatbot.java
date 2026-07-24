@@ -9,8 +9,8 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
-//SOURCES DevoxxTools.java
+//SOURCES BearConfUtils.java
+//SOURCES BearConfTools.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 
@@ -119,7 +119,7 @@ public interface AgendaPlanner {
 /// The BearConf Agenda Planner: a sequential + loop agentic workflow.
 /// Combines TalkSearcher, QualityScorer (loop), and AgendaPlanner.
 // java-53
-public interface DevoxxAgendaPlanner {
+public interface BearConfAgendaPlanner {
   @Agent
   TokenStream planAgenda(@V("request") String request);
 }
@@ -167,7 +167,7 @@ void main() {
       .database(System.getenv("PGVECTOR_DATABASE"))
       .user(System.getenv("PGVECTOR_USER"))
       .password(System.getenv("PGVECTOR_PASSWORD"))
-      .table("devoxx_embeddings")
+      .table("bearconf_embeddings")
       .dimension(embeddingModel.dimension())
       .createTable(false)
       .dropTableFirst(false)
@@ -180,13 +180,13 @@ void main() {
       .minScore(0.1)
       .build();
 
-  // === Build Agent 1: TalkSearcher (RAG + DevoxxTools) ===
+  // === Build Agent 1: TalkSearcher (RAG + BearConfTools) ===
   // java-57
   TalkSearcher talkSearcher = AgenticServices
       .agentBuilder(TalkSearcher.class)
       .chatModel(chatModel)
       .contentRetriever(contentRetriever)
-      .tools(new DevoxxTools())
+      .tools(new BearConfTools())
       .outputKey("talks")
       .build();
 
@@ -219,8 +219,8 @@ void main() {
 
   // Sequential + Loop — full agentic workflow
   // java-59
-  DevoxxAgendaPlanner agendaPlannerWorkflow = AgenticServices
-      .sequenceBuilder(DevoxxAgendaPlanner.class)
+  BearConfAgendaPlanner agendaPlannerWorkflow = AgenticServices
+      .sequenceBuilder(BearConfAgendaPlanner.class)
       .subAgents(qualityLoop, agendaPlanner)
       .listener(new AgentListener() {
         @Override

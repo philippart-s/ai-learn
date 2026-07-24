@@ -3,7 +3,7 @@ import dev.langchain4j.guardrail.InputGuardrail;
 import dev.langchain4j.guardrail.InputGuardrailResult;
 
 
-public class DevoxxInputGuardRails implements InputGuardrail {
+public class BearConfInputGuardRails implements InputGuardrail {
   // Input guardrails definition
   // Java-71
   @Override

@@ -9,7 +9,7 @@
 //DEPS com.google.code.gson:gson:2.10.1
 //DEPS redis.clients:jedis:6.0.0
 //DEPS ch.qos.logback:logback-classic:1.5.6
-//SOURCES DevoxxUtils.java
+//SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 
@@ -24,15 +24,15 @@ import java.util.List;
 /// MCP tools that expose the BearConf 2026 program.
 /// These tools are discovered and called by the MCP client (McpChatbot)
 /// via the stdio JSON-RPC protocol.
-class DevoxxMcpTools {
+class BearConfMcpTools {
 
   private final List<Talk> talks;
 
   // Load the BearConf talks once at startup to avoid repeated loading on each tool call.
   // java-32
-  DevoxxMcpTools() {
+  BearConfMcpTools() {
     // Load talks once at startup
-    this.talks = DevoxxUtils.loadDevoxxTalks();
+    this.talks = BearConfUtils.loadBearConfTalks();
     // see https://docs.langchain4j.dev/tutorials/mcp-stdio-server#start-the-stdio-server for the reason why we log to stderr here
     System.err.println("📚 %d talks chargés depuis le programme BearConf".formatted(talks.size()));
   }
@@ -144,10 +144,10 @@ void main() throws InterruptedException {
   // java-35
   System.err.println("🚀 Démarrage du serveur MCP BearConf ...");
 
-  var serverInfo = new McpImplementation("devoxx-mcp-server", "1.0.0");
+  var serverInfo = new McpImplementation("bearconf-mcp-server", "1.0.0");
 
   var server = new McpServer(
-      List.of(new DevoxxMcpTools()),
+      List.of(new BearConfMcpTools()),
       serverInfo
   );
 

@@ -8,11 +8,11 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
-//SOURCES DevoxxTools.java
+//SOURCES BearConfUtils.java
+//SOURCES BearConfTools.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
-//SOURCES DevoxxInputGuardRails.java DevoxxOutputGuardRails.java
+//SOURCES BearConfInputGuardRails.java BearConfOutputGuardRails.java
 
 import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
@@ -27,8 +27,8 @@ import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
 
 // Assistant interface with a method for chatting.
 // java-73
-@InputGuardrails(DevoxxInputGuardRails.class)
-@OutputGuardrails(DevoxxOutputGuardRails.class)
+@InputGuardrails(BearConfInputGuardRails.class)
+@OutputGuardrails(BearConfOutputGuardRails.class)
 interface ToolAssistant {
     @SystemMessage("""
       Tu es un expert de la conférence BearConf.
@@ -69,7 +69,7 @@ void main() {
             .database(System.getenv("PGVECTOR_DATABASE"))
             .user(System.getenv("PGVECTOR_USER"))
             .password(System.getenv("PGVECTOR_PASSWORD"))
-            .table("devoxx_embeddings")
+            .table("bearconf_embeddings")
             .dimension(embeddingModel.dimension())
             .createTable(false)
             .dropTableFirst(false)
@@ -92,10 +92,10 @@ void main() {
     // Ask question to the assistant. -> assistant.chat(prompt)
     // java-77
     ChatbotUtils.runInteractive(assistant::chat,
-            ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+            ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
             ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
             ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-            ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+            ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
             ChatbotUtils.QUESTIONS.MAKE_AGENDA,
             ChatbotUtils.QUESTIONS.TALKS_ON_AI,
             ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,

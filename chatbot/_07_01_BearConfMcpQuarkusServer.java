@@ -11,7 +11,7 @@
 //DEPS redis.clients:jedis:6.0.0
 //JAVAC_OPTIONS -parameters
 //JAVA_OPTIONS -Djava.util.logging.manager=org.jboss.logmanager.LogManager --add-opens java.base/java.lang=ALL-UNNAMED
-//SOURCES DevoxxUtils.java
+//SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 //FILES application.properties=resources/mcp-server-application.properties
@@ -30,17 +30,17 @@ import java.util.stream.Collectors;
 /// Communicates via HTTP (Streamable HTTP at /mcp).
 /// The client (McpHttpChatbot) connects over HTTP instead of spawning a subprocess.
 ///
-/// This demonstrates an alternative to the stdio-based DevoxxMcpServer:
+/// This demonstrates an alternative to the stdio-based BearConfMcpServer:
 /// - The server runs as a standalone HTTP service
 /// - Tools are auto-discovered by Quarkus at build time via @Tool annotations
 /// - The client connects via HttpMcpTransport to http://localhost:8080/mcp
 @ApplicationScoped
-public class _07_01_DevoxxMcpQuarkusServer {
+public class _07_01_BearConfMcpQuarkusServer {
 
   private List<Talk> talks;
 
   void onStart(@Observes StartupEvent event) {
-    this.talks = DevoxxUtils.loadDevoxxTalks();
+    this.talks = BearConfUtils.loadBearConfTalks();
     IO.println("📚 %d talks chargés depuis le programme BearConf".formatted(talks.size()));
   }
 

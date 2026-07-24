@@ -15,7 +15,7 @@ import dev.langchain4j.service.UserMessage;
 // Assistant interface with a method for chatting.
 // java-05
 interface Assistant {
-  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_DEVOXX_FRANCE_EXPERT)
+  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   @UserMessage("La question de l'utilisateur est: {{userMessage}}")
   TokenStream chat(String userMessage);
 }
@@ -41,10 +41,10 @@ void main() {
   // Call the chatbot -> assistant.chat(prompt)
   // java-08
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
       ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-      ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.MAKE_AGENDA,
       ChatbotUtils.QUESTIONS.TALKS_ON_AI,
       ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,

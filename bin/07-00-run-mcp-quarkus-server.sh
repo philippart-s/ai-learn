@@ -11,4 +11,4 @@ echo "🚀 Starting Quarkus MCP Server on http://localhost:8080/mcp"
 
 # 🚀 Run JBang script 🚀
 cd ../chatbot
-jbang _07_01_DevoxxMcpQuarkusServer.java
+jbang _07_01_BearConfMcpQuarkusServer.java

@@ -5,4 +5,4 @@
 clear
 
 # 🚀 Run JBang script 🚀
-jbang --quiet DevoxxDatasetCreation.java
+jbang --quiet BearConfDatasetCreation.java

@@ -8,7 +8,7 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
+//SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 
@@ -82,7 +82,7 @@ void main() {
 //      .database(System.getenv("PGVECTOR_DATABASE"))
 //      .user(System.getenv("PGVECTOR_USER"))
 //      .password(System.getenv("PGVECTOR_PASSWORD"))
-//      .table("devoxx_embeddings")
+//      .table("bearconf_embeddings")
 //      .dimension(embeddingModel.dimension())
 //      .createTable(true)
 //      .dropTableFirst(true)
@@ -90,10 +90,10 @@ void main() {
 
   // Load BearConf talks and create text segments for the vector store
   // java-22
-  var talks = DevoxxUtils.loadDevoxxTalks();
+  var talks = BearConfUtils.loadBearConfTalks();
   IO.println("📋 %d talks chargés depuis le programme BearConf".formatted(talks.size()));
 
-  var segments = DevoxxUtils.createTextSegments(talks);
+  var segments = BearConfUtils.createTextSegments(talks);
   IO.println("🔪 %d segments créés (1 segment par talk)".formatted(segments.size()));
 
   // Embed the segments and store the embeddings in the vector store
@@ -132,10 +132,10 @@ void main() {
   // Ask question to the assistant. -> assistant.chat(prompt)
   // java-26
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
       ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-      ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.MAKE_AGENDA,
       ChatbotUtils.QUESTIONS.TALKS_ON_AI,
       ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,

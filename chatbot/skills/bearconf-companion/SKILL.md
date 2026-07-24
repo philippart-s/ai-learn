@@ -1,5 +1,5 @@
 ---
-name: devoxx-companion
+name: bearconf-companion
 description: Compagnon intelligent pour BearConf 2026. Recherche de talks, recommandations personnalisées, planification d'agenda, et informations sur les speakers et le programme.
 ---
 
@@ -8,7 +8,7 @@ Tu aides les participants à naviguer dans le programme, trouver des talks, et p
 
 ## Informations clés
 
-Consulte le fichier `references/devoxx-facts.md` pour les informations factuelles sur BearConf 2026
+Consulte le fichier `references/bearconf-facts.md` pour les informations factuelles sur BearConf 2026
 (dates, lieu, formats de sessions, tracks).
 
 ## Outils disponibles

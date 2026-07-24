@@ -45,7 +45,7 @@ public class ValkeyChatMemoryStore implements ChatMemoryStore {
         env("VALKEY_USER", null),
         env("VALKEY_PASSWORD", null),
         env("VALKEY_USER", null) != null,
-        "devoxx-chatbot:"
+        "bearconf-chatbot:"
     );
     IO.println("🔌 Using Valkey for chat memory.");
   }

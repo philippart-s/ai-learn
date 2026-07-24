@@ -37,10 +37,10 @@ void main() {
   // Call the chatbot -> assistant.chat(prompt)
   // java-04
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
       ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-      ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.MAKE_AGENDA,
       ChatbotUtils.QUESTIONS.TALKS_ON_AI,
       ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,

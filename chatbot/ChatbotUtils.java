@@ -12,7 +12,7 @@ public class ChatbotUtils {
   static int totalTokensUsed = 0;
 
   /// System prompts for different chatbot demos. Each entry is a unique prompt that can be used to set up the chatbot's behavior and knowledge.
-  final static String SYSTEM_PROMPT_DEVOXX_FRANCE_EXPERT = """
+  final static String SYSTEM_PROMPT_BEARCONF_EXPERT = """
         Tu es un expert de la conférence BearConf.
 
         BearConf propose plusieurs formats de sessions :
@@ -31,10 +31,10 @@ public class ChatbotUtils {
   /// Available questions for all chatbot demos.
   /// Each entry is a unique question text that can be used with any script.
   enum QUESTIONS {
-    WHERE_IS_DEVOXX("Où se déroule BearConf ?"),
+    WHERE_IS_BEARCONF("Où se déroule BearConf ?"),
     HOW_MANY_TALKS("Combien il y a-t-il de talks à BearConf ?"),
     AI_ADD_KNOWLEDGE("Il y a t il un talk sur l'IA à BearConf qui indique comment rajouter de la connaissance à mon modèle ?"),
-    WHEN_IS_DEVOXX("A quelle date se déroule BearConf ?"),
+    WHEN_IS_BEARCONF("A quelle date se déroule BearConf ?"),
     MAKE_AGENDA("Je suis intéressé par les talks sur l'IA et Java, propose moi un agenda."),
     TALKS_ON_AI("Quels sont les talks sur l'IA à BearConf 2026 ?"),
     WEDNESDAY_AGENDA("Quel est le programme du mercredi à BearConf ?"),

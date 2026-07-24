@@ -8,7 +8,7 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
+//SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 
@@ -24,7 +24,7 @@ import dev.langchain4j.service.UserMessage;
 // Assistant interface with a method for chatting.
 // java-09
 interface MemoryAssistant {
-  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_DEVOXX_FRANCE_EXPERT)
+  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   TokenStream chat(@MemoryId String id, @UserMessage String userMessage);
 }
 
@@ -65,7 +65,7 @@ void main() {
 
   // Step 1: Inject the BearConf 2026 program into the conversation
   // java-13
-  var program = DevoxxUtils.loadDevoxxProgram();
+  var program = BearConfUtils.loadBearConfProgram();
 
   var injectionMessage = """
       Voici le programme de BearConf 2026. Mémorise-le pour répondre à mes prochaines questions.

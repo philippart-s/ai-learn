@@ -8,18 +8,18 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 /// Skill-scoped tools for the BearConf 2026 companion skill.
-/// These tools are only exposed to the LLM after the `devoxx-companion`
+/// These tools are only exposed to the LLM after the `bearconf-companion`
 /// skill has been activated via the `activate_skill` tool.
 /// They provide structured search and filtering over the BearConf program.
 // java-70
-public class DevoxxSkillTools {
+public class BearConfSkillTools {
 
   private final List<Talk> talks;
 
   /// Creates the skill tools and loads the BearConf talk list once at construction time.
-  DevoxxSkillTools() {
-    this.talks = DevoxxUtils.loadDevoxxTalks();
-    IO.println("🎯 DevoxxSkillTools initialized with %d talks".formatted(talks.size()));
+  BearConfSkillTools() {
+    this.talks = BearConfUtils.loadBearConfTalks();
+    IO.println("🎯 BearConfSkillTools initialized with %d talks".formatted(talks.size()));
   }
 
   /// Searches talks by keyword in title, summary, or speaker name.
@@ -138,7 +138,7 @@ public class DevoxxSkillTools {
         .map(Speaker::fullName)
         .toList();
     var scheduleInfo = talk.schedule() != null
-        ? " | %s".formatted(DevoxxUtils.formatScheduleSlot(talk.schedule()))
+        ? " | %s".formatted(BearConfUtils.formatScheduleSlot(talk.schedule()))
         : "";
     return "- [%s, %d min] %s — %s (Track: %s)%s\n".formatted(
         talk.sessionType().name(),
@@ -154,7 +154,7 @@ public class DevoxxSkillTools {
         .map(Speaker::fullName)
         .toList();
     return "- %s | [%s, %d min] %s — %s (Track: %s)\n".formatted(
-        DevoxxUtils.formatScheduleSlot(talk.schedule()),
+        BearConfUtils.formatScheduleSlot(talk.schedule()),
         talk.sessionType().name(),
         talk.sessionType().duration(),
         talk.title(),
