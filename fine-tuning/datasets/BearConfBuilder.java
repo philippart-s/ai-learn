@@ -129,6 +129,9 @@ void main() throws Exception {
       for (var s : talk.getAsJsonArray("speakers")) {
         var sp = s.getAsJsonObject();
         if (KEEP_SPEAKER.equals(asString(sp, "fullName"))) {
+          // Kept verbatim, except the photo URL which still points to the real
+          // conference CDN (last "devoxx" trace) and is unused by the chatbot.
+          sp.add("imageUrl", JsonNull.INSTANCE);
           kept++;
           continue;
         }
