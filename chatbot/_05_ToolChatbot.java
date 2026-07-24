@@ -27,7 +27,7 @@ import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
 // java-28
 interface ToolAssistant {
   @SystemMessage("""
-      Tu es un expert de la conférence Devoxx France.
+      Tu es un expert de la conférence BearConf.
       Réponds de manière structurée et concise en te basant
       uniquement sur les informations qui te sont fournies.
       Si tu ne trouves pas l'information dans le contexte fourni,
@@ -85,7 +85,7 @@ void main() {
       .build();
 
 
-//  // Memory with Devoxx knowledge and conversation history
+//  // Memory with BearConf knowledge and conversation history
   var chatMemory = MessageWindowChatMemory.builder()
       .maxMessages(20)
       .chatMemoryStore(new FileChatMemoryStore())

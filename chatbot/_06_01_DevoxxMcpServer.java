@@ -21,30 +21,30 @@ import dev.langchain4j.mcp.protocol.McpImplementation;
 
 import java.util.List;
 
-/// MCP tools that expose the Devoxx France 2026 program.
+/// MCP tools that expose the BearConf 2026 program.
 /// These tools are discovered and called by the MCP client (McpChatbot)
 /// via the stdio JSON-RPC protocol.
 class DevoxxMcpTools {
 
   private final List<Talk> talks;
 
-  // Load the Devoxx talks once at startup to avoid repeated loading on each tool call.
+  // Load the BearConf talks once at startup to avoid repeated loading on each tool call.
   // java-32
   DevoxxMcpTools() {
     // Load talks once at startup
     this.talks = DevoxxUtils.loadDevoxxTalks();
     // see https://docs.langchain4j.dev/tutorials/mcp-stdio-server#start-the-stdio-server for the reason why we log to stderr here
-    System.err.println("📚 %d talks chargés depuis le programme Devoxx".formatted(talks.size()));
+    System.err.println("📚 %d talks chargés depuis le programme BearConf".formatted(talks.size()));
   }
 
 
   // Tool to get the complete list of talks with details.
   // java-33
-  @Tool("Retourne la liste complète des talks à Devoxx France 2026 avec le titre, les speakers, la track et le format.")
+  @Tool("Retourne la liste complète des talks à BearConf 2026 avec le titre, les speakers, la track et le format.")
   String getAllTalks() {
     System.err.println("🔧 Outil MCP appelé : getAllTalks()");
 
-    return "Il y a %d talks à Devoxx France 2026 :\n\n".formatted(talks.size())
+    return "Il y a %d talks à BearConf 2026 :\n\n".formatted(talks.size())
                  + talks.stream()
                      .map(this::formatTalk)
                      .collect(Collectors.joining());
@@ -52,7 +52,7 @@ class DevoxxMcpTools {
 
   // Tool to get talks filtered by track.
   // java-33
-  @Tool("Retourne tous les talks d'une track donnée à Devoxx France 2026. Utilisez cet outil quand l'utilisateur demande les talks d'une track spécifique comme 'Java', 'Cloud', 'AI & ML', etc.")
+  @Tool("Retourne tous les talks d'une track donnée à BearConf 2026. Utilisez cet outil quand l'utilisateur demande les talks d'une track spécifique comme 'Java', 'Cloud', 'AI & ML', etc.")
   String getTalksByTrack(@P("Le nom de la track, par exemple 'Java, JVM', 'Cloud, Containers & Infrastructure', 'AI & ML") String track) {
     System.err.println("🔧 Outil MCP appelé : getTalksByTrack(\"%s\")".formatted(track));
     var filtered = talks.stream()
@@ -73,7 +73,7 @@ class DevoxxMcpTools {
 
   /// Tool to get talks by session type (format)
   @Tool("""
-        Retourne tous les talks d'un type de session à Devoxx France 2026.
+        Retourne tous les talks d'un type de session à BearConf 2026.
         Utilise cet outil quand l'utilisateur demande les talks d'une session spécifique comme :
             - Keynotes
             - Deep Dive
@@ -103,7 +103,7 @@ class DevoxxMcpTools {
 
   // Tool to search talks by keyword in title, summary, or speaker name.
   // java-34
-  @Tool("Recherche des talks à Devoxx France 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. Utilisez cet outil pour les requêtes générales sur des sujets ou des speakers.")
+  @Tool("Recherche des talks à BearConf 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. Utilisez cet outil pour les requêtes générales sur des sujets ou des speakers.")
   String searchTalks(@P("Le mot-clé à rechercher dans les titres des talks, les résumés et les noms des speakers") String keyword) {
     System.err.println("🔧 Outil MCP appelé : searchTalks(\"%s\")".formatted(keyword));
     var lowerKeyword = keyword.toLowerCase();
@@ -137,12 +137,12 @@ class DevoxxMcpTools {
   }
 }
 
-/// MCP server that exposes the Devoxx France 2026 program as tools.
+/// MCP server that exposes the BearConf 2026 program as tools.
 /// Communicates via stdio (JSON-RPC over stdin/stdout).
 /// Launched as a subprocess by McpChatbot via StdioMcpTransport.
 void main() throws InterruptedException {
   // java-35
-  System.err.println("🚀 Démarrage du serveur MCP Devoxx ...");
+  System.err.println("🚀 Démarrage du serveur MCP BearConf ...");
 
   var serverInfo = new McpImplementation("devoxx-mcp-server", "1.0.0");
 
@@ -153,7 +153,7 @@ void main() throws InterruptedException {
 
   new StdioMcpServerTransport(System.in, System.out, server);
 
-  System.err.println("✅  Serveur MCP Devoxx prêt — en attente de requêtes sur stdin");
+  System.err.println("✅  Serveur MCP BearConf prêt — en attente de requêtes sur stdin");
 
   // Keep the process alive while stdio is open
   Thread.currentThread().join();

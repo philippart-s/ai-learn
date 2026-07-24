@@ -26,7 +26,7 @@ import jakarta.enterprise.event.Observes;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/// Quarkus MCP server that exposes the Devoxx France 2026 program as tools.
+/// Quarkus MCP server that exposes the BearConf 2026 program as tools.
 /// Communicates via HTTP (Streamable HTTP at /mcp).
 /// The client (McpHttpChatbot) connects over HTTP instead of spawning a subprocess.
 ///
@@ -41,16 +41,16 @@ public class _07_01_DevoxxMcpQuarkusServer {
 
   void onStart(@Observes StartupEvent event) {
     this.talks = DevoxxUtils.loadDevoxxTalks();
-    IO.println("📚 %d talks chargés depuis le programme Devoxx".formatted(talks.size()));
+    IO.println("📚 %d talks chargés depuis le programme BearConf".formatted(talks.size()));
   }
 
   // Tool to get all talks with details
   // java-42
-  @Tool(description = "Retourne la liste complète des talks à Devoxx France 2026 avec le titre, les speakers, la track et le format.")
+  @Tool(description = "Retourne la liste complète des talks à BearConf 2026 avec le titre, les speakers, la track et le format.")
   String getAllTalks() {
     IO.println("🔧 Outil MCP appelé : getAllTalks()");
 
-    return "Il y a %d talks à Devoxx France 2026 :\n\n".formatted(talks.size())
+    return "Il y a %d talks à BearConf 2026 :\n\n".formatted(talks.size())
            + talks.stream()
                .map(this::formatTalk)
                .collect(Collectors.joining());
@@ -58,7 +58,7 @@ public class _07_01_DevoxxMcpQuarkusServer {
 
   // Tool to get talks by track
   // java-43
-  @Tool(description = "Retourne tous les talks d'une track donnée à Devoxx France 2026. Utilisez cet outil quand l'utilisateur demande les talks d'une track spécifique comme 'Java', 'Cloud', 'AI & ML', etc.")
+  @Tool(description = "Retourne tous les talks d'une track donnée à BearConf 2026. Utilisez cet outil quand l'utilisateur demande les talks d'une track spécifique comme 'Java', 'Cloud', 'AI & ML', etc.")
   String getTalksByTrack(
       @ToolArg(description = "Le nom de la track, par exemple 'Java, JVM', 'Cloud, Containers & Infrastructure', 'AI & ML") String track) {
     IO.println("🔧 Outil MCP appelé : getTalksByTrack(\"%s\")".formatted(track));
@@ -80,7 +80,7 @@ public class _07_01_DevoxxMcpQuarkusServer {
 
   /// Tool to get talks by session type (format)
   @Tool(description = """
-        Retourne tous les talks d'un type de session à Devoxx France 2026.
+        Retourne tous les talks d'un type de session à BearConf 2026.
         Utilise cet outil quand l'utilisateur demande les talks d'une session spécifique comme :
             - Keynotes
             - Deep Dive
@@ -110,7 +110,7 @@ public class _07_01_DevoxxMcpQuarkusServer {
 
   // Tool to search talks by keyword in title, summary or speaker name
   // java-44
-  @Tool(description = "Recherche des talks à Devoxx France 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. Utilisez cet outil pour les requêtes générales sur des sujets ou des speakers.")
+  @Tool(description = "Recherche des talks à BearConf 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. Utilisez cet outil pour les requêtes générales sur des sujets ou des speakers.")
   String searchTalks(
       @ToolArg(description = "Le mot-clé à rechercher dans les titres des talks, les résumés et les noms des speakers") String keyword) {
     IO.println("🔧 Outil MCP appelé : searchTalks(\"%s\")".formatted(keyword));

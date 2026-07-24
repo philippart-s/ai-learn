@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-/// Date and time tools for the Devoxx France chatbot.
+/// Date and time tools for the BearConf chatbot.
 /// These tools allow the LLM to resolve temporal expressions like
 /// "aujourd'hui", "demain", or "dans 2 heures" by calling tool
 /// functions that return the actual date/time values.

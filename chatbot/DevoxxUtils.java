@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-/// Nested records matching the Devoxx CFP public API JSON structure.
+/// Nested records matching the BearConf CFP public API JSON structure.
 record Speaker(String fullName) {
 }
 
@@ -39,7 +39,7 @@ record Room(String name) {
 record ScheduleSlot(String fromDate, String toDate, String timezone, Room room) {
 }
 
-/// A talk from the Devoxx France program.
+/// A talk from the BearConf program.
 /// `id` is used to cross-reference with the schedule endpoint.
 /// `schedule` is null when the talk has not yet been scheduled.
 record Talk(long id, String title, String summary, List<Speaker> speakers, Track track, SessionType sessionType,
@@ -64,7 +64,7 @@ enum VectorStore {
   PGVECTOR
 }
 
-/// Shared utilities for loading and processing the Devoxx France program.
+/// Shared utilities for loading and processing the BearConf program.
 /// Centralizes API fetching, JSON parsing, text segment creation, and
 /// the full RAG pipeline (embedding + vector store + content retriever)
 /// so that all chatbot scripts can reuse them without duplication.
@@ -75,14 +75,14 @@ public class DevoxxUtils {
   static final String DEVOXX_PROGRAM_FILE = "resources/bearconf-2026-program.json";
   static final String DEVOXX_SCHEDULE_FILE = "resources/bearconf-2026-schedule.json";
 
-  /// Fetches the Devoxx France talk list as raw JSON: tries the CFP API
+  /// Fetches the BearConf talk list as raw JSON: tries the CFP API
   /// first, saves the response to a local JSON file as a cache, and
   /// falls back to the local file if the API is unreachable.
   static String fetchDevoxxJson() {
     String json;
     if (!Files.exists(Path.of(DEVOXX_PROGRAM_FILE))) {
       try {
-        IO.println("🌐 Fetching Devoxx program from API...");
+        IO.println("🌐 Fetching BearConf program from API...");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest.newBuilder()
             .uri(URI.create(DEVOXX_API_URL))
@@ -105,7 +105,7 @@ public class DevoxxUtils {
         }
       }
     } else {
-      IO.println("✅  Devoxx program file exists, load data from it.");
+      IO.println("✅  BearConf program file exists, load data from it.");
       try {
         json = Files.readString(Path.of(DEVOXX_PROGRAM_FILE));
       } catch (IOException ioe) {
@@ -213,7 +213,7 @@ public class DevoxxUtils {
     return scheduleMap;
   }
 
-  /// Loads the Devoxx France talk list as parsed [Talk] records.
+  /// Loads the BearConf talk list as parsed [Talk] records.
   /// Used by RAG and Tool chatbots that need structured talk data.
   /// Enriches each talk with scheduling information (day, room, time)
   /// fetched from the schedule endpoint when available.
@@ -239,7 +239,7 @@ public class DevoxxUtils {
     return talks;
   }
 
-  /// Loads the Devoxx France program as a human-readable formatted string.
+  /// Loads the BearConf program as a human-readable formatted string.
   /// Used by the Memory chatbot to inject the full program into chat history.
   static String loadDevoxxProgram() {
     return formatProgram(loadDevoxxTalks());
@@ -264,7 +264,7 @@ public class DevoxxUtils {
   /// Talks with a schedule are sorted by date/time; unscheduled talks follow, sorted by track.
   static String formatProgram(List<Talk> talks) {
     var sb = new StringBuilder();
-    sb.append("Programme de Devoxx France 2026 — %d talks :\n\n".formatted(talks.size()));
+    sb.append("Programme de BearConf 2026 — %d talks :\n\n".formatted(talks.size()));
 
     var scheduled = talks.stream()
         .filter(t -> t.schedule() != null)

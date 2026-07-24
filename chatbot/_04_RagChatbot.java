@@ -34,7 +34,7 @@ import java.sql.ResultSet;
 // java-18
 interface RagAssistant {
   @SystemMessage("""
-      Tu es un expert de la conférence Devoxx France.
+      Tu es un expert de la conférence BearConf.
       Réponds de manière structurée et concise en te basant
       uniquement sur les informations qui te sont fournies.
       Si tu ne trouves pas l'information dans le contexte fourni,
@@ -43,7 +43,7 @@ interface RagAssistant {
   TokenStream chat(String userMessage);
 }
 
-/// RAG chatbot: embeds Devoxx talks into a vector store, then retrieves
+/// RAG chatbot: embeds BearConf talks into a vector store, then retrieves
 /// only the relevant talks for each question instead of injecting the
 /// full program into every request.
 void main() {
@@ -88,10 +88,10 @@ void main() {
 //      .dropTableFirst(true)
 //      .build();
 
-  // Load Devoxx talks and create text segments for the vector store
+  // Load BearConf talks and create text segments for the vector store
   // java-22
   var talks = DevoxxUtils.loadDevoxxTalks();
-  IO.println("📋 %d talks chargés depuis le programme Devoxx".formatted(talks.size()));
+  IO.println("📋 %d talks chargés depuis le programme BearConf".formatted(talks.size()));
 
   var segments = DevoxxUtils.createTextSegments(talks);
   IO.println("🔪 %d segments créés (1 segment par talk)".formatted(segments.size()));

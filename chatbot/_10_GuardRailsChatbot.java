@@ -31,7 +31,7 @@ import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
 @OutputGuardrails(DevoxxOutputGuardRails.class)
 interface ToolAssistant {
     @SystemMessage("""
-      Tu es un expert de la conférence Devoxx France.
+      Tu es un expert de la conférence BearConf.
       Réponds de manière structurée et concise en te basant
       sur les informations qui te sont fournies.
       """)

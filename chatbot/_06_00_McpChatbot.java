@@ -32,14 +32,14 @@ import java.util.List;
 // java-32
 interface McpAssistant {
   @SystemMessage("""
-      Tu es un expert de la conférence Devoxx France.
+      Tu es un expert de la conférence BearConf.
       Réponds de manière structurée et concise en te basant
       uniquement sur les informations qui te sont fournies.
       Si tu ne trouves pas l'information dans le contexte fourni,
       indique-le clairement.
 
       Tu disposes d'outils MCP qui te permettent d'interroger
-      le programme de Devoxx France 2026. Utilise-les pour
+      le programme de BearConf 2026. Utilise-les pour
       répondre aux questions sur les talks, speakers et tracks.
       """)
   TokenStream chat(String userMessage);

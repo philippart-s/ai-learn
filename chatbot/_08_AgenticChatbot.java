@@ -35,11 +35,11 @@ import dev.langchain4j.service.V;
 import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
 
 
-// Agent 1: TalkSearcher — searches Devoxx talks using RAG + tools
+// Agent 1: TalkSearcher — searches BearConf talks using RAG + tools
 // java-50
 public interface TalkSearcher {
   @SystemMessage("""
-      Tu es un expert de la conférence Devoxx France 2026.
+      Tu es un expert de la conférence BearConf 2026.
       Ta mission est de rechercher les talks qui correspondent
       à la demande de l'utilisateur.
 
@@ -58,7 +58,7 @@ public interface TalkSearcher {
       Si tu ne trouves pas de talks correspondants, indique-le clairement.
       """)
   @UserMessage("{{request}}")
-  @Agent(description = "Recherche les talks Devoxx France correspondant aux critères de l'utilisateur", outputKey = "talks")
+  @Agent(description = "Recherche les talks BearConf correspondant aux critères de l'utilisateur", outputKey = "talks")
   String searchTalks(@V("request") String request);
 }
 
@@ -94,7 +94,7 @@ public interface AgendaPlanner {
   @SystemMessage("""
       Tu es un expert en planification de conférences.
       À partir des talks trouvés, crée un agenda structuré
-      pour les 3 jours de Devoxx France 2026
+      pour les 3 jours de BearConf 2026
       (mercredi, jeudi et vendredi).
 
       Organise l'agenda de manière claire avec :
@@ -116,7 +116,7 @@ public interface AgendaPlanner {
   TokenStream createAgenda(@V("talks") String talks, @V("request") String request);
 }
 
-/// The Devoxx Agenda Planner: a sequential + loop agentic workflow.
+/// The BearConf Agenda Planner: a sequential + loop agentic workflow.
 /// Combines TalkSearcher, QualityScorer (loop), and AgendaPlanner.
 // java-53
 public interface DevoxxAgendaPlanner {

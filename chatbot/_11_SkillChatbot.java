@@ -61,7 +61,7 @@ void main() {
   // Build the system message with available skills
   // java-80
   var systemMessage = """
-      Tu es un assistant intelligent pour la conference Devoxx France 2026.
+      Tu es un assistant intelligent pour la conference BearConf 2026.
 
       Tu disposes d'outils pour connaitre la date et l'heure actuelles.
       Utilise-les quand l'utilisateur mentionne "aujourd'hui", "demain",

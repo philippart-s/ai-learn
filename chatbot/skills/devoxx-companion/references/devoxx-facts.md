@@ -1,4 +1,4 @@
-# Devoxx France 2026 - Informations factuelles
+# BearConf 2026 - Informations factuelles
 
 ## Dates
 - **Mercredi 22 avril 2026** : Jour 1 (Conférences / Keynotes / Deep Dives / Hands-on Labs / Lunch Talks)
@@ -6,8 +6,8 @@
 - **Vendredi 24 avril 2026** : Jour 3 (Conférences / Keynotes / Deep Dives / Hands-on Labs / Lunch Talks)
 
 ## Lieu
-- **Palais des Congrès de Paris**
-- 2, place de la Porte Maillot, 75017 Paris, France
+- **Palais des Ours**
+- 1, allée des Grands Ours, 75017 Paris, France
 
 ## Formats de sessions
 | Format | Durée | Description |
@@ -21,5 +21,5 @@
 | BOF (Birds of a Feather) | 45 min | Discussion informelle en petit groupe |
 
 ## API du programme
-- Programme complet : `https://m.devoxx.com/events/devoxxfr2026/talks`
-- Planning : `https://m.devoxx.com/events/devoxxfr2026/schedule`
+- Programme complet : `https://bearconf2026.example.com/api/public/talks`
+- Planning : `https://bearconf2026.example.com/api/public/schedules`

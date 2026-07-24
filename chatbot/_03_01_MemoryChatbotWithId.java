@@ -63,17 +63,17 @@ void main() {
       .chatMemoryProvider(chatMemory)
       .build();
 
-  // Step 1: Inject the Devoxx 2026 program into the conversation
+  // Step 1: Inject the BearConf 2026 program into the conversation
   // java-13
   var program = DevoxxUtils.loadDevoxxProgram();
 
   var injectionMessage = """
-      Voici le programme de Devoxx France 2026. Mémorise-le pour répondre à mes prochaines questions.
+      Voici le programme de BearConf 2026. Mémorise-le pour répondre à mes prochaines questions.
 
       %s
       """.formatted(program);
 
-  IO.println("📋 Injection du programme Devoxx France 2026 dans la conversation...\n");
+  IO.println("📋 Injection du programme BearConf 2026 dans la conversation...\n");
   ChatbotUtils.displayChatbotResponse(assistant.chat("stef", injectionMessage));
 
   // Step 2: Ask follow-up questions that rely on memory of the injected program -> assistant.chat(prompt)

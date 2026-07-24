@@ -7,16 +7,16 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-/// Skill-scoped tools for the Devoxx France 2026 companion skill.
+/// Skill-scoped tools for the BearConf 2026 companion skill.
 /// These tools are only exposed to the LLM after the `devoxx-companion`
 /// skill has been activated via the `activate_skill` tool.
-/// They provide structured search and filtering over the Devoxx program.
+/// They provide structured search and filtering over the BearConf program.
 // java-70
 public class DevoxxSkillTools {
 
   private final List<Talk> talks;
 
-  /// Creates the skill tools and loads the Devoxx talk list once at construction time.
+  /// Creates the skill tools and loads the BearConf talk list once at construction time.
   DevoxxSkillTools() {
     this.talks = DevoxxUtils.loadDevoxxTalks();
     IO.println("🎯 DevoxxSkillTools initialized with %d talks".formatted(talks.size()));
@@ -24,7 +24,7 @@ public class DevoxxSkillTools {
 
   /// Searches talks by keyword in title, summary, or speaker name.
   // java-71
-  @Tool("Recherche des talks a Devoxx France 2026 par mot-cle dans le titre, le resume ou le nom du speaker.")
+  @Tool("Recherche des talks a BearConf 2026 par mot-cle dans le titre, le resume ou le nom du speaker.")
   String searchTalksByKeyword(
       @P("Le mot-cle a rechercher") String keyword) {
     IO.println("%n🔧 Skill tool called: searchTalksByKeyword(\"%s\")".formatted(keyword));
@@ -47,7 +47,7 @@ public class DevoxxSkillTools {
 
   /// Returns all talks for a given track.
   // java-72
-  @Tool("Retourne tous les talks d'une track donnee a Devoxx France 2026.")
+  @Tool("Retourne tous les talks d'une track donnee a BearConf 2026.")
   String getTalksByTrack(
       @P("Le nom de la track, par exemple 'Java, JVM', 'Cloud, Containers & Infrastructure', 'AI & ML'") String track) {
     IO.println("%n🔧 Skill tool called: getTalksByTrack(\"%s\")".formatted(track));
@@ -69,7 +69,7 @@ public class DevoxxSkillTools {
 
   /// Returns talks scheduled on a given day (mercredi, jeudi, vendredi).
   // java-73
-  @Tool("Retourne les talks programmes un jour donne a Devoxx France 2026. Les jours valides sont : mercredi, jeudi, vendredi.")
+  @Tool("Retourne les talks programmes un jour donne a BearConf 2026. Les jours valides sont : mercredi, jeudi, vendredi.")
   String getTalksByDay(
       @P("Le jour de la semaine en francais : 'mercredi', 'jeudi', ou 'vendredi'") String day) {
     IO.println("%n🔧 Skill tool called: getTalksByDay(\"%s\")".formatted(day));
@@ -97,7 +97,7 @@ public class DevoxxSkillTools {
 
   /// Returns talks by a specific speaker.
   // java-74
-  @Tool("Recherche les talks d'un speaker specifique a Devoxx France 2026.")
+  @Tool("Recherche les talks d'un speaker specifique a BearConf 2026.")
   String getTalksBySpeaker(
       @P("Le nom du speaker a rechercher") String speaker) {
     IO.println("%n🔧 Skill tool called: getTalksBySpeaker(\"%s\")".formatted(speaker));
@@ -119,14 +119,14 @@ public class DevoxxSkillTools {
 
   /// Lists all available tracks.
   // java-75
-  @Tool("Liste toutes les tracks disponibles a Devoxx France 2026 avec le nombre de talks par track.")
+  @Tool("Liste toutes les tracks disponibles a BearConf 2026 avec le nombre de talks par track.")
   String getAllTracks() {
     IO.println("%n🔧 Skill tool called: getAllTracks()");
     var trackCounts = talks.stream()
         .collect(Collectors.groupingBy(t -> t.track().name(), Collectors.counting()));
 
     var sb = new StringBuilder();
-    sb.append("Tracks disponibles a Devoxx France 2026 :\n\n");
+    sb.append("Tracks disponibles a BearConf 2026 :\n\n");
     trackCounts.entrySet().stream()
         .sorted(java.util.Map.Entry.comparingByKey())
         .forEach(e -> sb.append("- %s (%d talks)\n".formatted(e.getKey(), e.getValue())));
