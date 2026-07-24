@@ -101,6 +101,18 @@ void main() throws IOException {
       ));
       talkQaCount++;
     }
+
+    // Q: "Detail talk X" — richer answer from the full description when it adds
+    //    something beyond the summary (fixes topics only mentioned in the description).
+    var fullDesc = cleanHtml(talk.description());
+    if (fullDesc != null && !fullDesc.isBlank() && !fullDesc.equals(desc)) {
+      var longDesc = fullDesc.length() > 800 ? fullDesc.substring(0, 797) + "..." : fullDesc;
+      dataset.add(new QA(
+          "Peux-tu détailler le talk '%s' à BearConf 2026 ?".formatted(talk.title()),
+          longDesc
+      ));
+      talkQaCount++;
+    }
   }
   System.out.println("🎤 %d paires Q&A par talk générées".formatted(talkQaCount));
 

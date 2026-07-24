@@ -42,8 +42,8 @@ record ScheduleSlot(String fromDate, String toDate, String timezone, Room room) 
 /// A talk from the BearConf program.
 /// `id` is used to cross-reference with the schedule endpoint.
 /// `schedule` is null when the talk has not yet been scheduled.
-record Talk(long id, String title, String summary, List<Speaker> speakers, Track track, SessionType sessionType,
-            ScheduleSlot schedule) {
+record Talk(long id, String title, String summary, String description, List<Speaker> speakers, Track track,
+            SessionType sessionType, ScheduleSlot schedule) {
 }
 
 /// Backing store for chat memory.
@@ -227,7 +227,7 @@ public class BearConfUtils {
     var scheduleMap = fetchScheduleMap();
     if (!scheduleMap.isEmpty()) {
       talks = talks.stream()
-          .map(t -> new Talk(t.id(), t.title(), t.summary(), t.speakers(), t.track(), t.sessionType(),
+          .map(t -> new Talk(t.id(), t.title(), t.summary(), t.description(), t.speakers(), t.track(), t.sessionType(),
               scheduleMap.get(t.id())))
           .toList();
       var scheduled = talks.stream()
@@ -346,6 +346,22 @@ public class BearConfUtils {
   /// model gives them enough weight for name-based searches.
   /// When scheduling info is available, day/room/time are included both
   /// in the text body (for semantic search) and in metadata (for filtering).
+  /// Strips HTML tags and common entities from a CFP description so the raw
+  /// text embeds cleanly (descriptions contain `<br>`, `&#39;`, `&quot;`, ...).
+  static String stripHtml(String html) {
+    if (html == null) return null;
+    return html
+        .replaceAll("<[^>]+>", " ")
+        .replace("&#39;", "'")
+        .replace("&quot;", "\"")
+        .replace("&amp;", "&")
+        .replace("&lt;", "<")
+        .replace("&gt;", ">")
+        .replace("&nbsp;", " ")
+        .replaceAll("\\s+", " ")
+        .strip();
+  }
+
   static List<TextSegment> createTextSegments(List<Talk> talks) {
     return talks.stream()
         .map(talk -> {
@@ -364,6 +380,7 @@ public class BearConfUtils {
               Speakers: %s
               Planification: %s
               Résumé: %s
+              Description: %s
               """.formatted(
               speakers,
               talk.title(),
@@ -375,7 +392,8 @@ public class BearConfUtils {
                   .duration(),
               speakers,
               scheduleInfo,
-              talk.summary() != null ? talk.summary() : "Pas de résumé disponible"
+              talk.summary() != null ? talk.summary() : "Pas de résumé disponible",
+              talk.description() != null ? stripHtml(talk.description()) : "Pas de description disponible"
           );
 
           var metadata = dev.langchain4j.data.document.Metadata.from("track", talk.track()
