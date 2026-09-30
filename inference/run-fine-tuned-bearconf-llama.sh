@@ -10,7 +10,7 @@ read -n 1 -p "Press any key to continue"
 echo ""
 
 ovhai app run --name $1-$2 \
-	--flavor l4-1-gpu \
+	--flavor a100-1-gpu \
 	--gpu 1 \
 	--default-http-port 8000 \
 	--env OUTLINES_CACHE_DIR=/tmp/.outlines \

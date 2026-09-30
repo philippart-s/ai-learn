@@ -33,7 +33,7 @@ lora_model_dir:                                    # Empty = train from scratch 
 lora_r: 128                                        # Rank of the delta matrices — higher = more capacity, more VRAM
                                                    # 128 is aggressive for 3B; works because we're in fp16
 lora_alpha: 256                                    # Scaling factor — rule of thumb: 2× lora_r
-lora_dropout: 0.1                                  # 10 % dropout on LoRA layers to prevent overfitting
+lora_dropout: 0.0                                  # No dropout — we WANT overfitting/memorization here, not generalization
 lora_target_linear: true                           # Apply LoRA to ALL linear layers (not just attention Q/V)
 
 # ── Weights & Biases (experiment tracking) ──────────────────────────
@@ -70,7 +70,7 @@ flash_attention: true                              # FlashAttention-2: fused GPU
 warmup_steps: 20                                   # LR ramps from 0 → 0.0002 over 20 steps (avoids early instability)
 evals_per_epoch: 4                                 # Run validation 4 times per epoch — catch overfitting early
 saves_per_epoch: 1                                 # Checkpoint once per epoch — enough for a small fine-tune
-weight_decay: 0.01                                 # L2 regularization — gently penalizes large weights
+weight_decay: 0.0                                  # No L2 regularization — same reasoning as lora_dropout above
 
 # ── Special tokens ──────────────────────────────────────────────────
 special_tokens:
