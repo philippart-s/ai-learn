@@ -15,13 +15,13 @@ import java.util.Set;
 /// `VALKEY_HOST`, `VALKEY_PORT`, `VALKEY_USER`, `VALKEY_PASSWORD`.
 ///
 /// Commands:
-///   list           — list all keys matching `devoxx-chatbot:*`
+///   list           — list all keys matching `bearconf-chatbot:*`
 ///   get <key>      — display the value of a key
 ///   del <key>      — delete a key
-///   flush          — delete all `devoxx-chatbot:*` keys
+///   flush          — delete all `bearconf-chatbot:*` keys
 ///   quit           — exit
 
-static final String KEY_PREFIX = "devoxx-chatbot:";
+static final String KEY_PREFIX = "bearconf-chatbot:";
 
 String env(String name, String defaultValue) {
   var value = System.getenv(name);
@@ -98,10 +98,10 @@ void flushKeys(JedisPooled jedis) {
 void printHelp() {
   IO.println("""
         Commands:
-          list           — list all keys matching devoxx-chatbot:*
+          list           — list all keys matching bearconf-chatbot:*
           get <key>      — display the value of a key
           del <key>      — delete a key
-          flush          — delete all devoxx-chatbot:* keys
+          flush          — delete all bearconf-chatbot:* keys
           quit           — exit
       """);
 }

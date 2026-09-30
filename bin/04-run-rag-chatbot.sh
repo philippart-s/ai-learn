@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run the RAG chatbot using Devoxx talks embedded in a vector store
+# Run the RAG chatbot using BearConf talks embedded in a vector store
 clear
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

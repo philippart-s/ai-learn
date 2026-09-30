@@ -1,0 +1,2058 @@
+{
+  "9732": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "9733": {
+    "fromDate": "2026-04-24T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "163351": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kermode"
+    }
+  },
+  "163352": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kermode"
+    }
+  },
+  "22554": {
+    "fromDate": "2026-04-24T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "22562": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "22569": {
+    "fromDate": "2026-04-23T19:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T19:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "22570": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "22577": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "22579": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "29753": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Pyrénéen"
+    }
+  },
+  "19003": {
+    "fromDate": "2026-04-23T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "29756": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "85053": {
+    "fromDate": "2026-04-24T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "22590": {
+    "fromDate": "2026-04-22T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "138301": {
+    "fromDate": "2026-04-22T09:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T10:00+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "22591": {
+    "fromDate": "2026-04-23T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "85054": {
+    "fromDate": "2026-04-23T19:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T19:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kermode"
+    }
+  },
+  "19008": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "85057": {
+    "fromDate": "2026-04-23T19:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T19:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "22595": {
+    "fromDate": "2026-04-23T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "19012": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Noir"
+    }
+  },
+  "19013": {
+    "fromDate": "2026-04-23T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "29765": {
+    "fromDate": "2026-04-23T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "19014": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Noir"
+    }
+  },
+  "29768": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kermode"
+    }
+  },
+  "29769": {
+    "fromDate": "2026-04-22T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "29772": {
+    "fromDate": "2026-04-23T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "19020": {
+    "fromDate": "2026-04-23T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "85071": {
+    "fromDate": "2026-04-22T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "85073": {
+    "fromDate": "2026-04-22T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "19024": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "19025": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Pyrénéen"
+    }
+  },
+  "29779": {
+    "fromDate": "2026-04-22T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "19027": {
+    "fromDate": "2026-04-24T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "60503": {
+    "fromDate": "2026-04-24T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "60505": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "19034": {
+    "fromDate": "2026-04-23T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "60506": {
+    "fromDate": "2026-04-23T20:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T20:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "60507": {
+    "fromDate": "2026-04-24T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "85089": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "85088": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "34401": {
+    "fromDate": "2026-04-23T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "60515": {
+    "fromDate": "2026-04-22T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "34404": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "19044": {
+    "fromDate": "2026-04-24T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "85092": {
+    "fromDate": "2026-04-22T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "34405": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "60519": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "19048": {
+    "fromDate": "2026-04-22T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "85096": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "149102": {
+    "fromDate": "2026-04-23T09:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T09:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "34412": {
+    "fromDate": "2026-04-24T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "149103": {
+    "fromDate": "2026-04-24T09:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T09:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "149101": {
+    "fromDate": "2026-04-23T09:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T10:00+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "149106": {
+    "fromDate": "2026-04-22T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "149107": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "149104": {
+    "fromDate": "2026-04-24T09:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T10:00+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "149105": {
+    "fromDate": "2026-04-22T09:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T09:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "34420": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Noir"
+    }
+  },
+  "60532": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kermode"
+    }
+  },
+  "148102": {
+    "fromDate": "2026-04-23T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "148101": {
+    "fromDate": "2026-04-23T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "152201": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Noir"
+    }
+  },
+  "2704": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "45201": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "45203": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "2708": {
+    "fromDate": "2026-04-22T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "45204": {
+    "fromDate": "2026-04-24T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "2713": {
+    "fromDate": "2026-04-24T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "83101": {
+    "fromDate": "2026-04-23T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "2717": {
+    "fromDate": "2026-04-23T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "2719": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "2720": {
+    "fromDate": "2026-04-22T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "2723": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "83109": {
+    "fromDate": "2026-04-22T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "2724": {
+    "fromDate": "2026-04-24T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "155301": {
+    "fromDate": "2026-04-24T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "2729": {
+    "fromDate": "2026-04-22T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "83112": {
+    "fromDate": "2026-04-24T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "7851": {
+    "fromDate": "2026-04-23T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "114351": {
+    "fromDate": "2026-04-22T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "114353": {
+    "fromDate": "2026-04-22T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "26801": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "7857": {
+    "fromDate": "2026-04-24T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "2738": {
+    "fromDate": "2026-04-24T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "2739": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "2740": {
+    "fromDate": "2026-04-22T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "26806": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "2742": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "26807": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "2745": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Noir"
+    }
+  },
+  "26810": {
+    "fromDate": "2026-04-22T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "7867": {
+    "fromDate": "2026-04-22T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "7868": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "2749": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "7870": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "26815": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "7872": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Noir"
+    }
+  },
+  "83139": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "7880": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "7882": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "26828": {
+    "fromDate": "2026-04-23T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "83148": {
+    "fromDate": "2026-04-23T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "26829": {
+    "fromDate": "2026-04-24T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "44751": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "26832": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kermode"
+    }
+  },
+  "61651": {
+    "fromDate": "2026-04-24T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "26837": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "61656": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "106201": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "26841": {
+    "fromDate": "2026-04-22T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "61657": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "61659": {
+    "fromDate": "2026-04-23T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "7899": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "26844": {
+    "fromDate": "2026-04-23T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "26845": {
+    "fromDate": "2026-04-23T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "26847": {
+    "fromDate": "2026-04-22T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "26850": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Pyrénéen"
+    }
+  },
+  "61670": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "61681": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "61684": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "61689": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "153851": {
+    "fromDate": "2026-04-23T20:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T20:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "77052": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "61693": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kermode"
+    }
+  },
+  "77057": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "61698": {
+    "fromDate": "2026-04-22T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "77063": {
+    "fromDate": "2026-04-22T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "77076": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kermode"
+    }
+  },
+  "65304": {
+    "fromDate": "2026-04-24T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "65306": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "12060": {
+    "fromDate": "2026-04-23T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "77085": {
+    "fromDate": "2026-04-23T19:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T19:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "12063": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "77089": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "65312": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Noir"
+    }
+  },
+  "77092": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "77095": {
+    "fromDate": "2026-04-24T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "12071": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "65319": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "77096": {
+    "fromDate": "2026-04-22T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "77099": {
+    "fromDate": "2026-04-22T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "12075": {
+    "fromDate": "2026-04-24T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "15151": {
+    "fromDate": "2026-04-24T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "25904": {
+    "fromDate": "2026-04-22T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "15152": {
+    "fromDate": "2026-04-24T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "15153": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "162102": {
+    "fromDate": "2026-04-22T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "15156": {
+    "fromDate": "2026-04-22T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "12085": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "15157": {
+    "fromDate": "2026-04-24T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "65333": {
+    "fromDate": "2026-04-24T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "162101": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Pyrénéen"
+    }
+  },
+  "15161": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "155451": {
+    "fromDate": "2026-04-24T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "15162": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "65339": {
+    "fromDate": "2026-04-22T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "12093": {
+    "fromDate": "2026-04-24T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "65345": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "65346": {
+    "fromDate": "2026-04-22T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "15170": {
+    "fromDate": "2026-04-22T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "15173": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "15177": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "15183": {
+    "fromDate": "2026-04-24T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "165202": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "165203": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "165201": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Pyrénéen"
+    }
+  },
+  "47453": {
+    "fromDate": "2026-04-23T20:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T20:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "158051": {
+    "fromDate": "2026-04-23T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "91501": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "91504": {
+    "fromDate": "2026-04-23T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "32115": {
+    "fromDate": "2026-04-23T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "32116": {
+    "fromDate": "2026-04-22T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "37751": {
+    "fromDate": "2026-04-23T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "50552": {
+    "fromDate": "2026-04-23T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "91513": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "37753": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "91515": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "37754": {
+    "fromDate": "2026-04-24T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "32124": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "32125": {
+    "fromDate": "2026-04-24T17:45+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T18:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "32126": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "32129": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "37763": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "91525": {
+    "fromDate": "2026-04-22T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "32132": {
+    "fromDate": "2026-04-23T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "32137": {
+    "fromDate": "2026-04-24T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "91531": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "41355": {
+    "fromDate": "2026-04-23T19:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T19:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "37772": {
+    "fromDate": "2026-04-23T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "41357": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "41358": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Pyrénéen"
+    }
+  },
+  "51601": {
+    "fromDate": "2026-04-23T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "51608": {
+    "fromDate": "2026-04-22T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "63903": {
+    "fromDate": "2026-04-22T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "4001": {
+    "fromDate": "2026-04-23T20:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T20:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "51618": {
+    "fromDate": "2026-04-23T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "161702": {
+    "fromDate": "2026-04-23T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "4006": {
+    "fromDate": "2026-04-23T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "161701": {
+    "fromDate": "2026-04-22T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "4007": {
+    "fromDate": "2026-04-23T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "4008": {
+    "fromDate": "2026-04-23T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "51625": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "4009": {
+    "fromDate": "2026-04-23T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "51626": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "51627": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "4015": {
+    "fromDate": "2026-04-24T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "51633": {
+    "fromDate": "2026-04-23T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "5554": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "4018": {
+    "fromDate": "2026-04-24T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "5555": {
+    "fromDate": "2026-04-22T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "51635": {
+    "fromDate": "2026-04-23T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "63923": {
+    "fromDate": "2026-04-23T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "4019": {
+    "fromDate": "2026-04-24T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "4020": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "5557": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "51639": {
+    "fromDate": "2026-04-22T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "4025": {
+    "fromDate": "2026-04-23T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "54203": {
+    "fromDate": "2026-04-23T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cannelle"
+    }
+  },
+  "4028": {
+    "fromDate": "2026-04-23T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "4029": {
+    "fromDate": "2026-04-22T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "63933": {
+    "fromDate": "2026-04-24T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "51648": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "4033": {
+    "fromDate": "2026-04-24T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "4034": {
+    "fromDate": "2026-04-24T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "51650": {
+    "fromDate": "2026-04-24T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "5571": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "5573": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Pyrénéen"
+    }
+  },
+  "4038": {
+    "fromDate": "2026-04-22T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "54216": {
+    "fromDate": "2026-04-23T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Pyrénéen"
+    }
+  },
+  "4042": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "5582": {
+    "fromDate": "2026-04-23T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kermode"
+    }
+  },
+  "5583": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "5586": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Himalayen"
+    }
+  },
+  "54227": {
+    "fromDate": "2026-04-23T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "5587": {
+    "fromDate": "2026-04-24T12:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "5588": {
+    "fromDate": "2026-04-24T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "54230": {
+    "fromDate": "2026-04-22T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "54235": {
+    "fromDate": "2026-04-24T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "5595": {
+    "fromDate": "2026-04-24T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "5596": {
+    "fromDate": "2026-04-24T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T11:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "5599": {
+    "fromDate": "2026-04-22T11:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "44001": {
+    "fromDate": "2026-04-22T15:40+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T16:25+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Amphi Grizzly"
+    }
+  },
+  "54242": {
+    "fromDate": "2026-04-22T10:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "44003": {
+    "fromDate": "2026-04-22T13:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T13:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Kodiak"
+    }
+  },
+  "9701": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Brun"
+    }
+  },
+  "9703": {
+    "fromDate": "2026-04-23T17:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T17:30+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Lunettes"
+    }
+  },
+  "54249": {
+    "fromDate": "2026-04-22T12:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T12:50+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Baribal"
+    }
+  },
+  "158702": {
+    "fromDate": "2026-04-23T20:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T20:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "158701": {
+    "fromDate": "2026-04-22T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-22T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "9711": {
+    "fromDate": "2026-04-24T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Andin"
+    }
+  },
+  "164851": {
+    "fromDate": "2026-04-23T19:00+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T19:55+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Cendré"
+    }
+  },
+  "9714": {
+    "fromDate": "2026-04-24T13:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "9716": {
+    "fromDate": "2026-04-23T14:35+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T15:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Paresseux"
+    }
+  },
+  "9717": {
+    "fromDate": "2026-04-23T17:50+02:00[Europe/Paris]",
+    "toDate": "2026-04-23T18:20+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Salle Malais"
+    }
+  },
+  "160251": {
+    "fromDate": "2026-04-24T12:30+02:00[Europe/Paris]",
+    "toDate": "2026-04-24T14:15+02:00[Europe/Paris]",
+    "timezone": "Europe/Paris",
+    "room": {
+      "name": "Mezzanine Polaire"
+    }
+  }
+}

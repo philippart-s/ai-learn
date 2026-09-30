@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-/// Nested records matching the Devoxx CFP public API JSON structure.
+/// Nested records matching the BearConf CFP public API JSON structure.
 record Speaker(String fullName) {
 }
 
@@ -39,11 +39,11 @@ record Room(String name) {
 record ScheduleSlot(String fromDate, String toDate, String timezone, Room room) {
 }
 
-/// A talk from the Devoxx France program.
+/// A talk from the BearConf program.
 /// `id` is used to cross-reference with the schedule endpoint.
 /// `schedule` is null when the talk has not yet been scheduled.
-record Talk(long id, String title, String summary, List<Speaker> speakers, Track track, SessionType sessionType,
-            ScheduleSlot schedule) {
+record Talk(long id, String title, String summary, String description, List<Speaker> speakers, Track track,
+            SessionType sessionType, ScheduleSlot schedule) {
 }
 
 /// Backing store for chat memory.
@@ -64,52 +64,52 @@ enum VectorStore {
   PGVECTOR
 }
 
-/// Shared utilities for loading and processing the Devoxx France program.
+/// Shared utilities for loading and processing the BearConf program.
 /// Centralizes API fetching, JSON parsing, text segment creation, and
 /// the full RAG pipeline (embedding + vector store + content retriever)
 /// so that all chatbot scripts can reuse them without duplication.
-public class DevoxxUtils {
+public class BearConfUtils {
 
-  static final String DEVOXX_API_URL = "https://devoxxfr2026.cfp.dev/api/public/talks";
-  static final String DEVOXX_SCHEDULE_URL = "https://devoxxfr2026.cfp.dev/api/public/schedules";
-  static final String DEVOXX_PROGRAM_FILE = "resources/devoxx-2026-program.json";
-  static final String DEVOXX_SCHEDULE_FILE = "resources/devoxx-2026-schedule.json";
+  static final String BEARCONF_API_URL = "https://bearconffr2026.cfp.dev/api/public/talks";
+  static final String BEARCONF_SCHEDULE_URL = "https://bearconffr2026.cfp.dev/api/public/schedules";
+  static final String BEARCONF_PROGRAM_FILE = "resources/bearconf-2026-program.json";
+  static final String BEARCONF_SCHEDULE_FILE = "resources/bearconf-2026-schedule.json";
 
-  /// Fetches the Devoxx France talk list as raw JSON: tries the CFP API
+  /// Fetches the BearConf talk list as raw JSON: tries the CFP API
   /// first, saves the response to a local JSON file as a cache, and
   /// falls back to the local file if the API is unreachable.
-  static String fetchDevoxxJson() {
+  static String fetchBearConfJson() {
     String json;
-    if (!Files.exists(Path.of(DEVOXX_PROGRAM_FILE))) {
+    if (!Files.exists(Path.of(BEARCONF_PROGRAM_FILE))) {
       try {
-        IO.println("🌐 Fetching Devoxx program from API...");
+        IO.println("🌐 Fetching BearConf program from API...");
         var client = HttpClient.newHttpClient();
         var request = HttpRequest.newBuilder()
-            .uri(URI.create(DEVOXX_API_URL))
+            .uri(URI.create(BEARCONF_API_URL))
             .GET()
             .build();
         var response = client.send(request, HttpResponse.BodyHandlers.ofString());
         json = response.body();
 
         // Save to local file for next time
-        var path = Path.of(DEVOXX_PROGRAM_FILE);
+        var path = Path.of(BEARCONF_PROGRAM_FILE);
         Files.createDirectories(path.getParent());
         Files.writeString(path, json);
-        IO.println("💾 Program saved to %s".formatted(DEVOXX_PROGRAM_FILE));
+        IO.println("💾 Program saved to %s".formatted(BEARCONF_PROGRAM_FILE));
       } catch (Exception e) {
         IO.println("⚠️  API unreachable (%s), falling back to local file...".formatted(e.getMessage()));
         try {
-          json = Files.readString(Path.of(DEVOXX_PROGRAM_FILE));
+          json = Files.readString(Path.of(BEARCONF_PROGRAM_FILE));
         } catch (IOException ioe) {
-          throw new RuntimeException("No local file either at %s".formatted(DEVOXX_PROGRAM_FILE), ioe);
+          throw new RuntimeException("No local file either at %s".formatted(BEARCONF_PROGRAM_FILE), ioe);
         }
       }
     } else {
-      IO.println("✅  Devoxx program file exists, load data from it.");
+      IO.println("✅ BearConf program file exists, load data from it.");
       try {
-        json = Files.readString(Path.of(DEVOXX_PROGRAM_FILE));
+        json = Files.readString(Path.of(BEARCONF_PROGRAM_FILE));
       } catch (IOException ioe) {
-        throw new RuntimeException("No local file either at %s".formatted(DEVOXX_PROGRAM_FILE), ioe);
+        throw new RuntimeException("No local file either at %s".formatted(BEARCONF_PROGRAM_FILE), ioe);
       }
     }
     return json;
@@ -133,14 +133,14 @@ public class DevoxxUtils {
   /// Only HTTP-reachable; returns an empty map on failure (non-blocking).
   static Map<Long, ScheduleSlot> fetchScheduleMap() {
     var scheduleMap = new HashMap<Long, ScheduleSlot>();
-    if (!Files.exists(Path.of(DEVOXX_SCHEDULE_FILE))) {
+    if (!Files.exists(Path.of(BEARCONF_SCHEDULE_FILE))) {
       var gson = new Gson();
       var client = HttpClient.newHttpClient();
       try {
         // Step 1: fetch the schedule index to get available day URLs
         IO.println("📅 Fetching schedule index...");
         var indexRequest = HttpRequest.newBuilder()
-            .uri(URI.create(DEVOXX_SCHEDULE_URL))
+            .uri(URI.create(BEARCONF_SCHEDULE_URL))
             .GET()
             .build();
         var indexResponse = client.send(indexRequest, HttpResponse.BodyHandlers.ofString());
@@ -181,44 +181,44 @@ public class DevoxxUtils {
         IO.println("✅ Schedule map built: %d scheduled talks".formatted(scheduleMap.size()));
 
         // Save to local file for fallback
-        var schedulePath = Path.of(DEVOXX_SCHEDULE_FILE);
+        var schedulePath = Path.of(BEARCONF_SCHEDULE_FILE);
         Files.createDirectories(schedulePath.getParent());
         Files.writeString(schedulePath, gson.toJson(scheduleMap));
-        IO.println("💾 Schedule saved to %s".formatted(DEVOXX_SCHEDULE_FILE));
+        IO.println("💾 Schedule saved to %s".formatted(BEARCONF_SCHEDULE_FILE));
       } catch (Exception e) {
         IO.println("⚠️  Could not fetch schedule (%s), trying local file...".formatted(e.getMessage()));
         try {
-          var cached = Files.readString(Path.of(DEVOXX_SCHEDULE_FILE));
+          var cached = Files.readString(Path.of(BEARCONF_SCHEDULE_FILE));
           Type mapType = new TypeToken<Map<Long, ScheduleSlot>>() {
           }.getType();
           scheduleMap = new Gson().fromJson(cached, mapType);
-          IO.println("📂 Schedule loaded from %s (%d talks)".formatted(DEVOXX_SCHEDULE_FILE, scheduleMap.size()));
+          IO.println("📂 Schedule loaded from %s (%d talks)".formatted(BEARCONF_SCHEDULE_FILE, scheduleMap.size()));
         } catch (IOException ioe) {
-          IO.println("⚠️  No local schedule file at %s — talks will have no scheduling info.".formatted(DEVOXX_SCHEDULE_FILE));
+          IO.println("⚠️  No local schedule file at %s — talks will have no scheduling info.".formatted(BEARCONF_SCHEDULE_FILE));
         }
       }
     } else {
-      IO.println("✅  Schedule file exists, load data from it.");
+      IO.println("✅ Schedule file exists, load data from it.");
       try {
-        var cached = Files.readString(Path.of(DEVOXX_SCHEDULE_FILE));
+        var cached = Files.readString(Path.of(BEARCONF_SCHEDULE_FILE));
         Type mapType = new TypeToken<Map<Long, ScheduleSlot>>() {
         }.getType();
         scheduleMap = new Gson().fromJson(cached, mapType);
-        IO.println("📂 Schedule loaded from %s (%d talks)".formatted(DEVOXX_SCHEDULE_FILE, scheduleMap.size()));
+        IO.println("📂 Schedule loaded from %s (%d talks)".formatted(BEARCONF_SCHEDULE_FILE, scheduleMap.size()));
       } catch (IOException ioe) {
-        IO.println("⚠️  No local schedule file at %s — talks will have no scheduling info.".formatted(DEVOXX_SCHEDULE_FILE));
+        IO.println("⚠️  No local schedule file at %s — talks will have no scheduling info.".formatted(BEARCONF_SCHEDULE_FILE));
       }
 
     }
     return scheduleMap;
   }
 
-  /// Loads the Devoxx France talk list as parsed [Talk] records.
+  /// Loads the BearConf talk list as parsed [Talk] records.
   /// Used by RAG and Tool chatbots that need structured talk data.
   /// Enriches each talk with scheduling information (day, room, time)
   /// fetched from the schedule endpoint when available.
-  static List<Talk> loadDevoxxTalks() {
-    var json = fetchDevoxxJson();
+  static List<Talk> loadBearConfTalks() {
+    var json = fetchBearConfJson();
     Type listType = new TypeToken<List<Talk>>() {
     }.getType();
     List<Talk> talks = new Gson().fromJson(json, listType);
@@ -227,7 +227,7 @@ public class DevoxxUtils {
     var scheduleMap = fetchScheduleMap();
     if (!scheduleMap.isEmpty()) {
       talks = talks.stream()
-          .map(t -> new Talk(t.id(), t.title(), t.summary(), t.speakers(), t.track(), t.sessionType(),
+          .map(t -> new Talk(t.id(), t.title(), t.summary(), t.description(), t.speakers(), t.track(), t.sessionType(),
               scheduleMap.get(t.id())))
           .toList();
       var scheduled = talks.stream()
@@ -239,10 +239,10 @@ public class DevoxxUtils {
     return talks;
   }
 
-  /// Loads the Devoxx France program as a human-readable formatted string.
+  /// Loads the BearConf program as a human-readable formatted string.
   /// Used by the Memory chatbot to inject the full program into chat history.
-  static String loadDevoxxProgram() {
-    return formatProgram(loadDevoxxTalks());
+  static String loadBearConfProgram() {
+    return formatProgram(loadBearConfTalks());
   }
 
   /// Formats a [ScheduleSlot] as a human-readable French string.
@@ -264,7 +264,7 @@ public class DevoxxUtils {
   /// Talks with a schedule are sorted by date/time; unscheduled talks follow, sorted by track.
   static String formatProgram(List<Talk> talks) {
     var sb = new StringBuilder();
-    sb.append("Programme de Devoxx France 2026 — %d talks :\n\n".formatted(talks.size()));
+    sb.append("Programme de BearConf 2026 — %d talks :\n\n".formatted(talks.size()));
 
     var scheduled = talks.stream()
         .filter(t -> t.schedule() != null)
@@ -288,7 +288,9 @@ public class DevoxxUtils {
             .stream()
             .map(Speaker::fullName)
             .toList();
-        sb.append("- [%s, %d min] %s — %s\n  📅 %s\n".formatted(
+
+//            sb.append("- [%s, %d min] %s — %s%n  📅 %s%n".formatted(
+            sb.append("- [%s, %d min] %s — %s%n  📅 %s%n  🏷️ Track: %s%n  📝 %s%n".formatted(
             talk.sessionType()
                 .name(),
             talk.sessionType()
@@ -296,6 +298,8 @@ public class DevoxxUtils {
             talk.title(),
             String.join(", ", speakerNames),
             formatScheduleSlot(talk.schedule())
+            ,talk.track().name(),
+            talkDetail(talk)
         ));
       }
     }
@@ -315,13 +319,14 @@ public class DevoxxUtils {
             .stream()
             .map(Speaker::fullName)
             .toList();
-        sb.append("- [%s, %d min] %s — %s\n".formatted(
+        sb.append("- [%s, %d min] %s — %s\n  📝 %s\n".formatted(
             talk.sessionType()
                 .name(),
             talk.sessionType()
                 .duration(),
             talk.title(),
-            String.join(", ", speakerNames)
+            String.join(", ", speakerNames),
+            talkDetail(talk)
         ));
       }
     }
@@ -346,6 +351,35 @@ public class DevoxxUtils {
   /// model gives them enough weight for name-based searches.
   /// When scheduling info is available, day/room/time are included both
   /// in the text body (for semantic search) and in metadata (for filtering).
+  /// Strips HTML tags and common entities from a CFP description so the raw
+  /// text embeds cleanly (descriptions contain `<br>`, `&#39;`, `&quot;`, ...).
+  static String stripHtml(String html) {
+    if (html == null) return null;
+    return html
+        .replaceAll("<[^>]+>", " ")
+        .replace("&#39;", "'")
+        .replace("&quot;", "\"")
+        .replace("&amp;", "&")
+        .replace("&lt;", "<")
+        .replace("&gt;", ">")
+        .replace("&nbsp;", " ")
+        .replaceAll("\\s+", " ")
+        .strip();
+  }
+
+  /// Content shown per talk in the injected program: prefers the original
+  /// speaker description (HTML stripped, more explicit) over the AI-generated
+  /// summary, falling back to the summary then a placeholder.
+  static String talkDetail(Talk talk) {
+    if (talk.description() != null && !talk.description().isBlank()) {
+      return stripHtml(talk.description());
+    }
+    if (talk.summary() != null && !talk.summary().isBlank()) {
+      return talk.summary();
+    }
+    return "Pas de description disponible";
+  }
+
   static List<TextSegment> createTextSegments(List<Talk> talks) {
     return talks.stream()
         .map(talk -> {
@@ -364,6 +398,7 @@ public class DevoxxUtils {
               Speakers: %s
               Planification: %s
               Résumé: %s
+              Description: %s
               """.formatted(
               speakers,
               talk.title(),
@@ -375,7 +410,8 @@ public class DevoxxUtils {
                   .duration(),
               speakers,
               scheduleInfo,
-              talk.summary() != null ? talk.summary() : "Pas de résumé disponible"
+              talk.summary() != null ? talk.summary() : "Pas de résumé disponible",
+              talk.description() != null ? stripHtml(talk.description()) : "Pas de description disponible"
           );
 
           var metadata = dev.langchain4j.data.document.Metadata.from("track", talk.track()

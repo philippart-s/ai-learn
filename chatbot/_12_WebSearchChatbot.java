@@ -19,9 +19,9 @@ import dev.langchain4j.web.search.tavily.TavilyWebSearchEngine;
 // java-79
 interface WebSearchAssistant {
   @SystemMessage("""
-      Tu es un expert de la conférence Devoxx France.
+      Tu es un expert de la conférence BearConf.
       Tu disposes d'un outil de recherche web pour trouver des informations.
-      Utilise-le quand tu as besoin de chercher des informations sur Devoxx France
+      Utilise-le quand tu as besoin de chercher des informations sur BearConf
       ou sur tout autre sujet que tu ne connais pas.
       """)
   TokenStream chat(String userMessage);
@@ -35,7 +35,7 @@ interface WebSearchAssistant {
           .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
           .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
           .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-          .reasoningEffort("low")
+//          .reasoningEffort("low")
           .temperature(0.0)
           .logRequests(false)
           .logResponses(false)
@@ -59,8 +59,8 @@ interface WebSearchAssistant {
           .build();
 
       // java-82
-      IO.println("💬: Résume moi ce qu'est Devoxx France 2026");
-      ChatbotUtils.displayChatbotResponse(assistant.chat("Résume moi ce qu'est Devoxx France 2026"));
+      IO.println("💬: Résume moi ce qu'est BearConf 2026");
+      ChatbotUtils.displayChatbotResponse(assistant.chat("Résume moi ce qu'est BearConf 2026"));
 
       IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
     }

@@ -12,10 +12,10 @@ public class ChatbotUtils {
   static int totalTokensUsed = 0;
 
   /// System prompts for different chatbot demos. Each entry is a unique prompt that can be used to set up the chatbot's behavior and knowledge.
-  final static String SYSTEM_PROMPT_DEVOXX_FRANCE_EXPERT = """
-        Tu es un expert de la conférence Devoxx France.
+  final static String SYSTEM_PROMPT_BEARCONF_EXPERT = """
+        Tu es un expert de la conférence BearConf.
 
-        Devoxx France propose plusieurs formats de sessions :
+        BearConf propose plusieurs formats de sessions :
          - Keynotes
          - Deep Dive (2h ou 3h)
          - Hands-on Lab (2h ou 3h)
@@ -24,23 +24,49 @@ public class ChatbotUtils {
          - Lunch Talk (15 min)
          - Tools-in-Action (30 min)
 
-        Utilise les données en ta possession concernant DEVOXX FRANCE et non les autres Devoxx.
-        Indique pour quel Devoxx tu réponds (ex: Devoxx France 2026) dans ta réponse.
-        Si tu ne connais pas la réponse, n'essaye pas de l'inventer, indique clairement que tu ne sais pas.
+        Utilise uniquement les données en ta possession concernant BearConf 2026.
+
+        Si aucune information ne correspond, indique-le clairement sans inventer.
         """;
+
+  /// System prompt to illustrate than the response could be better with a better prompt
+  final static String SYSTEM_PROMPT_BEARCONF_SUPER_EXPERT = """
+        Tu es un expert de la conférence BearConf.
+
+        BearConf propose plusieurs formats de sessions :
+         - Keynotes
+         - Deep Dive (2h ou 3h)
+         - Hands-on Lab (2h ou 3h)
+         - BOF (Birds of a Feather)
+         - Conference (45 min)
+         - Lunch Talk (15 min)
+         - Tools-in-Action (30 min)
+
+        Utilise uniquement les données en ta possession concernant BearConf 2026.
+        
+        Quand on te demande s'il existe un talk sur un sujet donné, raisonne sur le SENS
+        de la demande (pas seulement les mots-clés) et compare-la aux titres, aux tracks
+        ET aux résumés des talks. Identifie LE talk qui correspond le mieux et donne une
+        réponse claire et directe : titre exact, speaker(s), et en une phrase pourquoi il
+        correspond. Ne liste pas plusieurs talks « peut-être pertinents » : choisis le
+        meilleur (et éventuellement un second seulement s'il est vraiment pertinent).
+
+        Si aucune information ne correspond, indique-le clairement sans inventer.
+        """;
+
 
   /// Available questions for all chatbot demos.
   /// Each entry is a unique question text that can be used with any script.
   enum QUESTIONS {
-    WHERE_IS_DEVOXX("Où se déroule Devoxx ?"),
-    HOW_MANY_TALKS("Combien il y a-t-il de talks à Devoxx France ?"),
-    AI_ADD_KNOWLEDGE("Il y a t il un talk sur l'IA à Devoxx France qui indique comment rajouter de la connaissance à mon modèle ?"),
-    WHEN_IS_DEVOXX("A quelle date se déroule Devoxx France ?"),
+    WHERE_IS_BEARCONF("Où se déroule BearConf ?"),
+    HOW_MANY_TALKS("Combien il y a-t-il de talks à BearConf ?"),
+    AI_ADD_KNOWLEDGE("Il y a t il un talk sur l'IA à BearConf qui indique comment rajouter de la connaissance à mon modèle ?"),
+    WHEN_IS_BEARCONF("A quelle date se déroule BearConf ?"),
     MAKE_AGENDA("Je suis intéressé par les talks sur l'IA et Java, propose moi un agenda."),
-    TALKS_ON_AI("Quels sont les talks sur l'IA à Devoxx France 2026 ?"),
-    WEDNESDAY_AGENDA("Quel est le programme du mercredi à Devoxx France ?"),
-    SPEAKER_TALKS("Quels sont les talks de Stéphane Philippart à Devoxx France 2026 ?"),
-    TALKS_TODAY("Donne moi la date du jour et quels sont les talks aujourd'hui ?"),
+    TALKS_ON_AI("Quels sont les talks sur l'IA à BearConf 2026 ?"),
+    WEDNESDAY_AGENDA("Quel est le programme du mercredi à BearConf ?"),
+    SPEAKER_TALKS("Quels sont les talks de Stéphane Philippart à BearConf 2026 ?"),
+    TALKS_TODAY("Donne moi la date du jour (indique l'année et dis moi comment tu as eu l'information de la date) et quels sont les talks aujourd'hui ?"),
     TALKS_TOMORROW("Quels sont les talks demain ?"),
     TALKS_AT_1_30_PM("Quels sont les hands on lab qui commencent aujourd'hui à 13h30 ?");
 

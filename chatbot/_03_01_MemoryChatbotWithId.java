@@ -8,7 +8,7 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
+//SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 
@@ -24,7 +24,8 @@ import dev.langchain4j.service.UserMessage;
 // Assistant interface with a method for chatting.
 // java-09
 interface MemoryAssistant {
-  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_DEVOXX_FRANCE_EXPERT)
+//  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
+  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   TokenStream chat(@MemoryId String id, @UserMessage String userMessage);
 }
 
@@ -36,7 +37,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-      .reasoningEffort("low")
+//      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -44,14 +45,14 @@ void main() {
 
   // --- Version 1: In-memory chat memory (lost when the program exits) ---
   // java-11
-  ChatMemoryProvider chatMemory = memory -> MessageWindowChatMemory.builder()
-      .id(memory)
+  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
+      .id(memoryId)
       .maxMessages(20)
       .build();
 
   // --- Version 2: Valkey/Redis chat memory (shared external store) ---
-//  ChatMemoryProvider chatMemory = memory -> MessageWindowChatMemory.builder()
-//      .id(memory)
+//  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
+//      .id(memoryId)
 //      .maxMessages(20)
 //      .chatMemoryStore(new ValkeyChatMemoryStore())
 //      .build();
@@ -63,17 +64,17 @@ void main() {
       .chatMemoryProvider(chatMemory)
       .build();
 
-  // Step 1: Inject the Devoxx 2026 program into the conversation
+  // Step 1: Inject the BearConf 2026 program into the conversation
   // java-13
-  var program = DevoxxUtils.loadDevoxxProgram();
+  var program = BearConfUtils.loadBearConfProgram();
 
   var injectionMessage = """
-      Voici le programme de Devoxx France 2026. Mémorise-le pour répondre à mes prochaines questions.
+      Voici le programme de BearConf 2026. Mémorise-le pour répondre à mes prochaines questions.
 
       %s
       """.formatted(program);
 
-  IO.println("📋 Injection du programme Devoxx France 2026 dans la conversation...\n");
+  IO.println("📋 Injection du programme BearConf 2026 dans la conversation...\n");
   ChatbotUtils.displayChatbotResponse(assistant.chat("stef", injectionMessage));
 
   // Step 2: Ask follow-up questions that rely on memory of the injected program -> assistant.chat(prompt)

@@ -24,7 +24,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-      .reasoningEffort("low")
+//      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -37,10 +37,10 @@ void main() {
   // Call the chatbot -> assistant.chat(prompt)
   // java-04
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
       ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-      ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.MAKE_AGENDA,
       ChatbotUtils.QUESTIONS.TALKS_ON_AI,
       ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,
@@ -49,5 +49,5 @@ void main() {
       ChatbotUtils.QUESTIONS.TALKS_TOMORROW,
       ChatbotUtils.QUESTIONS.TALKS_AT_1_30_PM);
 
-  IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
+  IO.println("%n🔢  Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
 }

@@ -8,7 +8,7 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
+//SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 
@@ -21,7 +21,8 @@ import dev.langchain4j.service.TokenStream;
 // Assistant interface with a method for chatting.
 // java-09
 interface MemoryAssistant {
-  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_DEVOXX_FRANCE_EXPERT)
+  //  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
+  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   TokenStream chat(String userMessage);
 }
 
@@ -33,7 +34,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-      .reasoningEffort("low")
+//      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -66,26 +67,26 @@ void main() {
       .chatMemory(chatMemory)
       .build();
 
-  // Step 1: Inject the Devoxx 2026 program into the conversation
+  // Step 1: Inject the BearConf 2026 program into the conversation
   // java-13
-  var program = DevoxxUtils.loadDevoxxProgram();
+  var program = BearConfUtils.loadBearConfProgram();
 
   var injectionMessage = """
-      Voici le programme de Devoxx France 2026. Mémorise-le pour répondre à mes prochaines questions.
+      Voici le programme de BearConf 2026. Mémorise-le pour répondre à mes prochaines questions.
 
       %s
       """.formatted(program);
 
-  IO.println("📋 Injection du programme Devoxx France 2026 dans la conversation...\n");
+  IO.println("📋 Injection du programme BearConf 2026 dans la conversation...\n");
   ChatbotUtils.displayChatbotResponse(assistant.chat(injectionMessage));
 
   // Step 2: Ask follow-up questions that rely on memory of the injected program -> assistant.chat(prompt)
   // java-14
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
       ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-      ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.MAKE_AGENDA,
       ChatbotUtils.QUESTIONS.TALKS_ON_AI,
       ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,

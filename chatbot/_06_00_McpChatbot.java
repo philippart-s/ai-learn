@@ -9,10 +9,10 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
+//SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
-//SOURCES DevoxxTools.java
+//SOURCES BearConfTools.java
 
 import dev.langchain4j.mcp.McpToolProvider;
 import dev.langchain4j.mcp.client.DefaultMcpClient;
@@ -32,14 +32,14 @@ import java.util.List;
 // java-32
 interface McpAssistant {
   @SystemMessage("""
-      Tu es un expert de la conférence Devoxx France.
+      Tu es un expert de la conférence BearConf.
       Réponds de manière structurée et concise en te basant
       uniquement sur les informations qui te sont fournies.
       Si tu ne trouves pas l'information dans le contexte fourni,
       indique-le clairement.
 
       Tu disposes d'outils MCP qui te permettent d'interroger
-      le programme de Devoxx France 2026. Utilise-les pour
+      le programme de BearConf 2026. Utilise-les pour
       répondre aux questions sur les talks, speakers et tracks.
       """)
   TokenStream chat(String userMessage);
@@ -47,10 +47,10 @@ interface McpAssistant {
 
 void main() throws Exception {
 
-  // 1. Create the MCP transport — spawns DevoxxMcpServer as a subprocess
+  // 1. Create the MCP transport — spawns BearConfMcpServer as a subprocess
   // java-31
   McpTransport transport = StdioMcpTransport.builder()
-      .command(List.of("jbang", "_06_01_DevoxxMcpServer.java"))
+      .command(List.of("jbang", "_06_01_BearConfMcpServer.java"))
       .logEvents(false)
       .build();
 
@@ -73,7 +73,7 @@ void main() throws Exception {
         .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
         .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
         .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-        .reasoningEffort("low")
+//        .reasoningEffort("low")
         .temperature(0.0)
         .logRequests(false)
         .logResponses(false)
@@ -84,16 +84,16 @@ void main() throws Exception {
     var assistant = AiServices.builder(McpAssistant.class)
         .streamingChatModel(chatModel)
         .toolProvider(toolProvider)
-        .tools(new DevoxxTools())
+        .tools(new BearConfTools())
         .build();
 
     // 6. Run the interactive question menu -> assistant.chat(prompt)
     // java-39
     ChatbotUtils.runInteractive(assistant::chat,
-        ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+        ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
         ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
         ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-        ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+        ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
         ChatbotUtils.QUESTIONS.MAKE_AGENDA,
         ChatbotUtils.QUESTIONS.TALKS_ON_AI,
         ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,

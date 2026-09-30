@@ -6,11 +6,11 @@ set -euo pipefail
 : "${WANDB_TOKEN:?WANDB_TOKEN is required}"
 
 # === Optional ENV variables (with defaults) ===
-: "${CONFIG_FILE:=instruct-lora-3b-devoxx.yml}"
-: "${HF_REPO:=wildagsx/Llama-3.2-3B-Instruct-devoxx}"
+: "${CONFIG_FILE:=instruct-lora-3b-bearconf.yml}"
+: "${HF_REPO:=wildagsx/Llama-3.2-3B-Instruct-bearconf}"
 : "${HF_REVISION:=v0.1}"
-: "${OUTPUT_DIR:=/workspace/out/llama-3.2-3b-devoxx}"
-: "${INFERENCE_PROMPT:=Quels sont les talks de Stephane Philippart a Devoxx France 2026 ?}"
+: "${OUTPUT_DIR:=/workspace/out/llama-3.2-3b-bearconf}"
+: "${INFERENCE_PROMPT:=Quels sont les talks de Stephane Philippart a BearConf 2026 ?}"
 : "${BASE_MODEL:=meta-llama/Llama-3.2-3B-Instruct}"
 
 MERGED_DIR="${OUTPUT_DIR}/merged"
@@ -30,7 +30,7 @@ export WANDB_NAME="${HF_REPO##*/}-${HF_REVISION}"
 
 echo "=== Step 1: Copy dataset and config ==="
 mkdir -p /workspace/dataset
-cp /workspace/ai-learn/fine-tuning/datasets/out/devoxx-2026-dataset.json /workspace/dataset/
+cp /workspace/ai-learn/fine-tuning/datasets/out/bearconf-2026-dataset.json /workspace/dataset/
 cp /workspace/ai-learn/fine-tuning/notebooks/"$CONFIG_FILE" /workspace/
 
 echo "=== Step 1b: Restore base model from S3 cache if available ==="

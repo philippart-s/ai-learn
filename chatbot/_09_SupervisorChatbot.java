@@ -9,8 +9,8 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
-//SOURCES DevoxxTools.java
+//SOURCES BearConfUtils.java
+//SOURCES BearConfTools.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 
@@ -33,11 +33,11 @@ import dev.langchain4j.service.V;
 import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
 
 
-// Agent 1: TalkSearcher — searches Devoxx talks using RAG + tools
+// Agent 1: TalkSearcher — searches BearConf talks using RAG + tools
 // java-61
 public interface TalkSearcher {
   @SystemMessage("""
-      Tu es un expert de la conférence Devoxx France 2026.
+      Tu es un expert de la conférence BearConf 2026.
       Ta mission est de rechercher les talks qui correspondent
       à la demande de l'utilisateur.
 
@@ -56,7 +56,7 @@ public interface TalkSearcher {
       Si tu ne trouves pas de talks correspondants, indique-le clairement.
       """)
   @UserMessage("{{request}}")
-  @Agent(description = "Recherche les talks Devoxx France correspondant aux critères de l'utilisateur", outputKey = "talks")
+  @Agent(description = "Recherche les talks BearConf correspondant aux critères de l'utilisateur", outputKey = "talks")
   String searchTalks(@V("request") String request);
 }
 
@@ -91,7 +91,7 @@ public interface AgendaPlanner {
   @SystemMessage("""
       Tu es un expert en planification de conférences.
       À partir des talks trouvés, crée un agenda structuré
-      pour les 3 jours de Devoxx France 2026
+      pour les 3 jours de BearConf 2026
       (mercredi, jeudi et vendredi).
 
       Organise l'agenda de manière claire avec :
@@ -121,7 +121,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-      .reasoningEffort("low")
+//      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -145,7 +145,7 @@ void main() {
       .database(System.getenv("PGVECTOR_DATABASE"))
       .user(System.getenv("PGVECTOR_USER"))
       .password(System.getenv("PGVECTOR_PASSWORD"))
-      .table("devoxx_embeddings")
+      .table("bearconf_embeddings")
       .dimension(embeddingModel.dimension())
       .createTable(false)
       .dropTableFirst(false)
@@ -158,13 +158,13 @@ void main() {
       .minScore(0.1)
       .build();
 
-  // === Build Agent 1: TalkSearcher (RAG + DevoxxTools) ===
+  // === Build Agent 1: TalkSearcher (RAG + BearConfTools) ===
   // java-66
   TalkSearcher talkSearcher = AgenticServices
       .agentBuilder(TalkSearcher.class)
       .chatModel(chatModel)
       .contentRetriever(contentRetriever)
-      .tools(new DevoxxTools())
+      .tools(new BearConfTools())
       .outputKey("talks")
       .build();
 
@@ -215,6 +215,4 @@ void main() {
   IO.println("💬: %s".formatted(ChatbotUtils.QUESTIONS.MAKE_AGENDA.toString()));
   IO.println("🤖: ");
   IO.println(supervisor.invoke(ChatbotUtils.QUESTIONS.MAKE_AGENDA.toString()));
-
-  IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
 }

@@ -8,7 +8,7 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
+//SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 
@@ -34,7 +34,7 @@ import java.sql.ResultSet;
 // java-18
 interface RagAssistant {
   @SystemMessage("""
-      Tu es un expert de la conférence Devoxx France.
+      Tu es un expert de la conférence BearConf.
       Réponds de manière structurée et concise en te basant
       uniquement sur les informations qui te sont fournies.
       Si tu ne trouves pas l'information dans le contexte fourni,
@@ -43,7 +43,7 @@ interface RagAssistant {
   TokenStream chat(String userMessage);
 }
 
-/// RAG chatbot: embeds Devoxx talks into a vector store, then retrieves
+/// RAG chatbot: embeds BearConf talks into a vector store, then retrieves
 /// only the relevant talks for each question instead of injecting the
 /// full program into every request.
 void main() {
@@ -54,7 +54,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-      .reasoningEffort("low")
+//      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -82,18 +82,18 @@ void main() {
 //      .database(System.getenv("PGVECTOR_DATABASE"))
 //      .user(System.getenv("PGVECTOR_USER"))
 //      .password(System.getenv("PGVECTOR_PASSWORD"))
-//      .table("devoxx_embeddings")
+//      .table("bearconf_embeddings")
 //      .dimension(embeddingModel.dimension())
 //      .createTable(true)
 //      .dropTableFirst(true)
 //      .build();
 
-  // Load Devoxx talks and create text segments for the vector store
+  // Load BearConf talks and create text segments for the vector store
   // java-22
-  var talks = DevoxxUtils.loadDevoxxTalks();
-  IO.println("📋 %d talks chargés depuis le programme Devoxx".formatted(talks.size()));
+  var talks = BearConfUtils.loadBearConfTalks();
+  IO.println("📋 %d talks chargés depuis le programme BearConf".formatted(talks.size()));
 
-  var segments = DevoxxUtils.createTextSegments(talks);
+  var segments = BearConfUtils.createTextSegments(talks);
   IO.println("🔪 %d segments créés (1 segment par talk)".formatted(segments.size()));
 
   // Embed the segments and store the embeddings in the vector store
@@ -132,10 +132,10 @@ void main() {
   // Ask question to the assistant. -> assistant.chat(prompt)
   // java-26
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
       ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-      ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.MAKE_AGENDA,
       ChatbotUtils.QUESTIONS.TALKS_ON_AI,
       ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,

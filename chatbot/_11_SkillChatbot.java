@@ -9,9 +9,9 @@
 //DEPS ch.qos.logback:logback-classic:1.5.6
 //DEPS redis.clients:jedis:6.0.0
 //SOURCES ChatbotUtils.java
-//SOURCES DevoxxUtils.java
-//SOURCES DevoxxTools.java
-//SOURCES DevoxxSkillTools.java
+//SOURCES BearConfUtils.java
+//SOURCES BearConfTools.java
+//SOURCES BearConfSkillTools.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java
 
@@ -35,16 +35,16 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-      .reasoningEffort("low")
+//      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
       .build();
 
-  // Load the devoxx-companion skill from the filesystem
-  // The skill directory contains SKILL.md and references/devoxx-facts.md
+  // Load the bearconf-companion skill from the filesystem
+  // The skill directory contains SKILL.md and references/bearconf-facts.md
   // java-91
-  var fileSystemSkill = FileSystemSkillLoader.loadSkill(Path.of("skills/devoxx-companion"));
+  var fileSystemSkill = FileSystemSkillLoader.loadSkill(Path.of("skills/bearconf-companion"));
 
   IO.println("🎯 Skill '%s' loaded: %s".formatted(fileSystemSkill.name(), fileSystemSkill.description()));
   IO.println("   📄 Resources: %d".formatted(fileSystemSkill.resources().size()));
@@ -55,13 +55,13 @@ void main() {
   // ⚠️ The following code should works but LangChain4j has not yet released it.
   // see https://github.com/langchain4j/langchain4j/issues/4779 ⚠️
   //  var skill = fileSystemSkill.toBuilder()
-  //      .tool(new DevoxxSkillTools(talks))
+  //      .tool(new BearConfSkillTools(talks))
   //      .build();
 
   // Build the system message with available skills
   // java-80
   var systemMessage = """
-      Tu es un assistant intelligent pour la conference Devoxx France 2026.
+      Tu es un assistant intelligent pour la conference BearConf 2026.
 
       Tu disposes d'outils pour connaitre la date et l'heure actuelles.
       Utilise-les quand l'utilisateur mentionne "aujourd'hui", "demain",
@@ -82,7 +82,7 @@ void main() {
   // java-81
   var assistant = AiServices.builder(SkillAssistant.class)
       .streamingChatModel(chatModel)
-      .tools(new DevoxxTools(), new DevoxxSkillTools()) // ⚠️ DevoxxSkillTools should no longer be passed here once LangChain4j supports skill-scoped tools, see https://github.com/langchain4j/langchain4j/issues/4779 ⚠️
+      .tools(new BearConfTools(), new BearConfSkillTools()) // ⚠️ BearConfSkillTools should no longer be passed here once LangChain4j supports skill-scoped tools, see https://github.com/langchain4j/langchain4j/issues/4779 ⚠️
       .toolProvider(skills.toolProvider())
       .systemMessage(systemMessage)
       .build();
@@ -90,10 +90,10 @@ void main() {
   // Interactive menu
   // java-82
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
       ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-      ChatbotUtils.QUESTIONS.WHEN_IS_DEVOXX,
+      ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.MAKE_AGENDA,
       ChatbotUtils.QUESTIONS.TALKS_ON_AI,
       ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,

@@ -25,8 +25,8 @@ select_model() {
       echo "Select AI Endpoints model:"
       echo "  0. 🔒  Keep default from .env ($OVH_AI_ENDPOINTS_MODEL_NAME)"
       echo "  1. gpt-oss-120b"
-      echo "  2. Llama-3.1-8B-Instruct"
-      echo "  3. Mistral-7B-Instruct-v0.3"
+      echo "  2. Meta-Llama-3_3-70B-Instruct"
+      echo "  3. Mistral-Nemo-Instruct-2407"
       echo "  4. gpt-oss-20b"
       echo ""
       read -r -p "Your choice [0]: " AI_MODEL_CHOICE
@@ -35,8 +35,8 @@ select_model() {
       case "$AI_MODEL_CHOICE" in
         0) ;; # keep .env value
         1) export OVH_AI_ENDPOINTS_MODEL_NAME="gpt-oss-120b" ;;
-        2) export OVH_AI_ENDPOINTS_MODEL_NAME="Llama-3.1-8B-Instruct" ;;
-        3) export OVH_AI_ENDPOINTS_MODEL_NAME="Mistral-7B-Instruct-v0.3" ;;
+        2) export OVH_AI_ENDPOINTS_MODEL_NAME="Meta-Llama-3_3-70B-Instruct" ;;
+        3) export OVH_AI_ENDPOINTS_MODEL_NAME="Mistral-Nemo-Instruct-2407" ;;
         4) export OVH_AI_ENDPOINTS_MODEL_NAME="gpt-oss-20b" ;;
         *)
           echo "Invalid model choice: $AI_MODEL_CHOICE"

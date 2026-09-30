@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-// Records to match to the Devoxx France data structure.
+// Records to match to the BearConf data structure.
 record Speaker(String fullName) {}
 record Track(String name) {}
 record SessionType(String name, int duration) {}
@@ -30,8 +30,8 @@ record QA(String question, String answer) {}
 
 void main() throws IOException {
 
-  // Load and parse the Devoxx program JSON
-  var jsonPath = Path.of("../../chatbot/resources/devoxx-2026-program.json");
+  // Load and parse the BearConf program JSON
+  var jsonPath = Path.of("../../chatbot/resources/bearconf-2026-program.json");
   if (!Files.exists(jsonPath)) {
     System.err.println("Fichier programme introuvable : " + jsonPath);
     System.exit(1);
@@ -40,7 +40,7 @@ void main() throws IOException {
   var json = Files.readString(jsonPath);
   Type listType = new TypeToken<List<Talk>>() {}.getType();
   List<Talk> talks = new Gson().fromJson(json, listType);
-  System.out.println("📋 %d talks chargés depuis le programme Devoxx".formatted(talks.size()));
+  System.out.println("📋 %d talks chargés depuis le programme BearConf".formatted(talks.size()));
 
   var dataset = new ArrayList<QA>();
 
@@ -77,7 +77,7 @@ void main() throws IOException {
 
     // Q: "Who presents talk X?" (atomic: speaker association)
     dataset.add(new QA(
-        "Qui présente le talk '%s' à Devoxx France 2026 ?".formatted(talk.title()),
+        "Qui présente le talk '%s' à BearConf 2026 ?".formatted(talk.title()),
         "Le talk '%s' est présenté par %s.".formatted(talk.title(), speakerNames)
     ));
     talkQaCount++;
@@ -96,8 +96,20 @@ void main() throws IOException {
       // Truncate to ~300 chars for shorter answers
       var shortDesc = desc.length() > 300 ? desc.substring(0, 297) + "..." : desc;
       dataset.add(new QA(
-          "De quoi parle le talk '%s' à Devoxx France 2026 ?".formatted(talk.title()),
+          "De quoi parle le talk '%s' à BearConf 2026 ?".formatted(talk.title()),
           shortDesc
+      ));
+      talkQaCount++;
+    }
+
+    // Q: "Detail talk X" — richer answer from the full description when it adds
+    //    something beyond the summary (fixes topics only mentioned in the description).
+    var fullDesc = cleanHtml(talk.description());
+    if (fullDesc != null && !fullDesc.isBlank() && !fullDesc.equals(desc)) {
+      var longDesc = fullDesc.length() > 800 ? fullDesc.substring(0, 797) + "..." : fullDesc;
+      dataset.add(new QA(
+          "Peux-tu détailler le talk '%s' à BearConf 2026 ?".formatted(talk.title()),
+          longDesc
       ));
       talkQaCount++;
     }
@@ -126,16 +138,16 @@ void main() throws IOException {
 
     // Variant 1: "Quels sont les talks de X ?"
     dataset.add(new QA(
-        "Quels sont les talks de %s à Devoxx France 2026 ?".formatted(speaker),
-        "%s présente %d talks à Devoxx France 2026 :\n%s".formatted(
+        "Quels sont les talks de %s à BearConf 2026 ?".formatted(speaker),
+        "%s présente %d talks à BearConf 2026 :\n%s".formatted(
             speaker, speakerTalks.size(), talkTitles)
     ));
     speakerQaCount++;
 
     // Variant 2: "Combien de talks présente X ?"
     dataset.add(new QA(
-        "Combien de talks présente %s à Devoxx France 2026 ?".formatted(speaker),
-        "%s présente %d talks à Devoxx France 2026.".formatted(speaker, speakerTalks.size())
+        "Combien de talks présente %s à BearConf 2026 ?".formatted(speaker),
+        "%s présente %d talks à BearConf 2026.".formatted(speaker, speakerTalks.size())
     ));
     speakerQaCount++;
 
@@ -144,15 +156,15 @@ void main() throws IOException {
         .map(t -> t.track().name())
         .distinct().sorted().collect(Collectors.joining(", "));
     dataset.add(new QA(
-        "Dans quels tracks intervient %s à Devoxx France 2026 ?".formatted(speaker),
+        "Dans quels tracks intervient %s à BearConf 2026 ?".formatted(speaker),
         "%s intervient dans les tracks : %s.".formatted(speaker, speakerTracks)
     ));
     speakerQaCount++;
 
-    // Variant 4: "Est-ce que X présente à Devoxx France 2026 ?"
+    // Variant 4: "Est-ce que X présente à BearConf 2026 ?"
     dataset.add(new QA(
-        "Est-ce que %s présente à Devoxx France 2026 ?".formatted(speaker),
-        "Oui, %s présente %d talks à Devoxx France 2026.".formatted(speaker, speakerTalks.size())
+        "Est-ce que %s présente à BearConf 2026 ?".formatted(speaker),
+        "Oui, %s présente %d talks à BearConf 2026.".formatted(speaker, speakerTalks.size())
     ));
     speakerQaCount++;
   }
@@ -168,7 +180,7 @@ void main() throws IOException {
 
     // One Q/A per single-talk speaker (confirmation + title)
     dataset.add(new QA(
-        "Quel est le talk de %s à Devoxx France 2026 ?".formatted(speaker),
+        "Quel est le talk de %s à BearConf 2026 ?".formatted(speaker),
         "%s présente '%s', un %s de %d minutes dans le track %s.".formatted(
             speaker, talk.title(), talk.sessionType().name(),
             talk.sessionType().duration(), talk.track().name())
@@ -177,8 +189,8 @@ void main() throws IOException {
 
     // Boolean confirmation variant
     dataset.add(new QA(
-        "Est-ce que %s présente à Devoxx France 2026 ?".formatted(speaker),
-        "Oui, %s présente le talk '%s' à Devoxx France 2026.".formatted(speaker, talk.title())
+        "Est-ce que %s présente à BearConf 2026 ?".formatted(speaker),
+        "Oui, %s présente le talk '%s' à BearConf 2026.".formatted(speaker, talk.title())
     ));
     speakerQaCount++;
   }
@@ -195,7 +207,7 @@ void main() throws IOException {
     // Count variant
     dataset.add(new QA(
         "Combien de talks y a-t-il dans le track %s ?".formatted(track),
-        "Il y a %d talks dans le track %s à Devoxx France 2026.".formatted(
+        "Il y a %d talks dans le track %s à BearConf 2026.".formatted(
             trackTalks.size(), track)
     ));
     trackQaCount++;
@@ -206,7 +218,7 @@ void main() throws IOException {
         .map(Speaker::fullName)
         .distinct().sorted().collect(Collectors.joining(", "));
     dataset.add(new QA(
-        "Quels speakers présentent dans le track %s à Devoxx France 2026 ?".formatted(track),
+        "Quels speakers présentent dans le track %s à BearConf 2026 ?".formatted(track),
         "Les speakers du track %s sont : %s.".formatted(track, trackSpeakers)
     ));
     trackQaCount++;
@@ -217,7 +229,7 @@ void main() throws IOException {
         .sorted()
         .collect(Collectors.joining(", "));
     dataset.add(new QA(
-        "Quels sont les talks du track %s à Devoxx France 2026 ?".formatted(track),
+        "Quels sont les talks du track %s à BearConf 2026 ?".formatted(track),
         "Les talks du track %s sont : %s.".formatted(track, trackTitles)
     ));
     trackQaCount++;
@@ -234,15 +246,15 @@ void main() throws IOException {
     var duration = typeTalks.getFirst().sessionType().duration();
 
     dataset.add(new QA(
-        "Combien de sessions de type %s y a-t-il à Devoxx France 2026 ?".formatted(typeName),
-        "Il y a %d sessions de type %s (%d minutes) à Devoxx France 2026.".formatted(
+        "Combien de sessions de type %s y a-t-il à BearConf 2026 ?".formatted(typeName),
+        "Il y a %d sessions de type %s (%d minutes) à BearConf 2026.".formatted(
             typeTalks.size(), typeName, duration)
     ));
     typeQaCount++;
 
     dataset.add(new QA(
-        "Combien de temps dure un %s à Devoxx France 2026 ?".formatted(typeName),
-        "Un %s dure %d minutes à Devoxx France 2026.".formatted(typeName, duration)
+        "Combien de temps dure un %s à BearConf 2026 ?".formatted(typeName),
+        "Un %s dure %d minutes à BearConf 2026.".formatted(typeName, duration)
     ));
     typeQaCount++;
   }
@@ -254,21 +266,21 @@ void main() throws IOException {
   int globalQaCount = 0;
 
   dataset.add(new QA(
-      "Combien de talks y a-t-il à Devoxx France 2026 ?",
-      "Il y a %d talks au programme de Devoxx France 2026, répartis dans %d tracks.".formatted(
+      "Combien de talks y a-t-il à BearConf 2026 ?",
+      "Il y a %d talks au programme de BearConf 2026, répartis dans %d tracks.".formatted(
           talks.size(), talksByTrack.size())
   ));
   globalQaCount++;
 
   dataset.add(new QA(
-      "Quels sont les tracks de Devoxx France 2026 ?",
-      "Les tracks de Devoxx France 2026 sont : %s.".formatted(
+      "Quels sont les tracks de BearConf 2026 ?",
+      "Les tracks de BearConf 2026 sont : %s.".formatted(
           String.join(", ", tracksSorted))
   ));
   globalQaCount++;
 
   dataset.add(new QA(
-      "Quels sont les formats de sessions à Devoxx France 2026 ?",
+      "Quels sont les formats de sessions à BearConf 2026 ?",
       "Les formats de sessions sont : %s.".formatted(
           talksByType.entrySet().stream()
               .sorted(Map.Entry.comparingByKey())
@@ -281,22 +293,22 @@ void main() throws IOException {
   globalQaCount++;
 
   dataset.add(new QA(
-      "C'est quoi Devoxx France ?",
-      "Devoxx France est une conférence technique majeure dédiée aux développeurs, qui se tient chaque année à Paris. L'édition 2026 propose %d talks répartis dans %d tracks couvrant des sujets comme %s.".formatted(
+      "C'est quoi BearConf ?",
+      "BearConf est une conférence technique majeure dédiée aux développeurs, qui se tient chaque année à Paris. L'édition 2026 propose %d talks répartis dans %d tracks couvrant des sujets comme %s.".formatted(
           talks.size(), talksByTrack.size(),
           talksByTrack.keySet().stream().sorted().limit(5).collect(Collectors.joining(", ")))
   ));
   globalQaCount++;
 
   dataset.add(new QA(
-      "Quand a lieu Devoxx France 2026 ?",
-      "Devoxx France 2026 se tient du 22 au 24 avril 2026 au Palais des Congrès à Paris."
+      "Quand a lieu BearConf 2026 ?",
+      "BearConf 2026 se tient du 22 au 24 avril 2026 au Palais des Ours."
   ));
   globalQaCount++;
 
   dataset.add(new QA(
-      "Où se déroule Devoxx France 2026 ?",
-      "Devoxx France 2026 se déroule au Palais des Congrès de Paris."
+      "Où se déroule BearConf 2026 ?",
+      "BearConf 2026 se déroule au Palais des Ours."
   ));
   globalQaCount++;
 
@@ -305,7 +317,7 @@ void main() throws IOException {
       .max(Comparator.comparingInt(e -> e.getValue().size()))
       .orElseThrow();
   dataset.add(new QA(
-      "Quel est le track avec le plus de talks à Devoxx France 2026 ?",
+      "Quel est le track avec le plus de talks à BearConf 2026 ?",
       "Le track avec le plus de talks est %s avec %d talks.".formatted(
           topTrack.getKey(), topTrack.getValue().size())
   ));
@@ -315,7 +327,7 @@ void main() throws IOException {
       .min(Comparator.comparingInt(e -> e.getValue().size()))
       .orElseThrow();
   dataset.add(new QA(
-      "Quel est le track avec le moins de talks à Devoxx France 2026 ?",
+      "Quel est le track avec le moins de talks à BearConf 2026 ?",
       "Le track avec le moins de talks est %s avec %d talks.".formatted(
           bottomTrack.getKey(), bottomTrack.getValue().size())
   ));
@@ -323,8 +335,8 @@ void main() throws IOException {
 
   // Speaker count
   dataset.add(new QA(
-      "Combien de speakers y a-t-il à Devoxx France 2026 ?",
-      "Il y a %d speakers à Devoxx France 2026.".formatted(talksBySpeaker.size())
+      "Combien de speakers y a-t-il à BearConf 2026 ?",
+      "Il y a %d speakers à BearConf 2026.".formatted(talksBySpeaker.size())
   ));
   globalQaCount++;
 
@@ -333,7 +345,7 @@ void main() throws IOException {
       .max(Comparator.comparingInt(e -> e.getValue().size()))
       .orElseThrow();
   dataset.add(new QA(
-      "Quel est le format de session le plus courant à Devoxx France 2026 ?",
+      "Quel est le format de session le plus courant à BearConf 2026 ?",
       "Le format le plus courant est %s avec %d sessions.".formatted(
           topFormat.getKey(), topFormat.getValue().size())
   ));
@@ -350,8 +362,8 @@ void main() throws IOException {
         .map(t -> t.sessionType().name())
         .distinct().sorted().collect(Collectors.joining(", "));
     dataset.add(new QA(
-        "Combien de talks durent %d minutes à Devoxx France 2026 ?".formatted(duration),
-        "Il y a %d talks de %d minutes à Devoxx France 2026, dans les formats : %s.".formatted(
+        "Combien de talks durent %d minutes à BearConf 2026 ?".formatted(duration),
+        "Il y a %d talks de %d minutes à BearConf 2026, dans les formats : %s.".formatted(
             durationTalks.size(), duration, formats)
     ));
     globalQaCount++;
@@ -365,55 +377,55 @@ void main() throws IOException {
   int altQaCount = 0;
 
   dataset.add(new QA(
-      "Parle-moi de Devoxx France 2026.",
-      "Devoxx France 2026 est la grande conférence des développeurs à Paris, du 22 au 24 avril 2026 au Palais des Congrès. Elle propose %d talks répartis dans %d tracks : %s. Les sessions vont du Lunch Talk de 15 minutes aux Deep Dives et Hands-on Labs de 2 à 3 heures.".formatted(
+      "Parle-moi de BearConf 2026.",
+      "BearConf 2026 est la grande conférence des développeurs à Paris, du 22 au 24 avril 2026 au Palais des Ours. Elle propose %d talks répartis dans %d tracks : %s. Les sessions vont du Lunch Talk de 15 minutes aux Deep Dives et Hands-on Labs de 2 à 3 heures.".formatted(
           talks.size(), talksByTrack.size(),
           String.join(", ", tracksSorted))
   ));
   altQaCount++;
 
   dataset.add(new QA(
-      "Qu'est-ce que Devoxx France 2026 ?",
-      "Devoxx France 2026 est une conférence pour développeurs qui se tient du 22 au 24 avril 2026 au Palais des Congrès à Paris, avec %d talks et %d speakers.".formatted(
+      "Qu'est-ce que BearConf 2026 ?",
+      "BearConf 2026 est une conférence pour développeurs qui se tient du 22 au 24 avril 2026 au Palais des Ours, avec %d talks et %d speakers.".formatted(
           talks.size(), talksBySpeaker.size())
   ));
   altQaCount++;
 
   dataset.add(new QA(
-      "Quels sujets sont abordés à Devoxx France 2026 ?",
-      "Devoxx France 2026 couvre de nombreux sujets à travers %d tracks : %s.".formatted(
+      "Quels sujets sont abordés à BearConf 2026 ?",
+      "BearConf 2026 couvre de nombreux sujets à travers %d tracks : %s.".formatted(
           talksByTrack.size(),
           String.join(", ", tracksSorted))
   ));
   altQaCount++;
 
   dataset.add(new QA(
-      "Devoxx France 2026, c'est quand ?",
-      "Devoxx France 2026 a lieu du 22 au 24 avril 2026."
+      "BearConf 2026, c'est quand ?",
+      "BearConf 2026 a lieu du 22 au 24 avril 2026."
   ));
   altQaCount++;
 
   dataset.add(new QA(
-      "Devoxx France 2026 se passe où ?",
-      "Au Palais des Congrès de Paris."
+      "BearConf 2026 se passe où ?",
+      "Au Palais des Ours."
   ));
   altQaCount++;
 
   dataset.add(new QA(
-      "Combien de jours dure Devoxx France 2026 ?",
-      "Devoxx France 2026 dure 3 jours, du 22 au 24 avril 2026."
+      "Combien de jours dure BearConf 2026 ?",
+      "BearConf 2026 dure 3 jours, du 22 au 24 avril 2026."
   ));
   altQaCount++;
 
   dataset.add(new QA(
-      "Combien de personnes présentent à Devoxx France 2026 ?",
-      "Il y a %d speakers à Devoxx France 2026.".formatted(talksBySpeaker.size())
+      "Combien de personnes présentent à BearConf 2026 ?",
+      "Il y a %d speakers à BearConf 2026.".formatted(talksBySpeaker.size())
   ));
   altQaCount++;
 
   dataset.add(new QA(
-      "Quel est le programme de Devoxx France 2026 ?",
-      "Le programme de Devoxx France 2026 comprend %d talks répartis dans %d tracks : %s. Les formats vont du Lunch Talk de 15 minutes aux Hands-on Labs et Deep Dives de 2 à 3 heures.".formatted(
+      "Quel est le programme de BearConf 2026 ?",
+      "Le programme de BearConf 2026 comprend %d talks répartis dans %d tracks : %s. Les formats vont du Lunch Talk de 15 minutes aux Hands-on Labs et Deep Dives de 2 à 3 heures.".formatted(
           talks.size(), talksByTrack.size(),
           String.join(", ", tracksSorted))
   ));
@@ -425,7 +437,7 @@ void main() throws IOException {
     var naturalTopic = trackToNaturalTopic(track);
     if (naturalTopic != null) {
       dataset.add(new QA(
-          "Y a-t-il des talks sur %s à Devoxx France 2026 ?".formatted(naturalTopic),
+          "Y a-t-il des talks sur %s à BearConf 2026 ?".formatted(naturalTopic),
           "Oui, le track '%s' contient %d talks dédiés à %s.".formatted(
               track, trackTalks.size(), naturalTopic)
       ));
@@ -444,101 +456,101 @@ void main() throws IOException {
 
   // Questions without "2026" — model must still answer about 2026
   dataset.add(new QA(
-      "Quand se déroule Devoxx France ?",
-      "La prochaine édition de Devoxx France se déroule du 22 au 24 avril 2026 au Palais des Congrès à Paris."
+      "Quand se déroule BearConf ?",
+      "La prochaine édition de BearConf se déroule du 22 au 24 avril 2026 au Palais des Ours."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "Quand a lieu Devoxx France ?",
-      "Devoxx France a lieu du 22 au 24 avril 2026 au Palais des Congrès à Paris."
+      "Quand a lieu BearConf ?",
+      "BearConf a lieu du 22 au 24 avril 2026 au Palais des Ours."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "Donne-moi les dates de Devoxx France.",
-      "Devoxx France se tient du 22 au 24 avril 2026."
+      "Donne-moi les dates de BearConf.",
+      "BearConf se tient du 22 au 24 avril 2026."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "Quand se déroule Devoxx France ? Donne-moi ta dernière date connue.",
-      "Devoxx France se déroule du 22 au 24 avril 2026 au Palais des Congrès à Paris."
+      "Quand se déroule BearConf ? Donne-moi ta dernière date connue.",
+      "BearConf se déroule du 22 au 24 avril 2026 au Palais des Ours."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "C'est quand Devoxx France ?",
-      "Devoxx France a lieu du 22 au 24 avril 2026."
+      "C'est quand BearConf ?",
+      "BearConf a lieu du 22 au 24 avril 2026."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "Quelle est la date de Devoxx France ?",
-      "Devoxx France se tient du 22 au 24 avril 2026 au Palais des Congrès à Paris."
+      "Quelle est la date de BearConf ?",
+      "BearConf se tient du 22 au 24 avril 2026 au Palais des Ours."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "Quelles sont les dates du prochain Devoxx France ?",
-      "Le prochain Devoxx France a lieu du 22 au 24 avril 2026 au Palais des Congrès à Paris."
+      "Quelles sont les dates du prochain BearConf ?",
+      "Le prochain BearConf a lieu du 22 au 24 avril 2026 au Palais des Ours."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "Devoxx France, c'est quand ?",
-      "Devoxx France a lieu du 22 au 24 avril 2026."
+      "BearConf, c'est quand ?",
+      "BearConf a lieu du 22 au 24 avril 2026."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "À quelle date a lieu Devoxx France ?",
-      "Devoxx France a lieu du 22 au 24 avril 2026 au Palais des Congrès à Paris."
+      "À quelle date a lieu BearConf ?",
+      "BearConf a lieu du 22 au 24 avril 2026 au Palais des Ours."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "Devoxx France se passe quand ?",
-      "Devoxx France se déroule du 22 au 24 avril 2026."
+      "BearConf se passe quand ?",
+      "BearConf se déroule du 22 au 24 avril 2026."
   ));
   dateQaCount++;
 
   // Location without "2026"
   dataset.add(new QA(
-      "Où se déroule Devoxx France ?",
-      "Devoxx France se déroule au Palais des Congrès de Paris. L'édition 2026 a lieu du 22 au 24 avril."
+      "Où se déroule BearConf ?",
+      "BearConf se déroule au Palais des Ours. L'édition 2026 a lieu du 22 au 24 avril."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "Où a lieu Devoxx France ?",
-      "Devoxx France a lieu au Palais des Congrès de Paris."
+      "Où a lieu BearConf ?",
+      "BearConf a lieu au Palais des Ours."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "C'est où Devoxx France ?",
-      "Devoxx France se tient au Palais des Congrès de Paris."
+      "C'est où BearConf ?",
+      "BearConf se tient au Palais des Ours."
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "Devoxx France se passe où ?",
-      "Au Palais des Congrès de Paris. L'édition 2026 a lieu du 22 au 24 avril 2026."
+      "BearConf se passe où ?",
+      "Au Palais des Ours. L'édition 2026 a lieu du 22 au 24 avril 2026."
   ));
   dateQaCount++;
 
   // Combined date + what is it
   dataset.add(new QA(
-      "Parle-moi de Devoxx France.",
-      "Devoxx France est une conférence technique majeure pour les développeurs. L'édition 2026 se tient du 22 au 24 avril au Palais des Congrès à Paris, avec %d talks et %d speakers.".formatted(
+      "Parle-moi de BearConf.",
+      "BearConf est une conférence technique majeure pour les développeurs. L'édition 2026 se tient du 22 au 24 avril au Palais des Ours, avec %d talks et %d speakers.".formatted(
           talks.size(), talksBySpeaker.size())
   ));
   dateQaCount++;
 
   dataset.add(new QA(
-      "C'est quoi Devoxx France ?",
-      "Devoxx France est la grande conférence des développeurs à Paris. L'édition 2026 a lieu du 22 au 24 avril au Palais des Congrès, avec %d talks répartis dans %d tracks.".formatted(
+      "C'est quoi BearConf ?",
+      "BearConf est la grande conférence des développeurs à Paris. L'édition 2026 a lieu du 22 au 24 avril au Palais des Ours, avec %d talks répartis dans %d tracks.".formatted(
           talks.size(), talksByTrack.size())
   ));
   dateQaCount++;
@@ -561,8 +573,8 @@ void main() throws IOException {
     // Only add if the person is NOT actually a speaker
     if (!talksBySpeaker.containsKey(fakeSpeaker)) {
       dataset.add(new QA(
-          "Est-ce que %s présente à Devoxx France 2026 ?".formatted(fakeSpeaker),
-          "Non, %s ne fait pas partie des speakers de Devoxx France 2026.".formatted(fakeSpeaker)
+          "Est-ce que %s présente à BearConf 2026 ?".formatted(fakeSpeaker),
+          "Non, %s ne fait pas partie des speakers de BearConf 2026.".formatted(fakeSpeaker)
       ));
       negativeQaCount++;
     }
@@ -575,39 +587,39 @@ void main() throws IOException {
   );
   for (var fakeTopic : fakeTopics) {
     dataset.add(new QA(
-        "Y a-t-il des talks sur %s à Devoxx France 2026 ?".formatted(fakeTopic),
-        "Non, il n'y a pas de track dédié à %s dans le programme de Devoxx France 2026. Les tracks disponibles sont : %s.".formatted(
+        "Y a-t-il des talks sur %s à BearConf 2026 ?".formatted(fakeTopic),
+        "Non, il n'y a pas de track dédié à %s dans le programme de BearConf 2026. Les tracks disponibles sont : %s.".formatted(
             fakeTopic, String.join(", ", tracksSorted))
     ));
     negativeQaCount++;
   }
 
-  // Boundary: "Is Devoxx France in [wrong city]?"
+  // Boundary: "Is BearConf in [wrong city]?"
   var wrongCities = List.of("Lyon", "Marseille", "Toulouse", "Bordeaux", "Nantes", "Londres", "Berlin");
   for (var city : wrongCities) {
     dataset.add(new QA(
-        "Est-ce que Devoxx France 2026 se déroule à %s ?".formatted(city),
-        "Non, Devoxx France 2026 se déroule au Palais des Congrès de Paris, pas à %s.".formatted(city)
+        "Est-ce que BearConf 2026 se déroule à %s ?".formatted(city),
+        "Non, BearConf 2026 se déroule au Palais des Ours, pas à %s.".formatted(city)
     ));
     negativeQaCount++;
   }
 
   // Wrong dates
   dataset.add(new QA(
-      "Est-ce que Devoxx France 2026 a lieu en juin ?",
-      "Non, Devoxx France 2026 a lieu du 22 au 24 avril 2026, pas en juin."
+      "Est-ce que BearConf 2026 a lieu en juin ?",
+      "Non, BearConf 2026 a lieu du 22 au 24 avril 2026, pas en juin."
   ));
   negativeQaCount++;
 
   dataset.add(new QA(
-      "Devoxx France 2026 a lieu en mars ?",
-      "Non, Devoxx France 2026 se tient du 22 au 24 avril 2026."
+      "BearConf 2026 a lieu en mars ?",
+      "Non, BearConf 2026 se tient du 22 au 24 avril 2026."
   ));
   negativeQaCount++;
 
   dataset.add(new QA(
-      "Est-ce que Devoxx France 2026 a lieu en septembre ?",
-      "Non, Devoxx France 2026 a lieu du 22 au 24 avril 2026, pas en septembre."
+      "Est-ce que BearConf 2026 a lieu en septembre ?",
+      "Non, BearConf 2026 a lieu du 22 au 24 avril 2026, pas en septembre."
   ));
   negativeQaCount++;
 
@@ -630,8 +642,8 @@ void main() throws IOException {
 
     // Q: "Does talk X exist?" — confirmation with exact title
     dataset.add(new QA(
-        "Est-ce que le talk '%s' est au programme de Devoxx France 2026 ?".formatted(talk.title()),
-        "Oui, '%s' est au programme de Devoxx France 2026. C'est un %s de %d minutes présenté par %s dans le track %s.".formatted(
+        "Est-ce que le talk '%s' est au programme de BearConf 2026 ?".formatted(talk.title()),
+        "Oui, '%s' est au programme de BearConf 2026. C'est un %s de %d minutes présenté par %s dans le track %s.".formatted(
             talk.title(), format, duration, speakerNames, track)
     ));
     titleQaCount++;
@@ -665,14 +677,14 @@ void main() throws IOException {
 
     // Variant: "Peux-tu lister..."
     dataset.add(new QA(
-        "Peux-tu lister les talks de %s à Devoxx France 2026 ?".formatted(speaker),
+        "Peux-tu lister les talks de %s à BearConf 2026 ?".formatted(speaker),
         "Voici les %d talks de %s :\n%s".formatted(speakerTalks.size(), speaker, talkTitles)
     ));
     titleQaCount++;
 
     // Variant: "Donne-moi les talks de..."
     dataset.add(new QA(
-        "Donne-moi les talks de %s à Devoxx France 2026.".formatted(speaker),
+        "Donne-moi les talks de %s à BearConf 2026.".formatted(speaker),
         "%s présente les talks suivants : %s.".formatted(speaker, titleList)
     ));
     titleQaCount++;
@@ -684,7 +696,7 @@ void main() throws IOException {
 
     // Variant: "Peux-tu lister..."
     dataset.add(new QA(
-        "Peux-tu lister les talks de %s à Devoxx France 2026 ?".formatted(speaker),
+        "Peux-tu lister les talks de %s à BearConf 2026 ?".formatted(speaker),
         "%s présente un seul talk : '%s' (%s, %d min).".formatted(
             speaker, talk.title(), talk.sessionType().name(), talk.sessionType().duration())
     ));
@@ -704,8 +716,8 @@ void main() throws IOException {
   );
   for (var fakeTitle : fakeTitles) {
     dataset.add(new QA(
-        "Est-ce que le talk '%s' est au programme de Devoxx France 2026 ?".formatted(fakeTitle),
-        "Non, le talk '%s' n'est pas au programme de Devoxx France 2026.".formatted(fakeTitle)
+        "Est-ce que le talk '%s' est au programme de BearConf 2026 ?".formatted(fakeTitle),
+        "Non, le talk '%s' n'est pas au programme de BearConf 2026.".formatted(fakeTitle)
     ));
     titleQaCount++;
   }
@@ -719,7 +731,7 @@ void main() throws IOException {
 
   var outputDir = Path.of("out");
   Files.createDirectories(outputDir);
-  var outputFile = outputDir.resolve("devoxx-2026-dataset.json");
+  var outputFile = outputDir.resolve("bearconf-2026-dataset.json");
 
   var gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
   Files.writeString(outputFile, gson.toJson(dataset));
@@ -731,15 +743,15 @@ void main() throws IOException {
 /// Maps track names to natural French topic descriptions for alternate phrasings.
 String trackToNaturalTopic(String track) {
   return switch (track) {
-    case "AI & Agentic Systems" -> "l'intelligence artificielle";
-    case "Architecture" -> "l'architecture logicielle";
+    case "IA & Agents autonomes" -> "l'intelligence artificielle";
+    case "Architecture & Design" -> "l'architecture logicielle";
     case "Data & Analytics" -> "la data et l'analytique";
-    case "Development Practices" -> "les pratiques de développement";
+    case "Pratiques de dev" -> "les pratiques de développement";
     case "Front-end & UX" -> "le front-end et l'UX";
-    case "Java & Languages" -> "Java et les langages de programmation";
-    case "People & Culture" -> "la culture et les soft skills";
-    case "Security & Privacy" -> "la sécurité informatique";
-    case "Server-side & Cloud Platforms" -> "le cloud et les plateformes serveur";
+    case "Langages & JVM" -> "Java et les langages de programmation";
+    case "Humain & Culture" -> "la culture et les soft skills";
+    case "Sécurité & Vie privée" -> "la sécurité informatique";
+    case "Cloud & Plateformes" -> "le cloud et les plateformes serveur";
     default -> null;
   };
 }

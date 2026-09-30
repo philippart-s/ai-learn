@@ -11,12 +11,12 @@ load_in_4bit: false
 
 # ── Dataset ─────────────────────────────────────────────────────────
 datasets:
-  - path: /workspace/dataset                        # Local path to your Devoxx Q&A JSONL
+  - path: /workspace/dataset                        # Local path to your BearConf Q&A JSONL
     type: alpaca_chat.load_qa                       # Parser format — expects {"question":…, "answer":…} pairs
 
 dataset_prepared_path:                              # Cache dir for tokenized dataset (empty = default)
 val_set_size: 0.1                                   # 10 % held out for validation — like a test split in ML
-output_dir: /workspace/out/llama-3.2-3b-devoxx      # Where the trained adapter weights land
+output_dir: /workspace/out/llama-3.2-3b-bearconf      # Where the trained adapter weights land
 
 # ── Sequence & packing ──────────────────────────────────────────────
 sequence_len: 4096                                 # Max token window — truncates anything longer
@@ -33,12 +33,12 @@ lora_model_dir:                                    # Empty = train from scratch 
 lora_r: 128                                        # Rank of the delta matrices — higher = more capacity, more VRAM
                                                    # 128 is aggressive for 3B; works because we're in fp16
 lora_alpha: 256                                    # Scaling factor — rule of thumb: 2× lora_r
-lora_dropout: 0.1                                  # 10 % dropout on LoRA layers to prevent overfitting
+lora_dropout: 0.0                                  # No dropout — we WANT overfitting/memorization here, not generalization
 lora_target_linear: true                           # Apply LoRA to ALL linear layers (not just attention Q/V)
 
 # ── Weights & Biases (experiment tracking) ──────────────────────────
 # Like a Grafana dashboard for your training runs
-wandb_project: Devoxx
+wandb_project: BearConf
 wandb_entity: wildagsx                             # Your W&B org/user
 wandb_mode:
 wandb_watch:
@@ -50,7 +50,7 @@ gradient_accumulation_steps: 4                     # Simulates batch_size = micr
                                                    # Accumulates gradients over 4 steps before updating weights
 micro_batch_size: 2                                # Actual batch per GPU step — limited by VRAM
 num_epochs: 15                                     # 15 full passes over the dataset
-                                                   # High because Devoxx dataset is small — needs repetition
+                                                   # High because BearConf dataset is small — needs repetition
 optimizer: adamw_bnb_8bit                          # Adam optimizer with 8-bit state — saves ~30 % optimizer memory
 lr_scheduler: cosine                               # Learning rate decays following a cosine curve (smooth cooldown)
 learning_rate: 0.0002                              # 2e-4 — standard LoRA fine-tuning learning rate
@@ -70,7 +70,7 @@ flash_attention: true                              # FlashAttention-2: fused GPU
 warmup_steps: 20                                   # LR ramps from 0 → 0.0002 over 20 steps (avoids early instability)
 evals_per_epoch: 4                                 # Run validation 4 times per epoch — catch overfitting early
 saves_per_epoch: 1                                 # Checkpoint once per epoch — enough for a small fine-tune
-weight_decay: 0.01                                 # L2 regularization — gently penalizes large weights
+weight_decay: 0.0                                  # No L2 regularization — same reasoning as lora_dropout above
 
 # ── Special tokens ──────────────────────────────────────────────────
 special_tokens:
