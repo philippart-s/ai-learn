@@ -2,13 +2,13 @@
 
 //JAVA 25
 
-//DEPS io.quarkus.platform:quarkus-bom:3.32.1@pom
-//DEPS io.quarkiverse.mcp:quarkus-mcp-server-http:1.10.2
-//DEPS dev.langchain4j:langchain4j:1.12.2
-//DEPS dev.langchain4j:langchain4j-pgvector:1.12.2-beta22
-//DEPS org.postgresql:postgresql:42.7.5
-//DEPS com.google.code.gson:gson:2.10.1
-//DEPS redis.clients:jedis:6.0.0
+//DEPS io.quarkus.platform:quarkus-bom:3.40.1@pom
+//DEPS io.quarkiverse.mcp:quarkus-mcp-server-http:2.0.1
+//DEPS dev.langchain4j:langchain4j:1.20.2
+//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS org.postgresql:postgresql:42.7.13
+//DEPS com.google.code.gson:gson:2.14.0
+//DEPS redis.clients:jedis:8.0.1
 //JAVAC_OPTIONS -parameters
 //JAVA_OPTIONS -Djava.util.logging.manager=org.jboss.logmanager.LogManager --add-opens java.base/java.lang=ALL-UNNAMED
 //SOURCES BearConfUtils.java

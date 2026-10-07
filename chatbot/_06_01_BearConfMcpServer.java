@@ -2,13 +2,13 @@
 
 //JAVA 25
 
-//DEPS dev.langchain4j:langchain4j:1.12.2
-//DEPS dev.langchain4j:langchain4j-community-mcp-server:1.12.2-beta22
-//DEPS dev.langchain4j:langchain4j-pgvector:1.12.2-beta22
-//DEPS org.postgresql:postgresql:42.7.5
-//DEPS com.google.code.gson:gson:2.10.1
-//DEPS redis.clients:jedis:6.0.0
-//DEPS ch.qos.logback:logback-classic:1.5.6
+//DEPS dev.langchain4j:langchain4j:1.20.2
+//DEPS dev.langchain4j:langchain4j-community-mcp-server:1.20.0-beta30
+//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS org.postgresql:postgresql:42.7.13
+//DEPS com.google.code.gson:gson:2.14.0
+//DEPS redis.clients:jedis:8.0.1
+//DEPS ch.qos.logback:logback-classic:1.6.4
 //SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
 //SOURCES ValkeyChatMemoryStore.java

@@ -1,12 +1,12 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
 
-//DEPS dev.langchain4j:langchain4j:1.12.2
-//DEPS dev.langchain4j:langchain4j-open-ai:1.12.2
-//DEPS dev.langchain4j:langchain4j-pgvector:1.12.2-beta22
-//DEPS org.postgresql:postgresql:42.7.5
-//DEPS com.google.code.gson:gson:2.10.1
-//DEPS ch.qos.logback:logback-classic:1.5.6
-//DEPS redis.clients:jedis:6.0.0
+//DEPS dev.langchain4j:langchain4j:1.20.2
+//DEPS dev.langchain4j:langchain4j-open-ai:1.20.2
+//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS org.postgresql:postgresql:42.7.13
+//DEPS com.google.code.gson:gson:2.14.0
+//DEPS ch.qos.logback:logback-classic:1.6.4
+//DEPS redis.clients:jedis:8.0.1
 //SOURCES ChatbotUtils.java
 //SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
@@ -29,6 +29,7 @@ import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.time.Duration;
 
 // Assistant interface with a method for chatting.
 // java-18
@@ -54,6 +55,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
+      .timeout(Duration.ofMinutes(5))
 //      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)

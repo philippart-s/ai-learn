@@ -1,10 +1,10 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
 
-//DEPS dev.langchain4j:langchain4j:1.12.2
-//DEPS dev.langchain4j:langchain4j-open-ai:1.12.2
-//DEPS dev.langchain4j:langchain4j-web-search-engine-tavily:1.12.2-beta22
-//DEPS com.google.code.gson:gson:2.10.1
-//DEPS ch.qos.logback:logback-classic:1.5.6
+//DEPS dev.langchain4j:langchain4j:1.20.2
+//DEPS dev.langchain4j:langchain4j-open-ai:1.20.2
+//DEPS dev.langchain4j:langchain4j-web-search-engine-tavily:1.20.2-beta30
+//DEPS com.google.code.gson:gson:2.14.0
+//DEPS ch.qos.logback:logback-classic:1.6.4
 //SOURCES ChatbotUtils.java
 
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
@@ -13,6 +13,7 @@ import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
 import dev.langchain4j.web.search.WebSearchTool;
 import dev.langchain4j.web.search.tavily.TavilyWebSearchEngine;
+import java.time.Duration;
 
 // Assistant interface with a method for chatting.
 
@@ -35,6 +36,7 @@ interface WebSearchAssistant {
           .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
           .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
           .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
+          .timeout(Duration.ofMinutes(5))
 //          .reasoningEffort("low")
           .temperature(0.0)
           .logRequests(false)

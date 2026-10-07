@@ -5,7 +5,8 @@ import dev.langchain4j.store.memory.chat.ChatMemoryStore;
 
 import redis.clients.jedis.DefaultJedisClientConfig;
 import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.JedisPooled;
+import redis.clients.jedis.RedisClient;
+import redis.clients.jedis.SslOptions;
 
 import java.util.List;
 
@@ -21,20 +22,24 @@ import java.util.List;
 /// TLS is enabled automatically when credentials are provided (typical for cloud instances).
 public class ValkeyChatMemoryStore implements ChatMemoryStore {
 
-  private final JedisPooled jedis;
+  private final RedisClient jedis;
   private final String keyPrefix;
 
   ValkeyChatMemoryStore(String host, int port, String user, String password, boolean ssl, String keyPrefix) {
     var config = DefaultJedisClientConfig.builder()
         .user(user)
         .password(password)
-        .ssl(ssl)
         .socketTimeoutMillis(3600)
         .timeoutMillis(3600)
         .connectionTimeoutMillis(3600)
-        .blockingSocketTimeoutMillis(3600)
+        .blockingSocketTimeoutMillis(3600);
+    if (ssl) {
+      config.sslOptions(SslOptions.defaults());
+    }
+    this.jedis = RedisClient.builder()
+        .hostAndPort(new HostAndPort(host, port))
+        .clientConfig(config.build())
         .build();
-    this.jedis = new JedisPooled(new HostAndPort(host, port), config);
     this.keyPrefix = keyPrefix;
   }
 

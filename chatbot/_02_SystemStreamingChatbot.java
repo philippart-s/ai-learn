@@ -1,8 +1,8 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
 
-//DEPS dev.langchain4j:langchain4j:1.12.2
-//DEPS dev.langchain4j:langchain4j-open-ai:1.12.2
-//DEPS ch.qos.logback:logback-classic:1.5.6
+//DEPS dev.langchain4j:langchain4j:1.20.2
+//DEPS dev.langchain4j:langchain4j-open-ai:1.20.2
+//DEPS ch.qos.logback:logback-classic:1.6.4
 //SOURCES ChatbotUtils.java
 
 
@@ -11,6 +11,7 @@ import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
 import dev.langchain4j.service.UserMessage;
+import java.time.Duration;
 
 // Assistant interface with a method for chatting.
 // java-05
@@ -28,6 +29,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
+      .timeout(Duration.ofMinutes(5))
 //      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)

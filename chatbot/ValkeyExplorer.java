@@ -1,11 +1,12 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
 
-//DEPS redis.clients:jedis:6.0.0
-//DEPS ch.qos.logback:logback-classic:1.5.6
+//DEPS redis.clients:jedis:8.0.1
+//DEPS ch.qos.logback:logback-classic:1.6.4
 
 import redis.clients.jedis.DefaultJedisClientConfig;
 import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.JedisPooled;
+import redis.clients.jedis.RedisClient;
+import redis.clients.jedis.SslOptions;
 
 import java.util.Scanner;
 import java.util.Set;
@@ -28,7 +29,7 @@ String env(String name, String defaultValue) {
   return (value != null && !value.isBlank()) ? value : defaultValue;
 }
 
-JedisPooled connect() {
+RedisClient connect() {
   var host = env("VALKEY_HOST", "localhost");
   var port = Integer.parseInt(env("VALKEY_PORT", "6379"));
   var user = env("VALKEY_USER", null);
@@ -39,13 +40,17 @@ JedisPooled connect() {
 
   var config = DefaultJedisClientConfig.builder()
       .user(user)
-      .password(password)
-      .ssl(ssl)
+      .password(password);
+  if (ssl) {
+    config.sslOptions(SslOptions.defaults());
+  }
+  return RedisClient.builder()
+      .hostAndPort(new HostAndPort(host, port))
+      .clientConfig(config.build())
       .build();
-  return new JedisPooled(new HostAndPort(host, port), config);
 }
 
-void listKeys(JedisPooled jedis) {
+void listKeys(RedisClient jedis) {
   Set<String> keys = jedis.keys(KEY_PREFIX + "*");
   if (keys.isEmpty()) {
     IO.println("  (no keys found)");
@@ -60,7 +65,7 @@ void listKeys(JedisPooled jedis) {
   }
 }
 
-void getKey(JedisPooled jedis, String key) {
+void getKey(RedisClient jedis, String key) {
   var value = jedis.get(key);
   if (value == null) {
     IO.println("  (key not found)");
@@ -77,12 +82,12 @@ void getKey(JedisPooled jedis, String key) {
   }
 }
 
-void deleteKey(JedisPooled jedis, String key) {
+void deleteKey(RedisClient jedis, String key) {
   var deleted = jedis.del(key);
   IO.println(deleted > 0 ? "  Deleted: %s".formatted(key) : "  (key not found)");
 }
 
-void flushKeys(JedisPooled jedis) {
+void flushKeys(RedisClient jedis) {
   Set<String> keys = jedis.keys(KEY_PREFIX + "*");
   if (keys.isEmpty()) {
     IO.println("  (no keys to delete)");
