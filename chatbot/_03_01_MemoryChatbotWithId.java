@@ -47,17 +47,17 @@ void main() {
 
   // --- Version 1: In-memory chat memory (lost when the program exits) ---
   // java-11
-  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
-      .id(memoryId)
-      .maxMessages(20)
-      .build();
-
-  // --- Version 2: Valkey/Redis chat memory (shared external store) ---
 //  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
 //      .id(memoryId)
 //      .maxMessages(20)
-//      .chatMemoryStore(new ValkeyChatMemoryStore())
 //      .build();
+
+  // --- Version 2: Valkey/Redis chat memory (shared external store) ---
+  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
+      .id(memoryId)
+      .maxMessages(20)
+      .chatMemoryStore(new ValkeyChatMemoryStore())
+      .build();
 
   // Assistant creation with chat memory
   // java-12
@@ -81,12 +81,12 @@ void main() {
 
   // Step 2: Ask follow-up questions that rely on memory of the injected program -> assistant.chat(prompt)
   // java-14
-  IO.println("💬 : %s".formatted(ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
+  IO.println("💬 (Stef) : %s".formatted(ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
   ChatbotUtils.displayChatbotResponse(assistant.chat("stef", ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
 
   IO.readln("Hit a key...");
 
-  IO.println("💬 : %s".formatted(ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
+  IO.println("💬 (Ny) : %s".formatted(ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
   ChatbotUtils.displayChatbotResponse(assistant.chat("ny", ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
 
   IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
