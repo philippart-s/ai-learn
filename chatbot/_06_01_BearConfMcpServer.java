@@ -144,6 +144,11 @@ void main() throws InterruptedException {
   // java-35
   System.err.println("🚀 Démarrage du serveur MCP BearConf ...");
 
+  // stdout is reserved for JSON-RPC messages: keep it for the transport and
+  // redirect everything else (e.g. BearConfUtils logs) to stderr
+  var mcpOut = System.out;
+  System.setOut(System.err);
+
   var serverInfo = new McpImplementation("bearconf-mcp-server", "1.0.0");
 
   var server = new McpServer(
@@ -151,7 +156,7 @@ void main() throws InterruptedException {
       serverInfo
   );
 
-  new StdioMcpServerTransport(System.in, System.out, server);
+  new StdioMcpServerTransport(System.in, mcpOut, server);
 
   System.err.println("✅  Serveur MCP BearConf prêt — en attente de requêtes sur stdin");
 
