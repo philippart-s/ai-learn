@@ -35,8 +35,8 @@ interface ToolAssistant {
       indique-le clairement.
       
       Tu disposes d'outils pour connaître la date et l'heure actuelles.
-      Utilise-les quand l'utilisateur mentionne "aujourd'hui", "demain",
-      "dans 2 heures", etc.
+      Utilise TOUJOURS les outils à ta disposition pour connaitre des informations sur l'heure et la date.
+      Utilise-les quand l'utilisateur mentionne "aujourd'hui", "demain", "dans 2 heures", etc.
       """)
   TokenStream chat(String userMessage);
 }
@@ -50,7 +50,7 @@ void main() {
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
       .timeout(Duration.ofMinutes(5))
-//      .reasoningEffort("low")
+      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -86,19 +86,10 @@ void main() {
       .minScore(0.1)
       .build();
 
-
-  // Memory with BearConf knowledge and conversation history
-  var chatMemory = MessageWindowChatMemory.builder()
-      .maxMessages(20)
-      .chatMemoryStore(new FileChatMemoryStore())
-      .build();
-
-
   // Assistant configuration with tools
   // java-30
   var assistant = AiServices.builder(ToolAssistant.class)
       .streamingChatModel(chatModel)
-//      .chatMemory(chatMemory)
       .contentRetriever(contentRetriever)
       .tools(new BearConfTools())
       .build();
