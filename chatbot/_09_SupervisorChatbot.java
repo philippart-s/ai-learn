@@ -71,9 +71,6 @@ public interface QualityScorer {
 
       Demande de l'utilisateur : "{{request}}"
 
-      Résultats de la recherche :
-      {{talks}}
-
       Donne un score entre 0.0 et 1.0 basé sur :
       - La pertinence des talks trouvés par rapport à la demande
       - La complétude de la réponse (nombre suffisant de talks)
@@ -82,7 +79,7 @@ public interface QualityScorer {
       Retourne uniquement le score numérique, rien d'autre.
       """)
   @Agent(description = "Évalue la qualité des résultats de recherche", outputKey = "score")
-  double scoreQuality(@V("request") String request, @V("talks") String talks);
+  double scoreQuality(@V("request") String request);
 }
 
 // Agent 3: AgendaPlanner — builds a structured 3-day agenda
@@ -104,13 +101,12 @@ public interface AgendaPlanner {
       propose un agenda basé sur les formats et les tracks.
       """)
   @UserMessage("""
-      Voici les talks trouvés pour créer l'agenda :
-      {{talks}}
+      Crée l'agenda à partir des talks trouvés.
 
       Demande originale de l'utilisateur : "{{request}}"
       """)
   @Agent(description = "Crée un agenda structuré sur 3 jours à partir des résultats de recherche", outputKey = "agenda")
-  String createAgenda(@V("talks") String talks, @V("request") String request);
+  String createAgenda(@V("request") String request);
 }
 
 void main() {
@@ -121,7 +117,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-//      .reasoningEffort("low")
+      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -173,6 +169,7 @@ void main() {
   QualityScorer qualityScorer = AgenticServices
       .agentBuilder(QualityScorer.class)
       .chatModel(chatModel)
+      .context(scope -> scope.readState("talks", ""))
       .outputKey("score")
       .build();
 
@@ -181,6 +178,7 @@ void main() {
   AgendaPlanner agendaPlanner = AgenticServices
       .agentBuilder(AgendaPlanner.class)
       .chatModel(chatModel)
+      .context(scope -> scope.readState("talks", ""))
       .outputKey("agenda")
       .build();
 
