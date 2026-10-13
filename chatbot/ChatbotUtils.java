@@ -142,13 +142,17 @@ public class ChatbotUtils {
         // This will be invoked right after a tool is executed. ToolExecution contains ToolExecutionRequest and tool execution result.
         //.onToolExecuted(IO::println)
         .onCompleteResponse(response -> {
-          var inputTokenCount = response.tokenUsage()
-              .inputTokenCount();
-          var outputTokenCount = response.tokenUsage()
-              .outputTokenCount();
-          IO.println("%n%n⬆️  Input tokens count: %s".formatted(inputTokenCount));
-          IO.println("⬇️  Output tokens count: %s".formatted(outputTokenCount));
-          totalTokensUsed += inputTokenCount + outputTokenCount;
+          // Since LangChain4j 1.20.0, tokenUsage() is null when the provider doesn't report usage
+          var tokenUsage = response.tokenUsage();
+          if (tokenUsage != null && tokenUsage.inputTokenCount() != null && tokenUsage.outputTokenCount() != null) {
+            var inputTokenCount = tokenUsage.inputTokenCount();
+            var outputTokenCount = tokenUsage.outputTokenCount();
+            IO.println("%n%n⬆️  Input tokens count: %s".formatted(inputTokenCount));
+            IO.println("⬇️  Output tokens count: %s".formatted(outputTokenCount));
+            totalTokensUsed += inputTokenCount + outputTokenCount;
+          } else {
+            IO.println("%n%n⚠️  Token usage not reported by the provider".formatted());
+          }
           futureChatResponse.complete(response);
         })
         .onError(Throwable::printStackTrace)

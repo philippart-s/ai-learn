@@ -1,12 +1,12 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
 
-//DEPS dev.langchain4j:langchain4j:1.12.2
-//DEPS dev.langchain4j:langchain4j-open-ai:1.12.2
-//DEPS dev.langchain4j:langchain4j-pgvector:1.12.2-beta22
-//DEPS org.postgresql:postgresql:42.7.5
-//DEPS com.google.code.gson:gson:2.10.1
-//DEPS ch.qos.logback:logback-classic:1.5.6
-//DEPS redis.clients:jedis:6.0.0
+//DEPS dev.langchain4j:langchain4j:1.20.2
+//DEPS dev.langchain4j:langchain4j-open-ai:1.20.2
+//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS org.postgresql:postgresql:42.7.13
+//DEPS com.google.code.gson:gson:2.14.0
+//DEPS ch.qos.logback:logback-classic:1.6.4
+//DEPS redis.clients:jedis:8.0.1
 //SOURCES ChatbotUtils.java
 //SOURCES BearConfUtils.java
 //SOURCES BearConfTools.java
@@ -22,6 +22,7 @@ import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
 import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
+import java.time.Duration;
 
 // Assistant interface with a method for chatting.
 // java-28
@@ -34,8 +35,8 @@ interface ToolAssistant {
       indique-le clairement.
       
       Tu disposes d'outils pour connaître la date et l'heure actuelles.
-      Utilise-les quand l'utilisateur mentionne "aujourd'hui", "demain",
-      "dans 2 heures", etc.
+      Utilise TOUJOURS les outils à ta disposition pour connaitre des informations sur l'heure et la date.
+      Utilise-les quand l'utilisateur mentionne "aujourd'hui", "demain", "dans 2 heures", etc.
       """)
   TokenStream chat(String userMessage);
 }
@@ -48,7 +49,8 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
-//      .reasoningEffort("low")
+      .timeout(Duration.ofMinutes(5))
+      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -84,19 +86,10 @@ void main() {
       .minScore(0.1)
       .build();
 
-
-  // Memory with BearConf knowledge and conversation history
-  var chatMemory = MessageWindowChatMemory.builder()
-      .maxMessages(20)
-      .chatMemoryStore(new FileChatMemoryStore())
-      .build();
-
-
   // Assistant configuration with tools
   // java-30
   var assistant = AiServices.builder(ToolAssistant.class)
       .streamingChatModel(chatModel)
-//      .chatMemory(chatMemory)
       .contentRetriever(contentRetriever)
       .tools(new BearConfTools())
       .build();

@@ -3,7 +3,7 @@
 //JAVA 25
 //PREVIEW
 
-//DEPS com.google.code.gson:gson:2.10.1
+//DEPS com.google.code.gson:gson:2.14.0
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,12 +1,12 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
 
-//DEPS dev.langchain4j:langchain4j:1.12.2
-//DEPS dev.langchain4j:langchain4j-open-ai:1.12.2
-//DEPS dev.langchain4j:langchain4j-pgvector:1.12.2-beta22
-//DEPS org.postgresql:postgresql:42.7.5
-//DEPS com.google.code.gson:gson:2.10.1
-//DEPS ch.qos.logback:logback-classic:1.5.6
-//DEPS redis.clients:jedis:6.0.0
+//DEPS dev.langchain4j:langchain4j:1.20.2
+//DEPS dev.langchain4j:langchain4j-open-ai:1.20.2
+//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS org.postgresql:postgresql:42.7.13
+//DEPS com.google.code.gson:gson:2.14.0
+//DEPS ch.qos.logback:logback-classic:1.6.4
+//DEPS redis.clients:jedis:8.0.1
 //SOURCES ChatbotUtils.java
 //SOURCES BearConfUtils.java
 //SOURCES FileChatMemoryStore.java
@@ -20,6 +20,7 @@ import dev.langchain4j.service.MemoryId;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
 import dev.langchain4j.service.UserMessage;
+import java.time.Duration;
 
 // Assistant interface with a method for chatting.
 // java-09
@@ -37,6 +38,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
+      .timeout(Duration.ofMinutes(5))
 //      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
@@ -45,17 +47,17 @@ void main() {
 
   // --- Version 1: In-memory chat memory (lost when the program exits) ---
   // java-11
-  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
-      .id(memoryId)
-      .maxMessages(20)
-      .build();
-
-  // --- Version 2: Valkey/Redis chat memory (shared external store) ---
 //  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
 //      .id(memoryId)
 //      .maxMessages(20)
-//      .chatMemoryStore(new ValkeyChatMemoryStore())
 //      .build();
+
+  // --- Version 2: Valkey/Redis chat memory (shared external store) ---
+  ChatMemoryProvider chatMemory = memoryId -> MessageWindowChatMemory.builder()
+      .id(memoryId)
+      .maxMessages(20)
+      .chatMemoryStore(new ValkeyChatMemoryStore())
+      .build();
 
   // Assistant creation with chat memory
   // java-12
@@ -79,12 +81,12 @@ void main() {
 
   // Step 2: Ask follow-up questions that rely on memory of the injected program -> assistant.chat(prompt)
   // java-14
-  IO.println("💬 : %s".formatted(ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
+  IO.println("💬 (Stef) : %s".formatted(ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
   ChatbotUtils.displayChatbotResponse(assistant.chat("stef", ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
 
   IO.readln("Hit a key...");
 
-  IO.println("💬 : %s".formatted(ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
+  IO.println("💬 (Ny) : %s".formatted(ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
   ChatbotUtils.displayChatbotResponse(assistant.chat("ny", ChatbotUtils.QUESTIONS.SPEAKER_TALKS.toString()));
 
   IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
