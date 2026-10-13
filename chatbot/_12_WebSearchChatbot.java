@@ -61,8 +61,8 @@ interface WebSearchAssistant {
           .build();
 
       // java-82
-      IO.println("💬: Résume moi ce qu'est BearConf 2026");
-      ChatbotUtils.displayChatbotResponse(assistant.chat("Résume moi ce qu'est BearConf 2026"));
+      IO.println("💬: Donne moi le programme BDX IO 2026");
+      ChatbotUtils.displayChatbotResponse(assistant.chat("Donne moi le programme BDX IO 2026"));
 
       IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
     }
