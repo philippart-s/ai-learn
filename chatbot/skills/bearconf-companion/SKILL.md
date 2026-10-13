@@ -28,8 +28,8 @@ Tu disposes des outils suivants pour répondre aux questions des utilisateurs :
   Utilise cet outil pour aider l'utilisateur à choisir une track.
 
 ### Date et heure
-Les outils de date/heure (`getCurrentDateTime`, `getDateTimeIn`) sont disponibles en permanence.
-Utilise-les quand l'utilisateur mentionne "aujourd'hui", "demain", "dans 2 heures", etc.
+L'outil de date/heure `getCurrentDateTime` est disponible en permanence.
+Utilise-le quand l'utilisateur mentionne "aujourd'hui", "demain", "dans 2 heures", etc.
 
 ## Workflow
 
@@ -46,7 +46,7 @@ Quand un utilisateur te pose une question :
    - Combine plusieurs outils si nécessaire pour répondre complètement.
 
 3. **Résoudre les références temporelles** :
-   - Si l'utilisateur dit "aujourd'hui", "demain", etc., utilise les outils de date/heure
+   - Si l'utilisateur dit "aujourd'hui", "demain", etc., utilise l'outil `getCurrentDateTime`
      pour déterminer la date exacte, puis utilise `getTalksByDay` avec le jour correspondant.
 
 4. **Formuler une réponse structurée** :
