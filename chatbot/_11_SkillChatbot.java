@@ -18,6 +18,7 @@
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.TokenStream;
+import dev.langchain4j.skills.DefaultFileSystemSkill;
 import dev.langchain4j.skills.FileSystemSkillLoader;
 import dev.langchain4j.skills.Skills;
 import java.time.Duration;
@@ -53,12 +54,11 @@ void main() {
 
   // Create the skill from the loaded files.
   // java-79
-  var skills = Skills.from(fileSystemSkill);
-  // ⚠️ The following code should works but LangChain4j has not yet released it.
-  // see https://github.com/langchain4j/langchain4j/issues/4779 ⚠️
-  //  var skill = fileSystemSkill.toBuilder()
-  //      .tool(new BearConfSkillTools(talks))
-  //      .build();
+  // BearConfSkillTools are scoped to the skill: exposed only once the skill is activated
+  var skill = ((DefaultFileSystemSkill) fileSystemSkill).toBuilder()
+      .tools(new BearConfSkillTools())
+      .build();
+  var skills = Skills.from(skill);
 
   // Build the system message with available skills
   // java-80
@@ -84,7 +84,7 @@ void main() {
   // java-81
   var assistant = AiServices.builder(SkillAssistant.class)
       .streamingChatModel(chatModel)
-      .tools(new BearConfTools(), new BearConfSkillTools()) // ⚠️ BearConfSkillTools should no longer be passed here once LangChain4j supports skill-scoped tools, see https://github.com/langchain4j/langchain4j/issues/4779 ⚠️
+      .tools(new BearConfTools())
       .toolProvider(skills.toolProvider())
       .systemMessage(systemMessage)
       .build();

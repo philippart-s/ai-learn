@@ -96,11 +96,11 @@ Seuls les changements visibles pour l'utilisateur sont listés. Les montées de 
 | 5 | 🟡 Medium | `//DEPS` de tous les scripts | versions de départ | versions cibles (tableau d'en-tête) | S | Maven Central |
 | 5b | 🔴 Blocking (runtime, JDK 26) | builders `OpenAiStreamingChatModel` de `_01` à `_08`, `_10`, `_11`, `_12` | pas de `.timeout(...)`, donc 60 s par défaut | `.timeout(Duration.ofMinutes(5))` après `.baseUrl(...)`, comme dans `_09` | S | Table 1 #25b |
 | 6 | 🟢 Low | `chatbot/ChatbotUtils.java:145-151` | `response.tokenUsage().inputTokenCount()` | vérification de nullité sur `tokenUsage()` et ses compteurs | S | Table 1 #7 |
-| 7 | 🟢 Low (optionnel, 🧪) | `chatbot/_11_SkillChatbot.java:54-59,85` | `Skills.from(fileSystemSkill)` + `new BearConfSkillTools()` passé à l'AI Service | `((DefaultFileSystemSkill) fileSystemSkill).toBuilder().tools(new BearConfSkillTools()).build()`. Le cast est nécessaire parce que `loadSkill()` retourne l'interface. Le commentaire actuel (`.tool(new BearConfSkillTools(talks))`) ne correspond à aucune API : la méthode est `tools(Object...)` et le constructeur ne prend pas d'argument | S | Table 1 #13 ; module `@Experimental` |
+| 7 | 🟠 High (🧪) — lève les deux ⚠️ laissés dans le code | `chatbot/_11_SkillChatbot.java:54-59,85` | `Skills.from(fileSystemSkill)` + `new BearConfSkillTools()` passé à l'AI Service | `((DefaultFileSystemSkill) fileSystemSkill).toBuilder().tools(new BearConfSkillTools()).build()`. Le cast est nécessaire parce que `loadSkill()` retourne l'interface. Le commentaire actuel (`.tool(new BearConfSkillTools(talks))`) ne correspond à aucune API : la méthode est `tools(Object...)` et le constructeur ne prend pas d'argument | S | Table 1 #13 ; module `@Experimental` |
 | 8 | 🟢 Low (optionnel) | `chatbot/_06_01_BearConfMcpServer.java:154,159` | `Thread.currentThread().join()` | `transport.awaitClose()` | S | Table 1 #14 |
 | 9 | 🟢 Low (optionnel) | `ChatbotUtils.java:129` + builders `OpenAiStreamingChatModel` | `//.onPartialThinking(IO::println)` | `.returnThinking(true)` sur le builder, puis décommenter la ligne | S | Table 1 #11 |
 
-Les lignes 1 à 6 (et 5b) sont appliquées dans le working tree. Les lignes 7 à 9 ne le sont pas : ce sont des choix de démo, à décider.
+Les lignes 1 à 7 (et 5b) sont appliquées. Les lignes 8 et 9 ne le sont pas : ce sont des choix de démo, à décider.
 
 ---
 
