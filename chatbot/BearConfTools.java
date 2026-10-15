@@ -4,11 +4,13 @@ import dev.langchain4j.agent.tool.Tool;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.concurrent.ThreadLocalRandom;
 
-/// Date and time tools for the BearConf chatbot.
-/// These tools allow the LLM to resolve temporal expressions like
+/// Tools for the BearConf chatbot.
+/// The date and time tool allows the LLM to resolve temporal expressions like
 /// "aujourd'hui", "demain", or "dans 2 heures" by calling tool
 /// functions that return the actual date/time values.
+/// The remaining seats tool gives the LLM data it cannot find anywhere else.
 public class BearConfTools {
 
   static final DateTimeFormatter FORMATTER =
@@ -27,5 +29,19 @@ public class BearConfTools {
     var now =  LocalDateTime.of(2026, 4, 22, 10, 30); // for testing: fixed date
     IO.println("%n🔧 Tool called: getCurrentDateTime() → %s".formatted(now.format(FORMATTER)));
     return now.format(FORMATTER);
+  }
+
+  // Tool to get the number of remaining seats for a talk.
+  // Seat counts are not in the program nor in the RAG: the LLM can only get them from this tool.
+  @Tool("""
+            Retourne le nombre de places encore disponibles pour un talk de BearConf 2026.
+            Toujours utiliser cet outil lorsque l'utilisateur demande s'il reste des places,
+            combien de places sont disponibles ou si un talk est complet.
+            """)
+  int getRemainingSeats(@P("Le titre du talk ou le nom du speaker, tel qu'indiqué par l'utilisateur") String talk) {
+    // Simulated value: real registrations are not available
+    var remainingSeats = ThreadLocalRandom.current().nextInt(50, 151);
+    IO.println("%n🔧 Tool called: getRemainingSeats(\"%s\") → %d 💺".formatted(talk, remainingSeats));
+    return remainingSeats;
   }
 }

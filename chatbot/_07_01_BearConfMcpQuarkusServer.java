@@ -4,8 +4,8 @@
 
 //DEPS io.quarkus.platform:quarkus-bom:3.40.1@pom
 //DEPS io.quarkiverse.mcp:quarkus-mcp-server-http:2.0.1
-//DEPS dev.langchain4j:langchain4j:1.20.2
-//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS dev.langchain4j:langchain4j:1.22.0
+//DEPS dev.langchain4j:langchain4j-pgvector:1.22.0-beta32
 //DEPS org.postgresql:postgresql:42.7.13
 //DEPS com.google.code.gson:gson:2.14.0
 //DEPS redis.clients:jedis:8.0.1
@@ -110,9 +110,14 @@ public class _07_01_BearConfMcpQuarkusServer {
 
   // Tool to search talks by keyword in title, summary or speaker name
   // java-44
-  @Tool(description = "Recherche des talks à BearConf 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. Utilisez cet outil pour les requêtes générales sur des sujets ou des speakers.")
+  @Tool(description = """
+          Recherche des talks à BearConf 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. 
+          Utiliser cet outil pour les requêtes générales sur des sujets ou des speakers.
+          Les titres et résumés des talks sont rédigés en français.
+          """)
+
   String searchTalks(
-      @ToolArg(description = "Le mot-clé à rechercher dans les titres des talks, les résumés et les noms des speakers") String keyword) {
+      @ToolArg(description = "Un mot-clé en français, tel qu'écrit par l'utilisateur (ne pas le traduire en anglais), par exemple 'connaissance', 'RAG', 'Java'") String keyword) {
     IO.println("🔧 Outil MCP appelé : searchTalks(\"%s\")".formatted(keyword));
     var lowerKeyword = keyword.toLowerCase();
     var filtered = talks.stream()

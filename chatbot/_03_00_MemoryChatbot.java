@@ -1,8 +1,8 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
 
-//DEPS dev.langchain4j:langchain4j:1.20.2
-//DEPS dev.langchain4j:langchain4j-open-ai:1.20.2
-//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS dev.langchain4j:langchain4j:1.22.0
+//DEPS dev.langchain4j:langchain4j-open-ai:1.22.0
+//DEPS dev.langchain4j:langchain4j-pgvector:1.22.0-beta32
 //DEPS org.postgresql:postgresql:42.7.13
 //DEPS com.google.code.gson:gson:2.14.0
 //DEPS ch.qos.logback:logback-classic:1.6.4
@@ -22,7 +22,6 @@ import java.time.Duration;
 // Assistant interface with a method for chatting.
 // java-09
 interface MemoryAssistant {
-  //  @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   @SystemMessage(ChatbotUtils.SYSTEM_PROMPT_BEARCONF_EXPERT)
   TokenStream chat(String userMessage);
 }
@@ -36,7 +35,7 @@ void main() {
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
       .timeout(Duration.ofMinutes(5))
-//      .reasoningEffort("low")
+      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -85,11 +84,10 @@ void main() {
   // Step 2: Ask follow-up questions that rely on memory of the injected program -> assistant.chat(prompt)
   // java-14
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
+      ChatbotUtils.QUESTIONS.WHAT_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
       ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
       ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
-      ChatbotUtils.QUESTIONS.MAKE_AGENDA,
       ChatbotUtils.QUESTIONS.TALKS_ON_AI,
       ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,
       ChatbotUtils.QUESTIONS.SPEAKER_TALKS,

@@ -2,9 +2,9 @@
 
 //JAVA 25
 
-//DEPS dev.langchain4j:langchain4j:1.20.2
-//DEPS dev.langchain4j:langchain4j-community-mcp-server:1.20.0-beta30
-//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS dev.langchain4j:langchain4j:1.22.0
+//DEPS dev.langchain4j:langchain4j-community-mcp-server:1.22.0-beta32
+//DEPS dev.langchain4j:langchain4j-pgvector:1.22.0-beta32
 //DEPS org.postgresql:postgresql:42.7.13
 //DEPS com.google.code.gson:gson:2.14.0
 //DEPS redis.clients:jedis:8.0.1
@@ -103,8 +103,12 @@ class BearConfMcpTools {
 
   // Tool to search talks by keyword in title, summary, or speaker name.
   // java-34
-  @Tool("Recherche des talks à BearConf 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. Utilisez cet outil pour les requêtes générales sur des sujets ou des speakers.")
-  String searchTalks(@P("Le mot-clé à rechercher dans les titres des talks, les résumés et les noms des speakers") String keyword) {
+  @Tool("""
+          Recherche des talks à BearConf 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. 
+          Utiliser cet outil pour les requêtes générales sur des sujets ou des speakers.
+          Les titres et résumés des talks sont rédigés en français.
+          """)
+  String searchTalks(@P("Un mot-clé en français, tel qu'écrit par l'utilisateur (ne pas le traduire en anglais), par exemple 'connaissance', 'RAG', 'Java'") String keyword) {
     System.err.printf("\uD83D\uDD27 Outil MCP appelé : searchTalks(\"%s\")%n", keyword);
     var lowerKeyword = keyword.toLowerCase();
     var filtered = talks.stream()
@@ -117,9 +121,10 @@ class BearConfMcpTools {
       return "Aucun talk trouvé pour le mot-clé '%s'.".formatted(keyword);
     }
 
-    return "%d talks dans la track '%s' :\n\n".formatted(filtered.size(), keyword)
+    // Include the summary so the LLM can judge relevance beyond the title
+    return "%d talks trouvés pour le mot-clé '%s' :\n\n".formatted(filtered.size(), keyword)
            + filtered.stream()
-               .map(this::formatTalk)
+               .map(t -> formatTalk(t) + (t.summary() != null ? "  Résumé : %s\n".formatted(t.summary().strip()) : ""))
                .collect(Collectors.joining());
   }
 

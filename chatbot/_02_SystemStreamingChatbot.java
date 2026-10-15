@@ -1,7 +1,7 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
 
-//DEPS dev.langchain4j:langchain4j:1.20.2
-//DEPS dev.langchain4j:langchain4j-open-ai:1.20.2
+//DEPS dev.langchain4j:langchain4j:1.22.0
+//DEPS dev.langchain4j:langchain4j-open-ai:1.22.0
 //DEPS ch.qos.logback:logback-classic:1.6.4
 //SOURCES ChatbotUtils.java
 
@@ -30,7 +30,7 @@ void main() {
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
       .timeout(Duration.ofMinutes(5))
-//      .reasoningEffort("low")
+      .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
       .logResponses(false)
@@ -43,17 +43,9 @@ void main() {
   // Call the chatbot -> assistant.chat(prompt)
   // java-08
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
-      ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
-      ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
+      ChatbotUtils.QUESTIONS.WHAT_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
-      ChatbotUtils.QUESTIONS.MAKE_AGENDA,
-      ChatbotUtils.QUESTIONS.TALKS_ON_AI,
-      ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,
-      ChatbotUtils.QUESTIONS.SPEAKER_TALKS,
-      ChatbotUtils.QUESTIONS.TALKS_TODAY,
-      ChatbotUtils.QUESTIONS.TALKS_TOMORROW,
-      ChatbotUtils.QUESTIONS.TALKS_AT_1_30_PM);
+      ChatbotUtils.QUESTIONS.SPEAKER_TALKS);
 
   IO.println("%n🔢  Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
 }
