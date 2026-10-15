@@ -21,12 +21,6 @@ import java.time.Duration;
 
 // java-79
 interface WebSearchAssistant {
-  @SystemMessage("""
-      Tu es un expert de la conférence BearConf.
-      Tu disposes d'un outil de recherche web pour trouver des informations.
-      Utilise-le quand tu as besoin de chercher des informations sur BearConf
-      ou sur tout autre sujet que tu ne connais pas.
-      """)
   TokenStream chat(String userMessage);
 }
 
@@ -39,7 +33,7 @@ interface WebSearchAssistant {
           .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
           .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
           .timeout(Duration.ofMinutes(5))
-//          .reasoningEffort("low")
+          .reasoningEffort("low")
           .temperature(0.0)
           .logRequests(false)
           .logResponses(false)
