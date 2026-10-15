@@ -31,6 +31,11 @@ Tu disposes des outils suivants pour répondre aux questions des utilisateurs :
 L'outil de date/heure `getCurrentDateTime` est disponible en permanence.
 Utilise-le quand l'utilisateur mentionne "aujourd'hui", "demain", "dans 2 heures", etc.
 
+### Places disponibles
+L'outil `getRemainingSeats(talk)` est disponible en permanence.
+Il retourne le nombre de places encore disponibles pour un talk (titre du talk ou nom du speaker).
+Utilise-le quand l'utilisateur demande s'il reste des places, combien de places sont disponibles ou si un talk est complet.
+
 ## Workflow
 
 Quand un utilisateur te pose une question :
@@ -43,6 +48,7 @@ Quand un utilisateur te pose une question :
    - Pour un jour précis : utilise `getTalksByDay`
    - Pour un speaker : utilise `getTalksBySpeaker`
    - Pour lister les tracks : utilise `getAllTracks`
+   - Pour les places disponibles d'un talk : utilise `getRemainingSeats`
    - Combine plusieurs outils si nécessaire pour répondre complètement.
 
 3. **Résoudre les références temporelles** :
