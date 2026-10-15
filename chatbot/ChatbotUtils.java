@@ -12,7 +12,8 @@ public class ChatbotUtils {
   static int totalTokensUsed = 0;
 
   /// System prompts for different chatbot demos. Each entry is a unique prompt that can be used to set up the chatbot's behavior and knowledge.
-  final static String SYSTEM_PROMPT_BEARCONF_EXPERT = """
+  final static String
+      SYSTEM_PROMPT_BEARCONF_EXPERT = """
         Tu es un expert de la conférence BearConf.
 
         BearConf propose plusieurs formats de sessions :
@@ -58,9 +59,9 @@ public class ChatbotUtils {
   /// Available questions for all chatbot demos.
   /// Each entry is a unique question text that can be used with any script.
   enum QUESTIONS {
-    WHERE_IS_BEARCONF("Où se déroule BearConf ?"),
+    WHAT_IS_BEARCONF("Qu'est-ce que la BearConf ?"),
     HOW_MANY_TALKS("Combien il y a-t-il de talks à BearConf ?"),
-    AI_ADD_KNOWLEDGE("Il y a t il un talk sur l'IA à BearConf qui indique comment rajouter de la connaissance à mon modèle ?"),
+    AI_ADD_KNOWLEDGE("Je ne sais pas s'il vaut mieux utiliser du RAG, du MCP ou du fine-tuning pour mon projet. Y a-t-il un talk à BearConf qui compare ces approches ?"),
     WHEN_IS_BEARCONF("A quelle date se déroule BearConf ?"),
     MAKE_AGENDA("Je suis intéressé par les talks sur l'IA et Java, propose moi un agenda."),
     TALKS_ON_AI("Quels sont les talks sur l'IA à BearConf 2026 ?"),
@@ -68,7 +69,9 @@ public class ChatbotUtils {
     SPEAKER_TALKS("Quels sont les talks de Stéphane Philippart à BearConf 2026 ?"),
     TALKS_TODAY("Donne moi la date du jour (indique l'année et dis moi comment tu as eu l'information de la date) et quels sont les talks aujourd'hui ?"),
     TALKS_TOMORROW("Quels sont les talks demain ?"),
-    TALKS_AT_1_30_PM("Quels sont les hands on lab qui commencent aujourd'hui à 13h30 ?");
+    TALKS_AT_1_30_PM("Quels sont les hands on lab qui commencent aujourd'hui à 13h30 ?"),
+    REMAINING_SEATS("Reste-t-il des places au hands-on lab de Stéphane Philippart ?"),
+    AVAILABLE_CONFERENCES("Donne moi la liste de conférences informatique");
 
     public final String question;
 
