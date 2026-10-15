@@ -101,15 +101,9 @@ void main() {
   // Ask question to the assistant. -> assistant.chat(prompt)
   // java-31
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
-      ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
-      ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-      ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
-      ChatbotUtils.QUESTIONS.MAKE_AGENDA,
-      ChatbotUtils.QUESTIONS.TALKS_ON_AI,
-      ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,
-      ChatbotUtils.QUESTIONS.SPEAKER_TALKS,
+      ChatbotUtils.QUESTIONS.WHAT_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.TALKS_TODAY,
+      ChatbotUtils.QUESTIONS.REMAINING_SEATS,
       ChatbotUtils.QUESTIONS.TALKS_TOMORROW,
       ChatbotUtils.QUESTIONS.TALKS_AT_1_30_PM);
 

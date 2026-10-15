@@ -97,17 +97,12 @@ void main() throws Exception {
     // 6. Run the interactive question menu -> assistant.chat(prompt)
     // java-49
     ChatbotUtils.runInteractive(assistant::chat,
-        ChatbotUtils.QUESTIONS.WHERE_IS_BEARCONF,
+        ChatbotUtils.QUESTIONS.WHAT_IS_BEARCONF,
         ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
         ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-        ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
-        ChatbotUtils.QUESTIONS.MAKE_AGENDA,
         ChatbotUtils.QUESTIONS.TALKS_ON_AI,
-        ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,
         ChatbotUtils.QUESTIONS.SPEAKER_TALKS,
-        ChatbotUtils.QUESTIONS.TALKS_TODAY,
-        ChatbotUtils.QUESTIONS.TALKS_TOMORROW,
-        ChatbotUtils.QUESTIONS.TALKS_AT_1_30_PM);
+        ChatbotUtils.QUESTIONS.REMAINING_SEATS);
 
     IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
 
