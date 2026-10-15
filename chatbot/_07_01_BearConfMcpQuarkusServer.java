@@ -110,9 +110,14 @@ public class _07_01_BearConfMcpQuarkusServer {
 
   // Tool to search talks by keyword in title, summary or speaker name
   // java-44
-  @Tool(description = "Recherche des talks à BearConf 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. Utilisez cet outil pour les requêtes générales sur des sujets ou des speakers.")
+  @Tool(description = """
+          Recherche des talks à BearConf 2026 par mot-clé dans le titre, le résumé ou le nom du speaker. 
+          Utiliser cet outil pour les requêtes générales sur des sujets ou des speakers.
+          Les titres et résumés des talks sont rédigés en français.
+          """)
+
   String searchTalks(
-      @ToolArg(description = "Le mot-clé à rechercher dans les titres des talks, les résumés et les noms des speakers") String keyword) {
+      @ToolArg(description = "Un mot-clé en français, tel qu'écrit par l'utilisateur (ne pas le traduire en anglais), par exemple 'connaissance', 'RAG', 'Java'") String keyword) {
     IO.println("🔧 Outil MCP appelé : searchTalks(\"%s\")".formatted(keyword));
     var lowerKeyword = keyword.toLowerCase();
     var filtered = talks.stream()
