@@ -25,6 +25,8 @@ import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.tool.ToolProvider;
+import dev.langchain4j.service.tool.ToolArgumentsErrorHandler;
+import dev.langchain4j.service.tool.ToolExecutionErrorHandler;
 
 import java.util.List;
 import java.time.Duration;
@@ -87,6 +89,8 @@ void main() throws Exception {
         .streamingChatModel(chatModel)
         .toolProvider(toolProvider)
         .tools(new BearConfTools())
+        .toolArgumentsErrorHandler(ToolArgumentsErrorHandler.sendExceptionMessageToLlm())
+        .toolExecutionErrorHandler(ToolExecutionErrorHandler.failInvocationUnlessVisibleToLlm())
         .build();
 
     // 6. Run the interactive question menu -> assistant.chat(prompt)

@@ -30,6 +30,8 @@ import dev.langchain4j.rag.content.retriever.EmbeddingStoreContentRetriever;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.V;
+import dev.langchain4j.service.tool.ToolArgumentsErrorHandler;
+import dev.langchain4j.service.tool.ToolExecutionErrorHandler;
 import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
 
 
@@ -161,6 +163,8 @@ void main() {
       .chatModel(chatModel)
       .contentRetriever(contentRetriever)
       .tools(new BearConfTools())
+      .toolArgumentsErrorHandler(ToolArgumentsErrorHandler.sendExceptionMessageToLlm())
+      .toolExecutionErrorHandler(ToolExecutionErrorHandler.failInvocationUnlessVisibleToLlm())
       .outputKey("talks")
       .build();
 

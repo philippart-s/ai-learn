@@ -11,6 +11,8 @@ import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
+import dev.langchain4j.service.tool.ToolArgumentsErrorHandler;
+import dev.langchain4j.service.tool.ToolExecutionErrorHandler;
 import dev.langchain4j.web.search.WebSearchTool;
 import dev.langchain4j.web.search.tavily.TavilyWebSearchEngine;
 import java.time.Duration;
@@ -58,6 +60,8 @@ interface WebSearchAssistant {
       var assistant = AiServices.builder(WebSearchAssistant.class)
           .streamingChatModel(chatModel)
           .tools(webSearchTool)
+          .toolArgumentsErrorHandler(ToolArgumentsErrorHandler.sendExceptionMessageToLlm())
+          .toolExecutionErrorHandler(ToolExecutionErrorHandler.failInvocationUnlessVisibleToLlm())
           .build();
 
       // java-82

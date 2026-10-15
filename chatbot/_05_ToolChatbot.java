@@ -21,6 +21,8 @@ import dev.langchain4j.rag.content.retriever.EmbeddingStoreContentRetriever;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
+import dev.langchain4j.service.tool.ToolArgumentsErrorHandler;
+import dev.langchain4j.service.tool.ToolExecutionErrorHandler;
 import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
 import java.time.Duration;
 
@@ -92,6 +94,8 @@ void main() {
       .streamingChatModel(chatModel)
       .contentRetriever(contentRetriever)
       .tools(new BearConfTools())
+      .toolArgumentsErrorHandler(ToolArgumentsErrorHandler.sendExceptionMessageToLlm())
+      .toolExecutionErrorHandler(ToolExecutionErrorHandler.failInvocationUnlessVisibleToLlm())
       .build();
 
   // Ask question to the assistant. -> assistant.chat(prompt)

@@ -18,6 +18,8 @@
 import dev.langchain4j.model.openai.OpenAiStreamingChatModel;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.TokenStream;
+import dev.langchain4j.service.tool.ToolArgumentsErrorHandler;
+import dev.langchain4j.service.tool.ToolExecutionErrorHandler;
 import dev.langchain4j.skills.DefaultFileSystemSkill;
 import dev.langchain4j.skills.FileSystemSkillLoader;
 import dev.langchain4j.skills.Skills;
@@ -86,6 +88,8 @@ void main() {
       .streamingChatModel(chatModel)
       .tools(new BearConfTools())
       .toolProvider(skills.toolProvider())
+      .toolArgumentsErrorHandler(ToolArgumentsErrorHandler.sendExceptionMessageToLlm())
+      .toolExecutionErrorHandler(ToolExecutionErrorHandler.failInvocationUnlessVisibleToLlm())
       .systemMessage(systemMessage)
       .build();
 
