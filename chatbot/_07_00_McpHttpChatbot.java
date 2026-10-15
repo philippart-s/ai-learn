@@ -1,9 +1,9 @@
 /// usr/bin/env jbang "$0" "$@" ; exit $?
 
-//DEPS dev.langchain4j:langchain4j:1.20.2
-//DEPS dev.langchain4j:langchain4j-open-ai:1.20.2
-//DEPS dev.langchain4j:langchain4j-mcp:1.20.2-beta30
-//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS dev.langchain4j:langchain4j:1.22.0
+//DEPS dev.langchain4j:langchain4j-open-ai:1.22.0
+//DEPS dev.langchain4j:langchain4j-mcp:1.22.0-beta32
+//DEPS dev.langchain4j:langchain4j-pgvector:1.22.0-beta32
 //DEPS org.postgresql:postgresql:42.7.13
 //DEPS com.google.code.gson:gson:2.14.0
 //DEPS ch.qos.logback:logback-classic:1.6.4

@@ -4,8 +4,8 @@
 
 //DEPS io.quarkus.platform:quarkus-bom:3.40.1@pom
 //DEPS io.quarkiverse.mcp:quarkus-mcp-server-http:2.0.1
-//DEPS dev.langchain4j:langchain4j:1.20.2
-//DEPS dev.langchain4j:langchain4j-pgvector:1.20.2-beta30
+//DEPS dev.langchain4j:langchain4j:1.22.0
+//DEPS dev.langchain4j:langchain4j-pgvector:1.22.0-beta32
 //DEPS org.postgresql:postgresql:42.7.13
 //DEPS com.google.code.gson:gson:2.14.0
 //DEPS redis.clients:jedis:8.0.1
