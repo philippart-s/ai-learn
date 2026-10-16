@@ -28,6 +28,8 @@ public class ChatbotUtils {
         Utilise uniquement les données en ta possession concernant BearConf 2026.
 
         Si aucune information ne correspond, indique-le clairement sans inventer.
+        
+        Soit concis dans ta réponse.
         """;
 
   /// System prompt to illustrate than the response could be better with a better prompt
@@ -134,8 +136,7 @@ public class ChatbotUtils {
         //.onIntermediateResponse(IO::print)
         // This will be invoked right before a tool is executed. BeforeToolExecution contains ToolExecutionRequest (e.g. tool name, tool arguments, etc.)
 //        .beforeToolExecution(toolExecutionRequest -> {
-//          IO.println("⚠️ Êtes-vous sûr de vouloir exécuter l'outil %s ? ⚠️".formatted(toolExecutionRequest.request().name()));
-//          var answer = IO.readln();
+//          var answer = IO.readln("⚠️ Êtes-vous sûr de vouloir exécuter l'outil %s ? ⚠️".formatted(toolExecutionRequest.request().name()));
 //          if (!"ok".equalsIgnoreCase(answer)) {
 //            throw new RuntimeException("🛑 Outil non validé !! 🛑");
 //          } else {
