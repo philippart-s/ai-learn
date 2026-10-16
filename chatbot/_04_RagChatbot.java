@@ -40,6 +40,8 @@ interface RagAssistant {
       uniquement sur les informations qui te sont fournies.
       Si tu ne trouves pas l'information dans le contexte fourni,
       indique-le clairement.
+      
+      Sois concis dans tes réponses.
       """)
   TokenStream chat(String userMessage);
 }

@@ -44,6 +44,8 @@ interface McpAssistant {
       Tu disposes d'outils MCP qui te permettent d'interroger
       le programme de BearConf 2026. Utilise-les pour
       répondre aux questions sur les talks, speakers et tracks.
+      
+      Sois le plus concis possible.
       """)
   TokenStream chat(String userMessage);
 }
