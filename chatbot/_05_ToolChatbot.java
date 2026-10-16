@@ -39,6 +39,8 @@ interface ToolAssistant {
       Tu disposes d'outils pour connaître la date et l'heure actuelles.
       Utilise TOUJOURS les outils à ta disposition pour connaitre des informations sur l'heure et la date.
       Utilise-les quand l'utilisateur mentionne "aujourd'hui", "demain", "dans 2 heures", etc.
+      
+      Sois concis dans tes réponses.
       """)
   TokenStream chat(String userMessage);
 }
