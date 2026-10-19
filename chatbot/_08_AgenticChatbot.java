@@ -135,6 +135,7 @@ void main() {
       .apiKey(System.getenv("OVH_AI_ENDPOINTS_ACCESS_TOKEN"))
       .modelName(System.getenv("OVH_AI_ENDPOINTS_MODEL_NAME"))
       .baseUrl(System.getenv("OVH_AI_ENDPOINTS_MODEL_URL"))
+      .timeout(Duration.ofMinutes(5))
       .reasoningEffort("low")
       .temperature(0.0)
       .logRequests(false)
