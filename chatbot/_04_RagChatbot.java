@@ -139,9 +139,6 @@ void main() {
       ChatbotUtils.QUESTIONS.WHAT_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
       ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-      ChatbotUtils.QUESTIONS.WHEN_IS_BEARCONF,
-      ChatbotUtils.QUESTIONS.TALKS_ON_AI,
-      ChatbotUtils.QUESTIONS.WEDNESDAY_AGENDA,
       ChatbotUtils.QUESTIONS.SPEAKER_TALKS);
 
   IO.println("%n🔢 Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
