@@ -98,10 +98,8 @@ void main() throws Exception {
     // 6. Run the interactive question menu -> assistant.chat(prompt)
     // java-39
     ChatbotUtils.runInteractive(assistant::chat,
-        ChatbotUtils.QUESTIONS.WHAT_IS_BEARCONF,
         ChatbotUtils.QUESTIONS.HOW_MANY_TALKS,
         ChatbotUtils.QUESTIONS.AI_ADD_KNOWLEDGE,
-        ChatbotUtils.QUESTIONS.TALKS_ON_AI,
         ChatbotUtils.QUESTIONS.SPEAKER_TALKS,
         ChatbotUtils.QUESTIONS.REMAINING_SEATS);
 

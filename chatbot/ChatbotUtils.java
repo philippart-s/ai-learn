@@ -136,7 +136,7 @@ public class ChatbotUtils {
         //.onIntermediateResponse(IO::print)
         // This will be invoked right before a tool is executed. BeforeToolExecution contains ToolExecutionRequest (e.g. tool name, tool arguments, etc.)
 //        .beforeToolExecution(toolExecutionRequest -> {
-//          var answer = IO.readln("⚠️ Êtes-vous sûr de vouloir exécuter l'outil %s ? ⚠️".formatted(toolExecutionRequest.request().name()));
+//          var answer = IO.readln("⚠️ Êtes-vous sûr de vouloir exécuter l'outil %s ? ⚠️%n".formatted(toolExecutionRequest.request().name()));
 //          if (!"ok".equalsIgnoreCase(answer)) {
 //            throw new RuntimeException("🛑 Outil non validé !! 🛑");
 //          } else {

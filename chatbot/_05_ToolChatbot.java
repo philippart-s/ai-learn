@@ -103,11 +103,9 @@ void main() {
   // Ask question to the assistant. -> assistant.chat(prompt)
   // java-31
   ChatbotUtils.runInteractive(assistant::chat,
-      ChatbotUtils.QUESTIONS.WHAT_IS_BEARCONF,
       ChatbotUtils.QUESTIONS.TALKS_TODAY,
       ChatbotUtils.QUESTIONS.REMAINING_SEATS,
-      ChatbotUtils.QUESTIONS.TALKS_TOMORROW,
-      ChatbotUtils.QUESTIONS.TALKS_AT_1_30_PM);
+      ChatbotUtils.QUESTIONS.TALKS_TOMORROW);
 
   IO.println("%n🔢  Total tokens used: %s%n".formatted(ChatbotUtils.totalTokensUsed));
 }
